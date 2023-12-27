@@ -55,7 +55,7 @@ alias dcd="docker compose down"
 alias dce="docker compose exec webserver bash"
 alias encryptkey="ssh-keygen -p -o -f"
 alias vim="nvim"
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # bun completions
 [ -s "$HOME.bun/_bun" ] && source "$HOME.bun/_bun"
