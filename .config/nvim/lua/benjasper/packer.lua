@@ -25,6 +25,7 @@ return require('packer').startup(function(use)
 	}
 
 	use('mbbill/undotree')
+	use('nvim-tree/nvim-tree.lua')
 
 	use('tpope/vim-fugitive')
 
