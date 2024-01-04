@@ -1,3 +1,9 @@
+vim.filetype.add({
+	extension = {
+		typoscript = 'typoscript',
+		tsconfig = 'typoscript',
+		}
+	})
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
   ensure_installed = { "go", "javascript", "typescript", "tsx", "php", "c", "lua", "vim", "vimdoc", "query" },
