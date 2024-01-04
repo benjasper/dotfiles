@@ -20,7 +20,7 @@ local efm_languages = {
 require('mason').setup({})
 require('mason-lspconfig').setup({
 	ensure_installed = {
-		'tsserver', 'rust_analyzer', 'gopls', 'phpactor', 'tailwindcss', 'astro', 'cssls', 'efm', 'eslint'
+		'tsserver', 'rust_analyzer', 'gopls', 'phpactor', 'tailwindcss', 'astro', 'cssls', 'efm', 'eslint', 'html'
 	},
 	handlers = {
 		lsp_zero.default_setup,
