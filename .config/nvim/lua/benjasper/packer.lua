@@ -60,4 +60,10 @@ return require('packer').startup(function(use)
 	use 'nvim-tree/nvim-web-devicons'
 
 	use 'ThePrimeagen/vim-be-good'
+
+	use {
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		requires = { {"nvim-lua/plenary.nvim"} }
+	}
 end)

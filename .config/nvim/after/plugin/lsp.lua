@@ -6,7 +6,7 @@ lsp_zero.on_attach(function(client, bufnr)
 	lsp_zero.default_keymaps({ buffer = bufnr })
 	vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename)
 	vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
-	vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action)
+	vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
 end)
 
 local prettier = require('efmls-configs.formatters.prettier_d')
