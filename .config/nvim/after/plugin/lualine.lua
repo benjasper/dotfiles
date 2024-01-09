@@ -22,7 +22,7 @@ require('lualine').setup {
 		lualine_b = { 'location', 'diagnostics' },
 		lualine_c = { { 'branch', padding = { left = 2, right = 1 } }, '%=', 'lsp_progress' },
 		lualine_x = {},
-		lualine_y = { { 'filetype', icon_only = true, padding = { left = 1, right = 0 } }, { 'filename', file_status = false } },
+		lualine_y = { { 'filetype', icon_only = true, padding = { left = 1, right = 0 } }, { 'filename', file_status = true } },
 		lualine_z = { { '[[]]' }, { 'vim.fn.fnamemodify(vim.fn.getcwd(), ":t")', path = 4, padding = { left = 0, right = 1 } } }
 	},
 	inactive_sections = {
