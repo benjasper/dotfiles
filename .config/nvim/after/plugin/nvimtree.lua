@@ -4,10 +4,19 @@ require("nvim-tree").setup({
 	renderer = {
 		group_empty = true,
 	},
+	view = {
+		adaptive_size = true
+	},
 	actions = {
 		open_file = {
 			quit_on_open = true,
 		},
+	},
+	git = {
+		ignore = false,
+	},
+	filters = {
+		dotfiles = false,
 	}
 })
 
