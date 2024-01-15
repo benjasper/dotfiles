@@ -17,7 +17,7 @@ require('lualine').setup {
 	sections = {
 		lualine_a = { '[[]]', { 'mode', padding = { left = 0, right = 1 } } },
 		lualine_b = { 'location', 'diagnostics' },
-		lualine_c = { { 'branch', padding = { left = 2, right = 1 } }, '%=', 'lsp_progress' },
+		lualine_c = { { 'branch', padding = { left = 2, right = 1 } }, '%=', require('lsp-progress').progress },
 		lualine_x = {},
 		lualine_y = { { 'filetype', icon_only = true, padding = { left = 1, right = 0 } }, { 'filename', file_status = true } },
 		lualine_z = { { '[[]]' }, { 'vim.fn.fnamemodify(vim.fn.getcwd(), ":t")', path = 4, padding = { left = 0, right = 1 } } }
@@ -35,3 +35,11 @@ require('lualine').setup {
 	inactive_winbar = {},
 	extensions = {}
 }
+
+-- listen lsp-progress event and refresh lualine
+vim.api.nvim_create_augroup("lualine_augroup", { clear = true })
+vim.api.nvim_create_autocmd("User", {
+	group = "lualine_augroup",
+	pattern = "LspProgressStatusUpdated",
+	callback = require("lualine").refresh,
+})
