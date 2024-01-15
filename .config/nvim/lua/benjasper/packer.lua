@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
 			ts_update()
 		end,
 	}
+	use 'windwp/nvim-ts-autotag'
 
 	use('mbbill/undotree')
 	use('nvim-tree/nvim-tree.lua')
@@ -83,4 +84,5 @@ return require('packer').startup(function(use)
 	use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 	use 'theHamsta/nvim-dap-virtual-text'
 	use 'nvim-telescope/telescope-dap.nvim'
+
 end)
