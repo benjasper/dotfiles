@@ -17,8 +17,8 @@ require('lualine').setup {
 	sections = {
 		lualine_a = { '[[]]', { 'mode', padding = { left = 0, right = 1 } } },
 		lualine_b = { 'location', 'diagnostics' },
-		lualine_c = { { 'branch', padding = { left = 2, right = 1 } }, '%=', require('lsp-progress').progress },
-		lualine_x = {},
+		lualine_c = { { 'branch', padding = { left = 2, right = 1 } }, '%=' },
+		lualine_x = { require('lsp-progress').progress },
 		lualine_y = { { 'filetype', icon_only = true, padding = { left = 1, right = 0 } }, { 'filename', file_status = true } },
 		lualine_z = { { '[[]]' }, { 'vim.fn.fnamemodify(vim.fn.getcwd(), ":t")', path = 4, padding = { left = 0, right = 1 } } }
 	},
