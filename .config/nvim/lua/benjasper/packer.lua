@@ -57,7 +57,12 @@ return require('packer').startup(function(use)
 		'nvim-lualine/lualine.nvim',
 		requires = { 'nvim-tree/nvim-web-devicons', opt = true }
 	}
-	use 'arkav/lualine-lsp-progress'
+	use {
+		'linrongbin16/lsp-progress.nvim',
+		config = function()
+			require('lsp-progress').setup()
+		end
+	}
 
 	use 'lewis6991/gitsigns.nvim'
 
@@ -72,4 +77,10 @@ return require('packer').startup(function(use)
 	}
 
 	use 'Exafunction/codeium.vim'
+
+	-- Debugging
+	use 'mfussenegger/nvim-dap'
+	use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+	use 'theHamsta/nvim-dap-virtual-text'
+	use 'nvim-telescope/telescope-dap.nvim'
 end)
