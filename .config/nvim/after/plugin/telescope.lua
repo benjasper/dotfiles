@@ -1,8 +1,8 @@
 require('telescope').setup{}
 
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>pf', function () builtin.find_files({no_ignore=true}) end, {})
-vim.keymap.set('n', '<leader>pg', function () builtin.find_files({follow=true}) end, {})
+vim.keymap.set('n', '<leader>pf', function () builtin.find_files({no_ignore=true, hidden=true}) end, {})
+vim.keymap.set('n', '<leader>pg', function () builtin.find_files({follow=false, hidden=true}) end, {})
 vim.keymap.set('n', '<leader>pc', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>pac', function () builtin.live_grep({additional_args = { "-u" }}) end, {})
 vim.keymap.set('n', '<leader>po', builtin.oldfiles, {})
