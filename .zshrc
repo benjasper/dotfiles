@@ -13,6 +13,8 @@ source $ZSH/oh-my-zsh.sh
 
 export LANG=en_US.UTF-8
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 export PATH="/opt/homebrew/bin:$PATH"
