@@ -28,7 +28,13 @@ return require('packer').startup(function(use)
 	use('mbbill/undotree')
 	use('nvim-tree/nvim-tree.lua')
 
-	use('tpope/vim-fugitive')
+	use({
+		"kdheepak/lazygit.nvim",
+		-- optional for floating window border decoration
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+	})
 
 	use {
 		'VonHeikemen/lsp-zero.nvim',
