@@ -5,9 +5,17 @@ lsp_zero.on_attach(function(client, bufnr)
 	-- to learn the available actions
 	lsp_zero.default_keymaps({ buffer = bufnr })
 	vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename)
-	vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
+	vim.keymap.set('n', '<leader>fm', vim.lsp.buf.format)
 	vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
+	vim.keymap.set('i', '<C-f>', vim.lsp.buf.signature_help)
 end)
+
+lsp_zero.set_sign_icons({
+	error = '✘',
+	warn = '▲',
+	hint = '⚑',
+	info = '»'
+})
 
 local prettier = require('efmls-configs.formatters.prettier_d')
 local efm_languages = {
@@ -20,7 +28,8 @@ local efm_languages = {
 require('mason').setup({})
 require('mason-lspconfig').setup({
 	ensure_installed = {
-		'tsserver', 'rust_analyzer', 'gopls', 'phpactor', 'tailwindcss', 'astro', 'cssls', 'efm', 'eslint', 'html', 'lua_ls'
+		'tsserver', 'rust_analyzer', 'gopls', 'phpactor', 'tailwindcss', 'astro', 'cssls', 'efm', 'eslint', 'html',
+		'lua_ls'
 	},
 	handlers = {
 		lsp_zero.default_setup,
