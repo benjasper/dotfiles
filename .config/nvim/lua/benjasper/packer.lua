@@ -74,15 +74,16 @@ return require('packer').startup(function(use)
 	use {
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
-		requires = { {"nvim-lua/plenary.nvim"} }
+		requires = { { "nvim-lua/plenary.nvim" } }
 	}
 
 	use 'Exafunction/codeium.vim'
 
 	-- Debugging
 	use 'mfussenegger/nvim-dap'
-	use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+	use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
 	use 'theHamsta/nvim-dap-virtual-text'
 	use 'nvim-telescope/telescope-dap.nvim'
 
+	use { "nvim-pack/nvim-spectre", requires = { "nvim-lua/plenary.nvim" } }
 end)
