@@ -55,6 +55,7 @@ alias zshconfig="nvim ~/.zshrc"
 alias dcu="docker compose up -d --pull=always"
 alias dcd="docker compose down"
 alias dce="docker compose exec webserver bash"
+alias dcp="docker compose exec php-fpm bash"
 alias encryptkey="ssh-keygen -p -o -f"
 alias vim="nvim"
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
