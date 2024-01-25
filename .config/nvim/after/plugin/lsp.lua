@@ -23,6 +23,12 @@ local efm_languages = {
 	typescriptreact = { prettier },
 	javascript = { prettier },
 	javascriptreact = { prettier },
+	css = { prettier },
+	scss = { prettier },
+	less = { prettier },
+	html = { prettier },
+	yaml = { prettier },
+	json = { prettier },
 }
 
 require('mason').setup({})

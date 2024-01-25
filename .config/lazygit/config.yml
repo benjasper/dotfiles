@@ -36,6 +36,10 @@ git:
 services:
   'gitlab.itx.de': 'gitlab:gitlab.itx.de'
 
+keybinding:
+  files:
+    toggleTreeView: 't'
+
 customCommands:
   - key: "<c-v>"
     context: "global"
