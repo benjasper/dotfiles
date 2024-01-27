@@ -86,4 +86,6 @@ return require('packer').startup(function(use)
 	use 'nvim-telescope/telescope-dap.nvim'
 
 	use { "nvim-pack/nvim-spectre", requires = { "nvim-lua/plenary.nvim" } }
+
+	use "sindrets/diffview.nvim"
 end)
