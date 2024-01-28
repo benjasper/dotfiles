@@ -7,7 +7,8 @@ lsp_zero.on_attach(function(client, bufnr)
 	vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename)
 	vim.keymap.set('n', '<leader>fm', vim.lsp.buf.format)
 	vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
-	vim.keymap.set('i', '<C-p>', vim.lsp.buf.signature_help)
+
+	vim.keymap.set('i', '<C-k>', vim.lsp.buf.signature_help)
 end)
 
 lsp_zero.set_sign_icons({
