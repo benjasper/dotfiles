@@ -64,6 +64,15 @@ return require('packer').startup(function(use)
 			require('lsp-progress').setup()
 		end
 	}
+	use {
+		'folke/trouble.nvim',
+		requires = "nvim-tree/nvim-web-devicons",
+	}
+
+	use {
+		'folke/todo-comments.nvim',
+		requires = "nvim-lua/plenary.nvim",
+	}
 
 	use 'lewis6991/gitsigns.nvim'
 
