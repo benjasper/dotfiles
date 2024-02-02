@@ -9,7 +9,7 @@ require("neo-tree").setup({
 			},
 		},
 		follow_current_file = {
-			enabled = true
+			enabled = false
 		},
 		window = {
 			mappings = {
@@ -36,4 +36,5 @@ require("neo-tree").setup({
 	}
 })
 
-vim.keymap.set("n", "<leader>pv", ":Neotree toggle<cr>")
+vim.keymap.set("n", "<leader>pv", ":Neotree toggle reveal_file=%:p<cr>")
+vim.keymap.set("n", "<leader>pe", ":Neotree reveal_file=%:p position=current<cr>")
