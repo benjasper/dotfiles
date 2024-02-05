@@ -60,6 +60,10 @@ alias encryptkey="ssh-keygen -p -o -f"
 alias vim="nvim"
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+function killport() {
+	lsof -i tcp:"$1" | grep LISTEN | awk '{print $2}' | xargs kill
+}
+
 # bun completions
 [ -s "$HOME.bun/_bun" ] && source "$HOME.bun/_bun"
 
