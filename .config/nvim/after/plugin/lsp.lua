@@ -18,6 +18,22 @@ lsp_zero.set_sign_icons({
 	info = '»'
 })
 
+-- PHP CS Fixer --
+local fs = require('efmls-configs.fs')
+
+local formatter = 'php-cs-fixer'
+local args = "fix --no-ansi --using-cache=no --quiet '${INPUT}'"
+local command = string.format('%s %s', fs.executable(formatter, fs.Scope.COMPOSER), args)
+
+local php_cs_fixer = {
+  formatCommand = command,
+  formatStdin = false,
+  rootMarkers = {
+	  '.php-cs-fixer.dist.php'
+  },
+  requireMarker = true
+}
+
 local prettier = require('efmls-configs.formatters.prettier_d')
 local efm_languages = {
 	typescript = { prettier },
@@ -30,6 +46,7 @@ local efm_languages = {
 	html = { prettier },
 	yaml = { prettier },
 	json = { prettier },
+	php = { php_cs_fixer },
 }
 
 require('mason').setup({})
@@ -63,6 +80,10 @@ require('mason-lspconfig').setup({
 		end,
 		intelephense = function()
 			require("lspconfig").intelephense.setup {
+				on_init = function(client)
+					client.server_capabilities.documentFormattingProvider = false
+					client.server_capabilities.documentFormattingRangeProvider = false
+				end,
 				init_options = {
 					licenceKey = "xxx",
 				}
@@ -73,7 +94,8 @@ require('mason-lspconfig').setup({
 
 require('mason-tool-installer').setup {
 	ensure_installed = {
-		'prettierd'
+		'prettierd',
+		'php-cs-fixer'
 	}
 }
 
