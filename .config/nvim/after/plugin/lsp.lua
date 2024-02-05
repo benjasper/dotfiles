@@ -35,7 +35,7 @@ local efm_languages = {
 require('mason').setup({})
 require('mason-lspconfig').setup({
 	ensure_installed = {
-		'tsserver', 'rust_analyzer', 'gopls', 'phpactor', 'tailwindcss', 'astro', 'cssls', 'efm', 'eslint', 'html',
+		'tsserver', 'rust_analyzer', 'gopls', 'intelephense','tailwindcss', 'astro', 'cssls', 'efm', 'eslint', 'html',
 		'lua_ls'
 	},
 	handlers = {
@@ -61,6 +61,13 @@ require('mason-lspconfig').setup({
 				}
 			})
 		end,
+		intelephense = function()
+			require("lspconfig").intelephense.setup {
+				init_options = {
+					licenceKey = "xxx",
+				}
+			}
+		end
 	},
 })
 
