@@ -1,7 +1,5 @@
 require("neo-tree").setup({
-	close_if_last_window = true,
 	filesystem = {
-		hijack_netrw_behavior = "open_current",
 		filtered_items = {
 			visible = true,
 			hide_dotfiles = false,
@@ -11,7 +9,7 @@ require("neo-tree").setup({
 			},
 		},
 		follow_current_file = {
-			enabled = false
+			enabled = true
 		},
 		window = {
 			mappings = {
@@ -38,5 +36,4 @@ require("neo-tree").setup({
 	}
 })
 
-vim.keymap.set("n", "<leader>pv", ":Neotree toggle reveal_file=%:p<cr>")
-vim.keymap.set("n", "<leader>pe", ":Neotree reveal_file=%:p position=current<cr>")
+vim.keymap.set("n", "<leader>pv", ":Neotree toggle<cr>")

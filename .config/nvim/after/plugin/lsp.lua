@@ -36,7 +36,7 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
 	ensure_installed = {
 		'tsserver', 'rust_analyzer', 'gopls', 'phpactor', 'tailwindcss', 'astro', 'cssls', 'efm', 'eslint', 'html',
-		'lua_ls', 'yamlls', 'jsonls'
+		'lua_ls'
 	},
 	handlers = {
 		lsp_zero.default_setup,

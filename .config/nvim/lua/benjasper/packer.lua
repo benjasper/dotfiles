@@ -7,9 +7,9 @@ return require('packer').startup(function(use)
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 
+	-- UI
 	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.5',
-		-- or                            , branch = '0.1.x',
+		'nvim-telescope/telescope.nvim', branch = '0.1.x',
 		requires = { { 'nvim-lua/plenary.nvim' } }
 	}
 	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -24,6 +24,7 @@ return require('packer').startup(function(use)
 		end,
 	}
 	use 'windwp/nvim-ts-autotag'
+	use {'stevearc/dressing.nvim'}
 
 	use('mbbill/undotree')
 	use {
