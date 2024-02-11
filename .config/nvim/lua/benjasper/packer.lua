@@ -85,6 +85,14 @@ return require('packer').startup(function(use)
 	}
 
 	use 'lewis6991/gitsigns.nvim'
+	use {
+		'NeogitOrg/neogit',
+		requires = {
+			{ 'nvim-lua/plenary.nvim' },
+			{ 'sindrets/diffview.nvim' },
+			{ 'nvim-telescope/telescope.nvim' },
+		},
+	}
 
 	use 'nvim-tree/nvim-web-devicons'
 
