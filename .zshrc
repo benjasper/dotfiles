@@ -51,6 +51,8 @@ antigen apply
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Aliases
+setopt COMPLETE_ALIASES
+
 alias zshconfig="nvim ~/.zshrc"
 alias dcu="docker compose up -d --pull=always"
 alias dcd="docker compose down"
