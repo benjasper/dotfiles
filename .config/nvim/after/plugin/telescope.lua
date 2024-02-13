@@ -34,12 +34,6 @@ vim.keymap.set('n', '<leader>pc', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>pac', function() builtin.live_grep({ additional_args = { "-u" } }) end, {})
 vim.keymap.set('n', '<leader>pl', builtin.resume, {})
 
-vim.keymap.set('n', '<leader>po', builtin.oldfiles, {})
-vim.keymap.set('n', '<leader>cc', builtin.registers, {})
-vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
-vim.keymap.set('n', '<leader>ds', function()
-	return builtin.diagnostics({ bufnr = 0 })
-end
-, {})
+vim.keymap.set('n', '<leader>ph', function() builtin.oldfiles({ cwd_only = true }) end, {})
 
 require('telescope').load_extension('fzf')

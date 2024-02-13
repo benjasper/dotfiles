@@ -12,10 +12,10 @@ lsp_zero.on_attach(function(client, bufnr)
 end)
 
 lsp_zero.set_sign_icons({
-	error = '✘',
-	warn = '▲',
-	hint = '⚑',
-	info = '»'
+	error = ' ',
+	warn = ' ',
+	hint = '󰌵',
+	info = ' '
 })
 
 -- PHP CS Fixer --
@@ -26,12 +26,12 @@ local args = "fix --no-ansi --using-cache=no --quiet '${INPUT}'"
 local command = string.format('%s %s', fs.executable(formatter, fs.Scope.COMPOSER), args)
 
 local php_cs_fixer = {
-  formatCommand = command,
-  formatStdin = false,
-  rootMarkers = {
-	  '.php-cs-fixer.dist.php'
-  },
-  requireMarker = true
+	formatCommand = command,
+	formatStdin = false,
+	rootMarkers = {
+		'.php-cs-fixer.dist.php'
+	},
+	requireMarker = true
 }
 
 local prettier = require('efmls-configs.formatters.prettier_d')
@@ -49,10 +49,16 @@ local efm_languages = {
 	php = { php_cs_fixer },
 }
 
-require('mason').setup({})
+require("neodev").setup({})
+
+require('mason').setup({
+	ui = {
+		border = 'rounded',
+	}
+})
 require('mason-lspconfig').setup({
 	ensure_installed = {
-		'tsserver', 'rust_analyzer', 'gopls', 'intelephense','tailwindcss', 'astro', 'cssls', 'efm', 'eslint', 'html',
+		'tsserver', 'rust_analyzer', 'gopls', 'intelephense', 'tailwindcss', 'astro', 'cssls', 'efm', 'eslint', 'html',
 		'lua_ls'
 	},
 	handlers = {

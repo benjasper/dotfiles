@@ -1,5 +1,6 @@
 require("neo-tree").setup({
 	close_if_last_window = true,
+	popup_border_style = "rounded",
 	filesystem = {
 		hijack_netrw_behavior = "open_current",
 		filtered_items = {
@@ -38,6 +39,6 @@ require("neo-tree").setup({
 	}
 })
 
-vim.keymap.set("n", "<leader>pt", ":Neotree toggle <cr>")
-vim.keymap.set("n", "<leader>pv", ":Neotree toggle reveal_file=%:p<cr>")
+vim.keymap.set("n", "<leader>pt", ":Neotree toggle position=float <cr>")
+vim.keymap.set("n", "<leader>pv", ":Neotree toggle reveal_file=%:p position=float<cr>")
 vim.keymap.set("n", "<leader>pV", ":Neotree reveal_file=%:p position=current<cr>")
