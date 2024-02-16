@@ -46,6 +46,7 @@ local efm_languages = {
 	html = { prettier },
 	yaml = { prettier },
 	json = { prettier },
+	jsonc = { prettier },
 	php = { php_cs_fixer },
 }
 
@@ -59,7 +60,7 @@ require('mason').setup({
 require('mason-lspconfig').setup({
 	ensure_installed = {
 		'tsserver', 'rust_analyzer', 'gopls', 'intelephense', 'tailwindcss', 'astro', 'cssls', 'efm', 'eslint', 'html',
-		'lua_ls'
+		'lua_ls', 'jsonls', 'yamlls'
 	},
 	handlers = {
 		lsp_zero.default_setup,
@@ -93,6 +94,22 @@ require('mason-lspconfig').setup({
 				init_options = {
 					licenceKey = "xxx",
 				}
+			}
+		end,
+		jsonls = function()
+			require("lspconfig").jsonls.setup {
+				on_init = function(client)
+					client.server_capabilities.documentFormattingProvider = false
+					client.server_capabilities.documentFormattingRangeProvider = false
+				end
+			}
+		end,
+		yamlls = function()
+			require("lspconfig").yamlls.setup {
+				on_init = function(client)
+					client.server_capabilities.documentFormattingProvider = false
+					client.server_capabilities.documentFormattingRangeProvider = false
+				end
 			}
 		end
 	},
