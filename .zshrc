@@ -80,3 +80,6 @@ export EDITOR="nvim"
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
 autoload -U promptinit; promptinit
 prompt pure
+
+# zoxide
+eval "$(zoxide init --cmd cd zsh)"
