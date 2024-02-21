@@ -40,5 +40,5 @@ require("neo-tree").setup({
 })
 
 vim.keymap.set("n", "<leader>pt", ":Neotree toggle position=float <cr>")
-vim.keymap.set("n", "<leader>pv", ":Neotree toggle reveal_file=%:p position=float<cr>")
-vim.keymap.set("n", "<leader>pV", ":Neotree reveal_file=%:p position=current<cr>")
+vim.keymap.set("n", "<leader>pV", ":Neotree toggle reveal_file=%:p position=float<cr>")
+vim.keymap.set("n", "<leader>pv", ":Neotree reveal_file=%:p position=current<cr>")
