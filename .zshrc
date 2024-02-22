@@ -1,5 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+autoload -Uz compinit
+compinit
 
 # zsh theme
 ZSH_THEME=""
