@@ -36,9 +36,14 @@ require("neo-tree").setup({
 				require("neo-tree.command").execute({ action = "close" })
 			end
 		},
+		{
+			event = "neo_tree_buffer_enter",
+			handler = function()
+				vim.opt_local.relativenumber = true
+			end,
+		},
 	}
 })
 
-vim.keymap.set("n", "<leader>pt", ":Neotree toggle position=float <cr>")
-vim.keymap.set("n", "<leader>pV", ":Neotree toggle reveal_file=%:p position=float<cr>")
-vim.keymap.set("n", "<leader>pv", ":Neotree reveal_file=%:p position=current<cr>")
+vim.keymap.set("n", "<leader>pv", ":Neotree reveal position=current<cr>")
+vim.keymap.set("n", "<leader>pV", ":Neotree toggle reveal position=float<cr>")
