@@ -93,6 +93,16 @@ require('mason-lspconfig').setup({
 				end,
 				init_options = {
 					licenceKey = "xxx",
+				},
+				settings = {
+					intelephense = {
+						files = {
+							maxSize = 5000000,
+							exclude = {
+								"PackageArtifact.php"
+							}
+						}
+					}
 				}
 			}
 		end,
