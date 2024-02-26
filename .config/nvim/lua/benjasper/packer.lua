@@ -23,6 +23,19 @@ return require('packer').startup(function(use)
 			ts_update()
 		end,
 	}
+	use({
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		after = "nvim-treesitter",
+		requires = "nvim-treesitter/nvim-treesitter",
+	})
+	use({
+		"kylechui/nvim-surround",
+		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+		config = function()
+				-- Configuration here, or leave empty to use defaults
+			require("nvim-surround").setup({})
+		end
+	})
 	use 'windwp/nvim-ts-autotag'
 	use { 'stevearc/dressing.nvim' }
 
