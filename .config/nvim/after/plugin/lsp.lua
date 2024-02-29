@@ -106,6 +106,14 @@ require('mason-lspconfig').setup({
 				}
 			}
 		end,
+		html = function()
+			require("lspconfig").html.setup {
+				on_init = function(client)
+					client.server_capabilities.documentFormattingProvider = false
+					client.server_capabilities.documentFormattingRangeProvider = false
+				end
+			}
+		end,
 		jsonls = function()
 			require("lspconfig").jsonls.setup {
 				on_init = function(client)
