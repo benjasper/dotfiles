@@ -2,44 +2,69 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.opt.nu = true
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- Make line numbers default
+vim.opt.number = true
 vim.opt.relativenumber = true
 
+-- Indenting
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.expandtab = false
 
-vim.opt.smartindent = true
+-- Enable mouse mode, can be useful for resizing splits for example!
+vim.opt.mouse = "a"
 
-vim.opt.wrap = false
+-- Don't show the mode, since it's already in status line
+vim.opt.showmode = false
 
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
+--  See `:help 'clipboard'`
+vim.opt.clipboard = "unnamedplus"
 
-vim.opt.termguicolors = true
+-- Enable break indent
+vim.opt.breakindent = true
 
-vim.opt.scrolloff = 8
+-- Save undo history
+vim.opt.undofile = true
+
+-- Case-insensitive searching UNLESS \C or capital in search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Keep signcolumn on by default
 vim.opt.signcolumn = "yes"
 
-vim.opt.colorcolumn = "80"
+-- Decrease update time
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 400
 
-vim.g.mapleader = " "
+-- Configure how new splits should be opened
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
+-- Preview substitutions live, as you type!
+vim.opt.inccommand = "split"
+
+-- Show which line your cursor is on
+vim.opt.cursorline = true
+
+-- Minimal number of screen lines to keep above and below the cursor.
+vim.opt.scrolloff = 10
+
+vim.opt.sidescrolloff = 5
+
+-- Change the title of the terminal
 vim.opt.title = true
 vim.opt.titlelen = 0 -- do not shorten title
 vim.opt.titlestring = 'nvim %{expand("%:f")}'
 
-vim.o.foldcolumn = '1'
-vim.o.splitright = true
+vim.opt.wrap = false
 
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-	callback = function()
-		vim.highlight.on_yank()
-	end,
-	group = highlight_group,
-	pattern = '*',
-})
+-- [[ Basic Keymaps ]]
+--  See `:help vim.keymap.set()`
+
+-- Set highlight on search, but clear on pressing <Esc> in normal mode
+vim.opt.hlsearch = true
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")

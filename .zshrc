@@ -85,3 +85,5 @@ prompt pure
 
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
+
+alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
