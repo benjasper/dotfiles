@@ -209,7 +209,8 @@ return {
 						client.server_capabilities.documentFormattingProvider = false
 						client.server_capabilities.documentFormattingRangeProvider = false
 					end
-				}
+				},
+				astro = {}
 			}
 
 			require("mason").setup({
@@ -287,7 +288,7 @@ return {
 					end,
 				},
 				completion = { completeopt = "menu,menuone,noinsert" },
-				mapping = cmp.mapping.preset.insert({
+				mapping = {
 					-- Select the [n]ext item
 					["<C-n>"] = cmp.mapping.select_next_item(),
 					-- Select the [p]revious item
@@ -321,7 +322,9 @@ return {
 							luasnip.jump(-1)
 						end
 					end, { "i", "s" }),
-				}),
+
+					["<C-y>"] = nil
+				},
 				sources = {
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
@@ -375,6 +378,13 @@ return {
 	-- Highlight todo, notes, etc in comments
 	{ "folke/todo-comments.nvim",       dependencies = { "nvim-lua/plenary.nvim" }, opts = { signs = false } },
 
-	{ 'linrongbin16/lsp-progress.nvim', opts = {} }
-
+	{
+		"j-hui/fidget.nvim",
+		opts = {
+			-- options
+			notification = {
+				override_vim_notify = true,
+			}
+		},
+	}
 }
