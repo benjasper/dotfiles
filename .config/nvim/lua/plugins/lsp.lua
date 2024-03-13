@@ -71,7 +71,7 @@ return {
 
 			-- Add borders to floats
 			vim.diagnostic.config({
-				float = { border = 'rounded' },
+				float = { border = 'rounded', sources = { 'always' } },
 			})
 
 			vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(

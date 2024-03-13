@@ -76,5 +76,7 @@ return {
                 previewer = false,
             }))
         end, { desc = "[/] Fuzzily search in current buffer" })
+
+		vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
     end,
 }
