@@ -1,3 +1,4 @@
+---@type LazySpec[]
 return {
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
@@ -20,7 +21,10 @@ return {
 	{
 		"numToStr/Comment.nvim",
 		event = "BufEnter",
-		opts = {}
+		opts = {},
+		keys = {
+			{ "<leader>xt", "<cmd>TodoTrouble<cr>", "Opens todos in a trouble list" }
+		},
 	},
 
 	{ "stevearc/dressing.nvim", event = "VeryLazy" },
