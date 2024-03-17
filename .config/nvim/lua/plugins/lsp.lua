@@ -7,7 +7,6 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
-			"creativenull/efmls-configs-nvim"
 		},
 		config = function()
 			vim.fn.sign_define("DiagnosticSignError",
@@ -47,9 +46,6 @@ return {
 					--  Symbols are things like variables, functions, types, etc.
 					map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
 
-					-- Format buffer
-					map("<leader>fm", vim.lsp.buf.format, "[F]or[M]at current buffer")
-
 					-- Rename the variable under your cursor
 					--  Most Language Servers support renaming across files, etc.
 					map("<leader>r", vim.lsp.buf.rename, "[R]e[n]ame")
@@ -65,6 +61,7 @@ return {
 					-- This is not Goto Definition, this is Goto Declaration.
 					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
+					map("<C-K>", vim.lsp.buf.signature_help, "Show signature help")
 					vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help)
 				end,
 			})
@@ -83,38 +80,6 @@ return {
 				vim.lsp.handlers.signature_help,
 				{ border = 'rounded' }
 			)
-
-			-- PHP CS Fixer --
-			local fs = require('efmls-configs.fs')
-
-			local formatter = 'php-cs-fixer'
-			local args = "fix --no-ansi --using-cache=no --quiet '${INPUT}'"
-			local command = string.format('%s %s', fs.executable(formatter, fs.Scope.COMPOSER), args)
-
-			local php_cs_fixer = {
-				formatCommand = command,
-				formatStdin = false,
-				rootMarkers = {
-					'.php-cs-fixer.dist.php'
-				},
-				requireMarker = true
-			}
-
-			local prettier = require('efmls-configs.formatters.prettier_d')
-			local efm_languages = {
-				typescript = { prettier },
-				typescriptreact = { prettier },
-				javascript = { prettier },
-				javascriptreact = { prettier },
-				css = { prettier },
-				scss = { prettier },
-				less = { prettier },
-				html = { prettier },
-				yaml = { prettier },
-				json = { prettier },
-				jsonc = { prettier },
-				php = { php_cs_fixer },
-			}
 
 			-- Configure nvim-cmp
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -156,17 +121,6 @@ return {
 							},
 						},
 					},
-				},
-				efm = {
-					filetypes = vim.tbl_keys(efm_languages),
-					init_options = {
-						documentFormatting = true,
-						documentRangeFormatting = true
-					},
-					settings = {
-						rootMarkers = { ".git/" },
-						languages = efm_languages
-					}
 				},
 				intelephense = {
 					on_init = function(client)
@@ -376,7 +330,7 @@ return {
 	},
 
 	-- Highlight todo, notes, etc in comments
-	{ "folke/todo-comments.nvim",       dependencies = { "nvim-lua/plenary.nvim" }, opts = { signs = false } },
+	{ "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = { signs = false } },
 
 	{
 		"j-hui/fidget.nvim",
@@ -386,5 +340,39 @@ return {
 				override_vim_notify = true,
 			}
 		},
+	},
+	{
+		'stevearc/conform.nvim',
+		event = { "BufWritePre" },
+		cmd = { "ConformInfo" },
+		keys = {
+			{
+				-- Customize or remove this keymap to your liking
+				"<leader>fm",
+				function()
+					require("conform").format({ async = true, lsp_fallback = true })
+				end,
+				mode = "",
+				desc = "Format buffer",
+			},
+		},
+		-- Everything in opts will be passed to setup()
+		opts = {
+			lsp_fallback = true,
+			-- Define your formatters
+			formatters_by_ft = {
+				javascript = { "prettierd" },
+				typescript = { "prettierd" },
+				typescriptreact = { "prettierd" },
+				yaml = { "prettierd" },
+				json = { "prettierd" },
+				html = { "prettierd" },
+				php = { "php_cs_fixer" }
+			},
+		},
+		init = function()
+			-- If you want the formatexpr, here is the place to set it
+			vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+		end,
 	}
 }
