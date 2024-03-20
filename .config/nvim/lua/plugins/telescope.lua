@@ -25,10 +25,10 @@ return {
         local builtin = require("telescope.builtin")
 
         vim.keymap.set("n", "<leader>pf", function()
-            builtin.find_files({ no_ignore = true, hidden = true })
+            builtin.find_files({ no_ignore = true, hidden = true, path_display = { "truncate" } })
         end, {})
         vim.keymap.set("n", "<leader>pg", function()
-            builtin.find_files({ follow = false, hidden = true })
+            builtin.find_files({ follow = false, hidden = true, path_display = { "truncate" } })
         end, {})
         local putils = require("telescope.previewers.utils")
         require("telescope").setup({
