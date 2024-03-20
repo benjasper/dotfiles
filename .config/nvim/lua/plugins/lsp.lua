@@ -376,20 +376,29 @@ return {
 				desc = "Format buffer",
 			},
 		},
-		-- Everything in opts will be passed to setup()
-		opts = {
-			lsp_fallback = true,
-			-- Define your formatters
-			formatters_by_ft = {
-				javascript = { "prettierd" },
-				typescript = { "prettierd" },
-				typescriptreact = { "prettierd" },
-				yaml = { "prettierd" },
-				json = { "prettierd" },
-				html = { "prettierd" },
-				php = { "php_cs_fixer" }
-			},
-		},
+		config = function()
+			local util = require("conform.util")
+
+			require("conform").setup({
+				lsp_fallback = true,
+				-- Define your formatters
+				formatters_by_ft = {
+					javascript = { "prettierd" },
+					typescript = { "prettierd" },
+					typescriptreact = { "prettierd" },
+					yaml = { "prettierd" },
+					json = { "prettierd" },
+					html = { "prettierd" },
+					php = { "php_cs_fixer" }
+				},
+				formatters = {
+					php_cs_fixer = {
+						cwd = util.root_file({ ".php-cs-fixer.dist.php", ".php-cs-fixer.php" }),
+						require_cwd	= true
+					},
+				},
+			})
+		end,
 		init = function()
 			-- If you want the formatexpr, here is the place to set it
 			vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
