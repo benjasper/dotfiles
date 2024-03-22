@@ -20,5 +20,5 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- We want to interact with the system clipboard, but only when yanking.
 -- This has the effect that deleted text won't go into the system clipboard, but only yanked text.
 vim.keymap.set("n", "<C-P>", "\"0p")
-vim.keymap.set("v", "y", "\"+y")
-vim.keymap.set("n", "yy", "\"+yy")
+vim.keymap.set("n", "P", "\"+p")
+vim.keymap.set({"v", "n"}, "y", "\"+y")
