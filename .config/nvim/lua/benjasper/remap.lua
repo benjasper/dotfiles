@@ -19,6 +19,8 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 -- We want to interact with the system clipboard, but only when yanking.
 -- This has the effect that deleted text won't go into the system clipboard, but only yanked text.
+-- Ctrl p is used to paste the last yanked text.
 vim.keymap.set("n", "<C-P>", "\"0p")
+-- Shift p is used to paste text from the system clipboard
 vim.keymap.set("n", "P", "\"+p")
 vim.keymap.set({"v", "n"}, "y", "\"+y")
