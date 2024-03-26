@@ -25,7 +25,7 @@ return {
                     "typoscript",
                     "typescript",
                     "javascript",
-					"gitcommit",
+					"gitcommit"
                 },
                 -- Autoinstall languages that are not installed
                 auto_install = true,
