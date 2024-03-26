@@ -5,6 +5,20 @@ return {
 		'linrongbin16/lsp-progress.nvim',
 	},
 	config = function()
+		local debuggingIntegration = {
+			function()
+				return require("dap").status()
+			end,
+			icon = { "", color = { fg = "#e7c664" } }, -- nerd icon.
+			cond = function()
+				if not package.loaded.dap then
+					return false
+				end
+				local session = require("dap").session()
+				return session ~= nil
+			end,
+		}
+
 		require('lualine').setup({
 			options = {
 				icons_enabled = true,
@@ -24,8 +38,8 @@ return {
 			sections = {
 				lualine_a = { '[[]]', { 'mode', padding = { left = 0, right = 1 } } },
 				lualine_b = { 'location', 'progress' },
-				lualine_c = { { 'branch', padding = { left = 2, right = 1 } }, 'diagnostics', '%=' },
-				lualine_x = { },
+				lualine_c = { { 'branch', padding = { left = 2, right = 1 } }, 'diagnostics', '%=', debuggingIntegration },
+				lualine_x = {},
 				lualine_y = { { 'filetype', icon_only = true, padding = { left = 1, right = 0 } }, { 'filename', padding = { left = 0, right = 1 }, path = 1, file_status = true } },
 				lualine_z = { { '[[]]' }, { 'vim.fn.fnamemodify(vim.fn.getcwd(), ":t")', path = 4, padding = { left = 0, right = 1 } } }
 			},
