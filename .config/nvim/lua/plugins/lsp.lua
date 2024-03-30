@@ -95,12 +95,7 @@ return {
 				clangd = {},
 				gopls = {},
 				rust_analyzer = {},
-				tsserver = {
-					on_init = function(client)
-						client.server_capabilities.documentFormattingProvider = false
-						client.server_capabilities.documentFormattingRangeProvider = false
-					end
-				},
+				tsserver = {},
 				lua_ls = {
 					settings = {
 						Lua = {
@@ -123,14 +118,6 @@ return {
 					},
 				},
 				intelephense = {
-					on_init = function(client)
-						client.server_capabilities.documentFormattingProvider = false
-						client.server_capabilities.documentFormattingRangeProvider = false
-					end,
-					capabilities = {
-						documentFormattingProvider = false,
-						documentFormattingRangeProvider = false
-					},
 					init_options = {
 						licenceKey = "00XASVX5OS37AN0",
 					},
@@ -145,26 +132,12 @@ return {
 						}
 					}
 				},
-				jsonls = {
-					on_init = function(client)
-						client.server_capabilities.documentFormattingProvider = false
-						client.server_capabilities.documentFormattingRangeProvider = false
-					end
-				},
-				yamlls = {
-					on_init = function(client)
-						client.server_capabilities.documentFormattingProvider = false
-						client.server_capabilities.documentFormattingRangeProvider = false
-					end
-				},
+				jsonls = {},
+				yamlls = {},
 				tailwindcss = {},
-				cssls = {
-					on_init = function(client)
-						client.server_capabilities.documentFormattingProvider = false
-						client.server_capabilities.documentFormattingRangeProvider = false
-					end
-				},
-				astro = {}
+				cssls = {},
+				astro = {},
+				biome = {},
 			}
 
 			require("mason").setup({
@@ -383,19 +356,41 @@ return {
 				lsp_fallback = true,
 				-- Define your formatters
 				formatters_by_ft = {
-					javascript = { "prettierd" },
-					typescript = { "prettierd" },
-					typescriptreact = { "prettierd" },
+					javascript = { { "biome", "prettierd" } },
+					typescript = { { "biome", "prettierd" } },
+					typescriptreact = { { "biome", "prettierd" } },
+					astro = { "prettierd" },
 					yaml = { "prettierd" },
-					json = { "prettierd" },
+					json = { { "biome", "prettierd" } },
 					html = { "prettierd" },
 					php = { "php_cs_fixer" }
 				},
 				formatters = {
 					php_cs_fixer = {
 						cwd = util.root_file({ ".php-cs-fixer.dist.php", ".php-cs-fixer.php" }),
-						require_cwd	= true
+						require_cwd = true
 					},
+					prettierd = {
+						require_cwd = true,
+						-- Remove package.json from prettierd definition
+						cwd = util.root_file({
+							".prettierrc",
+							".prettierrc.json",
+							".prettierrc.yml",
+							".prettierrc.yaml",
+							".prettierrc.json5",
+							".prettierrc.js",
+							".prettierrc.cjs",
+							".prettierrc.mjs",
+							".prettierrc.toml",
+							"prettier.config.js",
+							"prettier.config.cjs",
+							"prettier.config.mjs"
+						})
+					},
+					biome = {
+						require_cwd = true,
+					}
 				},
 			})
 		end,
