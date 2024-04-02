@@ -363,7 +363,10 @@ return {
 					yaml = { "prettierd" },
 					json = { { "biome", "prettierd" } },
 					html = { "prettierd" },
-					php = { "php_cs_fixer" }
+					php = { "php_cs_fixer" },
+					css = { "prettierd" },
+					less = { "prettierd" },
+					scss = { "prettierd" }
 				},
 				formatters = {
 					php_cs_fixer = {
