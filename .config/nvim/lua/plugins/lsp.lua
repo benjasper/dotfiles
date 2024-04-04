@@ -35,12 +35,15 @@ return {
 
 					-- Jump to the implementation of the word under your cursor.
 					--  Useful when your language has ways of declaring types without an actual implementation.
-					map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+					map("gi", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
 
 					-- Jump to the type of the word under your cursor.
 					--  Useful when you're not sure what type a variable is and you want to see
 					--  the definition of its *type*, not where it was *defined*.
-					map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+					map("gt", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+					--
+					-- This is not Goto Definition, this is Goto Declaration.
+					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
 					-- Fuzzy find all the symbols in your current document.
 					--  Symbols are things like variables, functions, types, etc.
@@ -57,9 +60,6 @@ return {
 					-- Opens a popup that displays documentation about the word under your cursor
 					--  See `:help K` for why this keymap
 					map("K", vim.lsp.buf.hover, "Hover Documentation")
-
-					-- This is not Goto Definition, this is Goto Declaration.
-					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
 					map("<C-K>", vim.lsp.buf.signature_help, "Show signature help")
 					vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help)
