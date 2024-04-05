@@ -138,6 +138,13 @@ return {
 				cssls = {},
 				astro = {},
 				biome = {},
+				graphql = {
+					filetypes = {
+						"graphql",
+						"typescript",
+						"typescriptreact",
+					}
+				},
 			}
 
 			require("mason").setup({
