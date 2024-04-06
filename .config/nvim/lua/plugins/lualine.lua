@@ -1,3 +1,4 @@
+--- @type LazySpec
 return {
 	'nvim-lualine/lualine.nvim',
 	dependencies = {
@@ -17,6 +18,28 @@ return {
 				local session = require("dap").session()
 				return session ~= nil
 			end,
+		}
+
+		local codeiumIntegration = {
+			function()
+				local status = ""
+				local result = vim.api.nvim_call_function("codeium#GetStatusString", {})
+				if result == nil or result == "   " or result == " * "
+				then
+					status = " "
+				elseif result == " ON" then
+					status = " "
+				elseif result == "OFF" then
+					status = " "
+				elseif result == " 0 " then
+					status = " "
+				else
+					status = " "
+				end
+
+				return "" .. status
+			end,
+			icon = { " " },
 		}
 
 		require('lualine').setup({
@@ -39,7 +62,7 @@ return {
 				lualine_a = { '[[]]', { 'mode', padding = { left = 0, right = 1 } } },
 				lualine_b = { 'location', 'progress' },
 				lualine_c = { { 'branch', padding = { left = 2, right = 1 } }, 'diagnostics', '%=', debuggingIntegration },
-				lualine_x = {},
+				lualine_x = { codeiumIntegration },
 				lualine_y = { { 'filetype', icon_only = true, padding = { left = 1, right = 0 } }, { 'filename', padding = { left = 0, right = 1 }, path = 1, file_status = true } },
 				lualine_z = { { '[[]]' }, { 'vim.fn.fnamemodify(vim.fn.getcwd(), ":t")', path = 4, padding = { left = 0, right = 1 } } }
 			},
