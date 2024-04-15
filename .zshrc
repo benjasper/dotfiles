@@ -78,10 +78,9 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # Set default editor to neovim
 export EDITOR="nvim"
 
-# Pure theme
-fpath+=("$(brew --prefix)/share/zsh/site-functions")
-autoload -U promptinit; promptinit
-prompt pure
+# Starship prompt
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+eval "$(starship init zsh)"
 
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
