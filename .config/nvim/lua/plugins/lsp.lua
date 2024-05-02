@@ -145,7 +145,8 @@ return {
 						"typescriptreact",
 					}
 				},
-				taplo = {}
+				taplo = {},
+				html = {}
 			}
 
 			require("mason").setup({
