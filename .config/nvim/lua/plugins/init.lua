@@ -98,5 +98,10 @@ return {
 				mode = { "n", "x" }
 			}
 		},
+		config = function(self, opts)
+			require("no-neck-pain").setup({
+				width = 130,
+			})
+		end
 	},
 }
