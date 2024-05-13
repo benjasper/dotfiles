@@ -146,7 +146,8 @@ return {
 					}
 				},
 				taplo = {},
-				html = {}
+				html = {},
+				eslint = {}
 			}
 
 			require("mason").setup({
