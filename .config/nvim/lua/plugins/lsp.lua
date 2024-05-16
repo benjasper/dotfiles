@@ -411,5 +411,31 @@ return {
 			-- If you want the formatexpr, here is the place to set it
 			vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 		end,
-	}
+	},
+
+	--[[ TODO: use when double K issue ist resolved {
+		"lewis6991/hover.nvim",
+		config = function()
+			require("hover").setup {
+				init = function()
+					-- Require providers
+					require("hover.providers.lsp")
+					require('hover.providers.gh')
+					-- require('hover.providers.gh_user')
+					-- require('hover.providers.jira')
+					require('hover.providers.dap')
+					-- require('hover.providers.man')
+					-- require('hover.providers.dictionary')
+				end,
+				preview_opts = {
+					border = 'rounded'
+				},
+				preview_window = false,
+				title = true,
+			}
+
+			-- Setup keymaps
+			vim.keymap.set("n", "K", require("hover").hover, { desc = "hover.nvim" })
+		end
+	} ]]
 }
