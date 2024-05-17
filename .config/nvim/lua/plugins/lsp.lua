@@ -282,6 +282,18 @@ return {
 
 					["<C-y>"] = nil
 				},
+				formatting = {
+					format = function(entry, vim_item)
+						-- Set the menu field to show the source name
+						vim_item.menu = ({
+							nvim_lsp = "[LSP]",
+							luasnip = "[Snip]",
+							path = "[Path]",
+							-- Add other sources if you have them
+						})[entry.source.name]
+						return vim_item
+					end
+				},
 				sources = {
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
