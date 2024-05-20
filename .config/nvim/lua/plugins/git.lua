@@ -74,7 +74,7 @@ return {
 				"<leader>gs",
 				function()
 					local neogit = require('neogit')
-					neogit.open({ kind = "replace", cwd = vim.fn.expand('%:p:h') })
+					neogit.open({ kind = "replace" })
 				end,
 				"[G]it [S]tatus"
 			},
