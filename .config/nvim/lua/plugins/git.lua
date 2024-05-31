@@ -67,6 +67,12 @@ return {
 					["gitlab.itx.de"] =
 					"https://gitlab.itx.de/${owner}/${repository}/merge_requests/new?merge_request[source_branch]=${branch_name}",
 				},
+				mappings = {
+					commit_editor = {
+						["<c-p>"] = "PrevMessage",
+						["<c-n>"] = "NextMessage",
+					},
+				},
 			})
 		end,
 		keys = {
