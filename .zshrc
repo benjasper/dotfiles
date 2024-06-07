@@ -22,6 +22,9 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
+
+# Override system curl
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 export GOPATH="$HOME/go"
 
 export VOLTA_HOME="$HOME/.volta"
