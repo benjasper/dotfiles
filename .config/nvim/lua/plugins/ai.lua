@@ -10,6 +10,7 @@ return {
 					accept_suggestion = "<C-y>",
 					clear_suggestion = "<C-]>",
 				},
+				log_level = "off",
 				ignore_filetypes = { NeogitStatus = true, ["Neo-tree"] = true },
 			})
 		end,
