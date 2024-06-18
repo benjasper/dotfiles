@@ -34,7 +34,7 @@
   "nvim-spectre": { "branch": "master", "commit": "ec67d4b5370094b923dfcf6b09b39142f2964861" },
   "nvim-surround": { "branch": "main", "commit": "687ea2f33955df0042bf228853a82696265e7e2d" },
   "nvim-treesitter": { "branch": "master", "commit": "71a8e8b4b6ebab39765615334d4241a18090a651" },
-  "nvim-ts-autotag": { "branch": "main", "commit": "531f48334c422222aebc888fd36e7d109cb354cd" },
+  "nvim-ts-autotag": { "branch": "main", "commit": "cb57b07803476ee902c89412aeff219a9a58be13" },
   "nvim-web-devicons": { "branch": "master", "commit": "c0cfc1738361b5da1cd0a962dd6f774cc444f856" },
   "plenary.nvim": { "branch": "master", "commit": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683" },
   "supermaven-nvim": { "branch": "main", "commit": "ec7ae4c8190c96002aa466b1eb4a23aa51e24812" },

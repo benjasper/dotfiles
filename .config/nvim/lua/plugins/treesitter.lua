@@ -43,17 +43,4 @@ return {
 			--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 		end,
 	},
-	{
-		"nvim-ts-autotag",
-		event = "VeryLazy",
-		config = function()
-			require('nvim-ts-autotag').setup({
-				opts = {
-					enable_close = true, -- Auto close tags
-					enable_rename = true, -- Auto rename pairs of tags
-					enable_close_on_slash = true -- Auto close on trailing </
-				}
-			})
-		end
-	}
 }
