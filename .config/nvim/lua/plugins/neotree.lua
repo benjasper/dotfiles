@@ -19,7 +19,7 @@ return {
 			"[P]roject [V]iew"
 		},
 		{
-			"<leader>pv",
+			"<leader>pV",
 			function()
 				require("neo-tree.command").execute({ toggle = true, reveal = true, position = "float" })
 			end,
