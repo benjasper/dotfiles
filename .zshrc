@@ -71,6 +71,9 @@ function killport() {
 	lsof -i tcp:"$1" | grep LISTEN | awk '{print $2}' | xargs kill
 }
 
+# Enable volta pnpm support
+VOLTA_FEATURE_PNPM=1
+
 # bun completions
 [ -s "$HOME.bun/_bun" ] && source "$HOME.bun/_bun"
 
