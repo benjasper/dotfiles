@@ -95,7 +95,7 @@ return {
 				clangd = {},
 				gopls = {},
 				rust_analyzer = {},
-				tsserver = {},
+				vtsls = {},
 				lua_ls = {
 					settings = {
 						Lua = {
@@ -377,7 +377,7 @@ return {
 			local util = require("conform.util")
 
 			require("conform").setup({
-				lsp_fallback = true,
+				lsp_format = 'fallback',
 				-- Define your formatters
 				formatters_by_ft = {
 					javascript = { { "biome", "prettierd" } },
