@@ -61,8 +61,12 @@ return {
 					--  See `:help K` for why this keymap
 					map("K", vim.lsp.buf.hover, "Hover Documentation")
 
+					-- Show signature help
 					map("<C-K>", vim.lsp.buf.signature_help, "Show signature help")
 					vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help)
+
+					-- Highlight usages of the symbol under your cursor
+					map("gh", vim.lsp.buf.document_highlight, "Highlight usages")
 				end,
 			})
 
@@ -308,7 +312,7 @@ return {
 	{
 		"folke/trouble.nvim",
 		cmd = { "TroubleToggle", "Trouble" },
-		opts = { },
+		opts = {},
 		keys = {
 			{ "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>",              desc = "Workspace Diagnostics (Trouble)" },
 			{ "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
