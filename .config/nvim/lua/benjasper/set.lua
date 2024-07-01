@@ -65,6 +65,9 @@ vim.opt.wrap = false
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
--- Set highlight on search, but clear on pressing <Esc> in normal mode
+-- Set highlight on search, but clear on pressing <Esc> in normal mode, also clear lsp highlights
 vim.opt.hlsearch = true
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "<Esc>", function ()
+	vim.lsp.buf.clear_references()
+    vim.cmd('nohlsearch')  -- Clear search highlights
+end)
