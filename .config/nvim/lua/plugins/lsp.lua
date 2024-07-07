@@ -62,7 +62,7 @@ return {
 					map("K", vim.lsp.buf.hover, "Hover Documentation")
 
 					-- Show signature help
-					map("<C-K>", vim.lsp.buf.signature_help, "Show signature help")
+					map("gk", vim.lsp.buf.signature_help, "Show signature help")
 					vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help)
 
 					-- Highlight usages of the symbol under your cursor
