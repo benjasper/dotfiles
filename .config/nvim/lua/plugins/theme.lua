@@ -20,7 +20,8 @@ return {
 					neotree = true,
 					neogit = true,
 					lsp_trouble = true,
-					harpoon = true
+					harpoon = true,
+					grug_far = true,
 				},
 			})
 
