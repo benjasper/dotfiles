@@ -381,15 +381,18 @@ return {
 			local util = require("conform.util")
 
 			require("conform").setup({
-				lsp_format = 'fallback',
+				default_format_opts = {
+					lsp_format = "fallback",
+					stop_after_first = true,
+				},
 				-- Define your formatters
 				formatters_by_ft = {
-					javascript = { { "biome", "prettierd" } },
-					typescript = { { "biome", "prettierd" } },
-					typescriptreact = { { "biome", "prettierd" } },
+					javascript = { "biome", "prettierd" },
+					typescript = { "biome", "prettierd" },
+					typescriptreact = { "biome", "prettierd" },
 					astro = { "prettierd" },
 					yaml = { "prettierd" },
-					json = { { "biome", "prettierd" } },
+					json = { "biome", "prettierd" },
 					html = { "prettierd" },
 					php = { "php_cs_fixer" },
 					css = { "prettierd" },
