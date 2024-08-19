@@ -9,6 +9,9 @@ return {
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 		},
 		config = function()
+			-- Disable logging, switch to debug when needed
+			vim.lsp.set_log_level("off")
+
 			vim.fn.sign_define("DiagnosticSignError",
 				{ text = " ", texthl = "DiagnosticSignError" })
 			vim.fn.sign_define("DiagnosticSignWarn",
@@ -152,7 +155,8 @@ return {
 				taplo = {},
 				html = {},
 				eslint = {},
-				templ = {}
+				templ = {},
+				gitlab_ci_ls = {},
 			}
 
 			require("mason").setup({
