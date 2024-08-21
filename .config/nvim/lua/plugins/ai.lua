@@ -11,7 +11,7 @@ return {
 					clear_suggestion = "<C-]>",
 				},
 				log_level = "off",
-				ignore_filetypes = { NeogitStatus = true, ["Neo-tree"] = true, TelescopePrompt = true },
+				ignore_filetypes = { NeogitStatus = true, ["Neo-tree"] = true, ["neo-tree-popup"] = true, TelescopePrompt = true },
 			})
 		end,
 	},
