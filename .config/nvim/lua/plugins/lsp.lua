@@ -304,9 +304,9 @@ return {
 					end
 				},
 				sources = {
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
-					{ name = "path" },
+					{ name = "nvim_lsp", priority = 100 },
+					{ name = "path", priority = 50 },
+					{ name = "luasnip", priority = 1 },
 				},
 			})
 		end,
