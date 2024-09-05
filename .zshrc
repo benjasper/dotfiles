@@ -72,7 +72,7 @@ function killport() {
 }
 
 # Enable volta pnpm support
-VOLTA_FEATURE_PNPM=1
+export VOLTA_FEATURE_PNPM=1
 
 # bun completions
 [ -s "$HOME.bun/_bun" ] && source "$HOME.bun/_bun"
