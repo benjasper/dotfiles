@@ -159,6 +159,9 @@ return {
 				gitlab_ci_ls = {},
 			}
 
+			-- Special language servers, not managed by mason
+			require('lspconfig').gleam.setup {}
+
 			require("mason").setup({
 				ui = {
 					border = "rounded",
