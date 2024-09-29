@@ -1,32 +1,24 @@
 return {
-	{ -- You can easily change to a different colorscheme.
-		-- Change the name of the colorscheme plugin below, and then
-		-- change the command in the config to whatever the name of that colorscheme is
-		--
-		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
-		"catppuccin/nvim",
-		name = "catppuccin",
-		version = "*",
-		lazy = false, -- make sure we load this during startup if it is your main colorscheme
-		priority = 1000, -- make sure to load this before all the other start plugins
+	{
+		dir = "/Users/benni/.config/nvim/nightfall.nvim",
+		lazy = false,
+		priority = 1000,
 		config = function()
-			require("catppuccin").setup({
-				flavour = "mocha",
-				integrations = {
-					cmp = true,
-					native_lsp = {
-						enabled = true,
-					},
-					mason = true,
-					neotree = true,
-					neogit = true,
-					lsp_trouble = true,
-					harpoon = true,
-					grug_far = true,
-				},
-			})
+			-- Ensure the module can be required
+			local status_ok, nightfall = pcall(require, "nightfall")
+			if not status_ok then
+				vim.notify("nightfall module not found!", vim.log.levels.ERROR)
+				return
+			end
 
-			vim.cmd.colorscheme("catppuccin")
+			-- Setup the colorscheme
+			nightfall.setup()
 		end,
 	},
+	{
+		'brenoprata10/nvim-highlight-colors',
+		config = function()
+			require('nvim-highlight-colors').setup({})
+		end
+	}
 }
