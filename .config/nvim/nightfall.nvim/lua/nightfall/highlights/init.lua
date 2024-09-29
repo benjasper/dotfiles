@@ -11,6 +11,8 @@ function M.setup(colors, opts)
 	local groups = {
 		base = true,
 		treesitter = true,
+		lsp = true,
+		kinds = true,
 	}
 
 	if opts.plugins.all then

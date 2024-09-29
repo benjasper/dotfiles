@@ -13,12 +13,8 @@ return {
 
 			-- Setup the colorscheme
 			nightfall.setup()
+
+			vim.cmd([[colorscheme nightfall]])
 		end,
 	},
-	{
-		'brenoprata10/nvim-highlight-colors',
-		config = function()
-			require('nvim-highlight-colors').setup({})
-		end
-	}
 }

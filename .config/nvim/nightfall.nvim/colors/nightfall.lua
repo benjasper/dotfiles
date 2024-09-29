@@ -1,1 +1,1 @@
-require('nightfall').colorscheme()
+require('nightfall').load()

@@ -26,4 +26,8 @@ function M.setup()
 	end
 end
 
+M.load = function()
+	vim.g.colors_name = "nightfall"
+end
+
 return M

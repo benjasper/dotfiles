@@ -15,13 +15,13 @@ function M.get(c, opts)
 		["@comment.hint"]               = { fg = c.hint },
 		["@comment.info"]               = { fg = c.info },
 		["@comment.note"]               = { fg = c.hint },
-		["@comment.todo"]               = { fg = c.todo },
+		["@comment.todo"]               = "Todo",
 		["@comment.warning"]            = { fg = c.warning },
 		["@constant"]                   = "Constant",
 		["@constant.builtin"]           = "Special",
 		["@constant.macro"]             = "Define",
-		["@constructor"]                = { fg = c.yellow }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
-		["@constructor.tsx"]            = { fg = c.yellow },
+		["@constructor"]                = { fg = c.orange }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
+		["@constructor.tsx"]            = { fg = c.orange },
 		["@diff.delta"]                 = "DiffChange",
 		["@diff.minus"]                 = "DiffDelete",
 		["@diff.plus"]                  = "DiffAdd",
@@ -38,13 +38,13 @@ function M.get(c, opts)
 		["@keyword.directive"]          = "PreProc",
 		["@keyword.directive.define"]   = "Define",
 		["@keyword.exception"]          = "Exception",
-		["@keyword.function"]           = "Function",
+		["@keyword.function"]           = "Keyword",
 		["@keyword.import"]             = "Include",
 		["@keyword.operator"]           = "@operator",
 		["@keyword.repeat"]             = "Repeat",
 		["@keyword.return"]             = "@keyword",
 		["@keyword.storage"]            = "StorageClass",
-		-- ["@label"]                      = { fg = c.blue }, -- For labels: `label:` in C and `:label:` in Lua.
+		["@label"]                      = { fg = c.lightBlue }, -- For labels: `label:` in C and `:label:` in Lua.
 		["@markup"]                     = "@none",
 		["@markup.emphasis"]            = { italic = true },
 		["@markup.environment"]         = "Macro",
@@ -72,10 +72,10 @@ function M.get(c, opts)
 		["@number"]                     = "Number",
 		["@number.float"]               = "Float",
 		["@operator"]                   = { fg = c.lightPurple }, -- For any operator: `+`, but also `->` and `*` in C.
-		["@property"]                   = { fg = c.blue },
-		["@punctuation.bracket"]        = { fg = c.blue },    -- For brackets and parens.
-		["@punctuation.delimiter"]      = { fg = c.blue },    -- For delimiters ie: `.`
-		["@punctuation.special"]        = { fg = c.blue },    -- For special symbols (e.g. `{}` in string interpolation)
+		["@property"]                   = { fg = c.lightBlue },
+		["@punctuation.bracket"]        = { fg = c.lightBlue },    -- For brackets and parens.
+		["@punctuation.delimiter"]      = { fg = c.lightBlue },    -- For delimiters ie: `.`
+		["@punctuation.special"]        = { fg = c.lightBlue },    -- For special symbols (e.g. `{}` in string interpolation)
 		["@string"]                     = "String",
 		["@string.documentation"]       = { fg = c.yellow },
 		["@string.escape"]              = { fg = c.lightPurple }, -- For escape characters within a string.
@@ -84,16 +84,16 @@ function M.get(c, opts)
 		["@tag.attribute"]              = "@property",
 		["@tag.delimiter"]              = "Delimiter",
 		-- ["@tag.delimiter.tsx"]          = { fg = Util.blend_bg(c.blue, 0.7) },
-		["@tag.tsx"]                    = { fg = c.red },
-		["@tag.javascript"]             = { fg = c.red },
+		["@tag.tsx"]                    = { fg = c.lightBlue },
+		["@tag.javascript"]             = { fg = c.lightBlue },
 		["@type"]                       = "Type",
 		-- ["@type.builtin"]               = { fg = Util.blend_bg(c.blue1, 0.8) },
 		["@type.definition"]            = "Typedef",
 		["@type.qualifier"]             = "@keyword",
-		["@variable"]                   = { fg = c.orange },                 -- Any variable name that does not have another highlight.
-		["@variable.builtin"]           = { fg = c.red },                    -- Variable names that are defined by the languages, like `this` or `self`.
-		["@variable.member"]            = { fg = c.white },                 -- For fields.
-		["@variable.parameter"]         = { fg = c.lightPurple },                 -- For parameters of a function.
+		["@variable"]                   = { fg = c.white },                 -- Any variable name that does not have another highlight.
+		["@variable.builtin"]           = { fg = c.white },                    -- Variable names that are defined by the languages, like `this` or `self`.
+		["@variable.member"]            = { fg = c.cyan },                 -- For fields.
+		["@variable.parameter"]         = { fg = c.veryLightPurple },                 -- For parameters of a function.
 		-- ["@variable.parameter.builtin"] = { fg = Util.blend_fg(c.yellow, 0.8) }, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
 	}
 
