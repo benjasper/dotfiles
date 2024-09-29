@@ -82,7 +82,7 @@ return {
 				"<leader>gs",
 				function()
 					local neogit = require('neogit')
-					neogit.open({ kind = "replace" })
+					neogit.open({ kind = "split_above_all", cwd = vim.fn.expand('%:p:h')})
 				end,
 				"[G]it [S]tatus"
 			},
