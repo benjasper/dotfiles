@@ -47,7 +47,7 @@ function M.get(c)
 		["@lsp.typemod.variable.injected"]         = "@variable",
 		["@lsp.typemod.variable.static"]           = "@constant",
 
-	}
+  }
 end
 
 return M

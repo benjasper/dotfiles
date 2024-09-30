@@ -2,6 +2,7 @@ local M = {}
 
 M.plugins = {
 	["treesitter"] = "treesitter",
+	["telescope.nvim"] = "telescope",
 }
 
 ---@param colors PaletteColors
@@ -24,6 +25,7 @@ function M.setup(colors, opts)
 		for plugin, group in pairs(M.plugins) do
 			if plugins[plugin] then
 				groups[group] = true
+				print("Nightfall: enabling " .. group .. " for " .. plugin)
 			end
 		end
 	end
