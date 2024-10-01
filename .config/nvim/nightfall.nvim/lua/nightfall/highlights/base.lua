@@ -41,7 +41,7 @@ function M.get(c, opts)
 		-- NormalSB                    = { fg = c.fg_sidebar, bg = c.bg_sidebar },                                               -- normal text in sidebar
 		NormalFloat                 = { fg = c.white, bg = c.background1 }, -- Normal text in floating windows.
 		FloatBorder                 = { fg = c.floatBorder, bg = c.background1 },
-		FloatTitle                  = { fg = c.floatBorder, bg = c.backgroundFloat },
+		FloatTitle                  = { fg = c.white, bg = c.backgroundFloat },
 		Pmenu                       = { bg = c.backgroundFloat, fg = c.white }, -- Popup menu: normal item.
 		-- PmenuSel                    = { bg = Util.blend_bg(c.fg_gutter, 0.8) },      -- Popup menu: selected item.
 		-- PmenuSbar                   = { bg = Util.blend_fg(c.bg_popup, 0.95) },      -- Popup menu: scrollbar.
