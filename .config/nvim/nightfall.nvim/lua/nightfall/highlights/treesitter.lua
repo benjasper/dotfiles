@@ -18,7 +18,7 @@ function M.get(c, opts)
 		["@comment.todo"]             = "Todo",
 		["@comment.warning"]          = { fg = c.warning },
 		["@constant"]                 = "Constant",
-		["@constant.builtin"]         = { fg = c.lightPurple },
+		["@constant.builtin"]         = { fg = c.cyan },                 --  a boolean constant: TRUE, false
 		["@constant.macro"]           = "Define",
 		["@constructor"]              = { fg = c.orange }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
 		["@constructor.tsx"]          = { fg = c.orange },
@@ -65,7 +65,7 @@ function M.get(c, opts)
 		["@markup.strikethrough"]     = { strikethrough = true },
 		["@markup.strong"]            = { bold = true },
 		["@markup.underline"]         = { underline = true },
-		["@module"]                   = { fg = c.white }, -- For import and include statements.
+		["@module"]                   = { fg = c.white },           -- For import and include statements.
 		["@module.builtin"]           = { fg = c.purple, italic = true }, -- Variable names that are defined by the languages, like `this` or `self`.
 		["@namespace.builtin"]        = "@variable.builtin",
 		["@none"]                     = {},
@@ -80,20 +80,21 @@ function M.get(c, opts)
 		["@string.documentation"]     = { fg = c.yellow },
 		["@string.escape"]            = { fg = c.lightPurple }, -- For escape characters within a string.
 		["@string.regexp"]            = { fg = c.lightPurple }, -- For regexes.
-		["@tag"]                      = "Label",
-		["@tag.attribute"]            = "@property",
+		["@string.special.url"]       = { fg = c.orange, underline = true },
+		["@tag"]                      = { fg = c.lightPurple },
+		["@tag.attribute"]            = { fg = c.veryLightPurple },
 		["@tag.delimiter"]            = "Delimiter",
-		-- ["@tag.delimiter.tsx"]          = { fg = Util.blend_bg(c.blue, 0.7) },
-		["@tag.tsx"]                  = { fg = c.purple },
-		["@tag.builtin.tsx"]          = { fg = c.purple },
+		["@tag.delimiter.tsx"]        = "Delimiter",
+		["@tag.tsx"]                  = { fg = c.yellow },
+		["@tag.builtin.tsx"]          = { fg = c.lightPurple },
 		["@tag.javascript"]           = { fg = c.purple },
 		["@type"]                     = "Type",
-		["@type.builtin"]			  = "Type",
+		["@type.builtin"]             = "Type",
 		["@type.definition"]          = "Typedef",
 		["@type.qualifier"]           = "@keyword",
-		["@variable"]                 = { fg = c.white },       -- Any variable name that does not have another highlight.
-		["@variable.builtin"]         = { fg = c.white },       -- Variable names that are defined by the languages, like `this` or `self`.
-		["@variable.member"]          = { fg = c.cyan },        -- For fields.
+		["@variable"]                 = { fg = c.white },     -- Any variable name that does not have another highlight.
+		["@variable.builtin"]         = { fg = c.white },     -- Variable names that are defined by the languages, like `this` or `self`.
+		["@variable.member"]          = { fg = c.lightBlue }, -- For fields.
 		["@variable.parameter"]       = { fg = c.veryLightPurple }, -- For parameters of a function.
 		-- ["@variable.parameter.builtin"] = { fg = Util.blend_fg(c.yellow, 0.8) }, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
 	}

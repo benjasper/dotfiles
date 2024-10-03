@@ -12,7 +12,7 @@ function M.get(c, opts)
 		-- CursorIM                    = { fg = c.bg, bg = c.fg },                                   -- like Cursor, but used when in IME mode |CursorIM|
 		-- CursorColumn                = { bg = c.bg_highlight },                                    -- Screen-column at the cursor, when 'cursorcolumn' is set.
 		CursorLine                  = { bg = c.backgroundLight }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
-		-- Directory                   = { fg = c.blue },                                            -- directory names (and other special names in listings)
+		Directory                   = { fg = c.blue },                                            -- directory names (and other special names in listings)
 		-- DiffAdd                     = { bg = c.diff.add },                                        -- diff mode: Added line |diff.txt|
 		-- DiffChange                  = { bg = c.diff.change },                                     -- diff mode: Changed line |diff.txt|
 		-- DiffDelete                  = { bg = c.diff.delete },                                     -- diff mode: Deleted line |diff.txt|
@@ -73,7 +73,7 @@ function M.get(c, opts)
 		Bold                        = { bold = true, fg = c.white },   -- (preferred) any bold text
 		Character                   = { fg = c.lightBlue },                 --  a character constant: 'c', '\n'
 		Constant                    = { fg = c.darkOrange },           -- (preferred) any constant
-		-- Debug                       = { fg = c.orange },                             --    debugging statements
+		Debug                       = { fg = c.orange },                             --    debugging statements
 		Delimiter                   = "Special",                       --  character that needs attention
 		Error                       = { fg = c.error },                -- (preferred) any erroneous construct
 		Function                    = { fg = c.orange },               -- function name (also: methods for classes)
@@ -81,6 +81,7 @@ function M.get(c, opts)
 		Italic                      = { italic = true, fg = c.white }, -- (preferred) any italic text
 		Keyword                     = { fg = c.purple, italic = true }, --  any other keyword
 		Operator                    = { fg = c.lightPurple },          -- "sizeof", "+", "*", etc.
+		Boolean                     = { fg = c.cyan },                 --  a boolean constant: TRUE, false
 		PreProc                     = { fg = c.purple },                 -- (preferred) generic Preprocessor
 		Special                     = { fg = c.cyan },                 -- (preferred) any special symbol
 		Statement                   = "Keyword",               -- (preferred) any statement
