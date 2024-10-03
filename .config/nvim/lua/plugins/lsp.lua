@@ -285,13 +285,6 @@ return {
 							-- Add other sources if you have them
 						})[entry.source.name]
 
-						-- Integration with nvim-highlight-colors
-						local color_item = require("nvim-highlight-colors").format(entry, { kind = vim_item.kind })
-						if color_item.abbr_hl_group then
-							vim_item.kind_hl_group = color_item.abbr_hl_group
-							vim_item.kind = color_item.abbr
-						end
-
 						return vim_item
 					end
 				},
