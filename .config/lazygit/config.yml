@@ -8,15 +8,12 @@ gui:
   showFileTree: false
   theme:
     activeBorderColor:
-      - '#b4befe'
-      - bold
+      - '#CDD6F4'
     inactiveBorderColor:
       - '#a6adc8'
     optionsTextColor:
       - '#89b4fa'
     selectedLineBgColor:
-      - '#313244'
-    selectedRangeBgColor:
       - '#313244'
     cherryPickedCommitBgColor:
       - '#45475a'
