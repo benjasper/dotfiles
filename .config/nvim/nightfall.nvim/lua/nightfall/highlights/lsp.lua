@@ -22,7 +22,7 @@ function M.get(c)
 		["@lsp.type.number"]                       = "@number",
 		["@lsp.type.operator"]                     = "@operator",
 		["@lsp.type.parameter"]                    = "@variable.parameter",
-		["@lsp.type.property"]                     = "@property",
+		["@lsp.type.property"]                     = "@variable.member",
 		["@lsp.type.selfKeyword"]                  = "@variable.builtin",
 		["@lsp.type.selfTypeKeyword"]              = "@variable.builtin",
 		["@lsp.type.string"]                       = "@string",
@@ -35,6 +35,7 @@ function M.get(c)
 		["@lsp.typemod.function.defaultLibrary"]   = "@function.builtin",
 		["@lsp.typemod.keyword.async"]             = "@keyword.coroutine",
 		["@lsp.typemod.keyword.injected"]          = "@keyword",
+		["@lsp.type.macro"]                        = "@function.builtin",
 		["@lsp.typemod.macro.defaultLibrary"]      = "@function.builtin",
 		["@lsp.typemod.method.defaultLibrary"]     = "@function.builtin",
 		["@lsp.typemod.operator.injected"]         = "@operator",
@@ -44,9 +45,8 @@ function M.get(c)
 		["@lsp.typemod.variable.callable"]         = "@function",
 		["@lsp.typemod.variable.defaultLibrary"]   = "@variable.builtin",
 		["@lsp.typemod.variable.injected"]         = "@variable",
-		["@lsp.typemod.variable.static"]           = "@constant",
-
-  }
+		["@lsp.typemod.attributeBracket"]          = "@attribute",
+	}
 end
 
 return M

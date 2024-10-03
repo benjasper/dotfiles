@@ -4,8 +4,8 @@ local M = {}
 function M.get(c, opts)
 	-- stylua: ignore
 	local ret = {
-		["@annotation"]               = "PreProc",
-		["@attribute"]                = "PreProc",
+		["@annotation"]               = { fg = c.blue },
+		["@attribute"]                = { fg = c.blue },
 		["@boolean"]                  = "Boolean",
 		["@character"]                = "Character",
 		["@character.printf"]         = "SpecialChar",
@@ -18,7 +18,7 @@ function M.get(c, opts)
 		["@comment.todo"]             = "Todo",
 		["@comment.warning"]          = { fg = c.warning },
 		["@constant"]                 = "Constant",
-		["@constant.builtin"]         = "Special",
+		["@constant.builtin"]         = { fg = c.lightPurple },
 		["@constant.macro"]           = "Define",
 		["@constructor"]              = { fg = c.orange }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
 		["@constructor.tsx"]          = { fg = c.orange },
@@ -26,7 +26,7 @@ function M.get(c, opts)
 		["@diff.minus"]               = "DiffDelete",
 		["@diff.plus"]                = "DiffAdd",
 		["@function"]                 = "Function",
-		["@function.builtin"]         = "Special",
+		["@function.builtin"]         = "Function",
 		["@function.call"]            = "@function",
 		["@function.macro"]           = "Macro",
 		["@function.method"]          = "Function",
@@ -52,7 +52,7 @@ function M.get(c, opts)
 		["@markup.heading"]           = "Title",
 		["@markup.italic"]            = { italic = true },
 		["@markup.link"]              = { fg = c.text },
-		["@markup.link.label"]        = "SpecialChar",
+		["@markup.link.label"]        = { fg = c.blue },
 		["@markup.link.label.symbol"] = "Identifier",
 		["@markup.link.url"]          = "Underlined",
 		-- ["@markup.list"]                = { fg = c.blue5 }, -- For special punctutation that does not fall in the categories before.
@@ -65,7 +65,7 @@ function M.get(c, opts)
 		["@markup.strikethrough"]     = { strikethrough = true },
 		["@markup.strong"]            = { bold = true },
 		["@markup.underline"]         = { underline = true },
-		["@module"]                   = "Include",
+		["@module"]                   = { fg = c.white }, -- For import and include statements.
 		["@module.builtin"]           = { fg = c.purple, italic = true }, -- Variable names that are defined by the languages, like `this` or `self`.
 		["@namespace.builtin"]        = "@variable.builtin",
 		["@none"]                     = {},
@@ -88,7 +88,7 @@ function M.get(c, opts)
 		["@tag.builtin.tsx"]          = { fg = c.purple },
 		["@tag.javascript"]           = { fg = c.purple },
 		["@type"]                     = "Type",
-		-- ["@type.builtin"]               = { fg = Util.blend_bg(c.blue1, 0.8) },
+		["@type.builtin"]			  = "Type",
 		["@type.definition"]          = "Typedef",
 		["@type.qualifier"]           = "@keyword",
 		["@variable"]                 = { fg = c.white },       -- Any variable name that does not have another highlight.
