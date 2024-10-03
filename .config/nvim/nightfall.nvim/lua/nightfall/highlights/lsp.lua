@@ -31,7 +31,7 @@ function M.get(c)
 		["@lsp.type.variable"]                     = {}, -- use treesitter styles for regular variables
 		["@lsp.typemod.class.defaultLibrary"]      = "@type.builtin",
 		["@lsp.typemod.enum.defaultLibrary"]       = "@type.builtin",
-		["@lsp.typemod.enumMember.defaultLibrary"] = "@constant.builtin",
+		["@lsp.typemod.enumMember.defaultLibrary"] = "@variable.builtin",
 		["@lsp.typemod.function.defaultLibrary"]   = "@function.builtin",
 		["@lsp.typemod.keyword.async"]             = "@keyword.coroutine",
 		["@lsp.typemod.keyword.injected"]          = "@keyword",

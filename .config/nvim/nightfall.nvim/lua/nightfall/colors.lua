@@ -4,13 +4,13 @@ local palette = {
 	-- New colors
 	background1 = "#1c1e26",
 
-	foregroundDim1 = "#505867",
-	foregroundBright1 = "#B5BCC9",
-
 	selectionBackground = "#2E3341",
-	backgroundFloat = "#232530",
-	floatBorder = "#343646",
 	backgroundLight = "#20222C",
+	backgroundLighter = "#2A2C37",
+
+	backgroundFloat = "#232530",
+	floatBorder = "#4A4C5F",
+
 	bgInlay = "#262A3B",
 	inlay = "#A9B8E7",
 
@@ -18,8 +18,7 @@ local palette = {
 	white = "#D5D8DA",
 	whiteDark = "#BFC7D7",
 	text = "#64D1A9",
-	-- yellow = "#DBBE7F",
-	yellow = "#E5C785",
+	yellow = "#DFC395",
 	purple = "#b877db",
 	lightPurple = "#BAACFF",
 	veryLightPurple = "#EBBBF7",
@@ -28,13 +27,11 @@ local palette = {
 	lightBlue = "#B6C4F2",
 	blue = "#70B0FF",
 	cyan = "#34D3FB",
-	red = "#F8747E",
 
-	error = "#FF5370",
-	warning = "#ff8800",
-	info = "#00ff00",
-	hint = "#00ffff",
-	todo = "#ffff00",
+	error = "#E88787",
+	warning = "#EFC490",
+	info = "#9AC9E3",
+	hint = "#A4D6C2",
 }
 
 return palette
