@@ -38,6 +38,7 @@ return {
 			local putils = require("telescope.previewers.utils")
 			require("telescope").setup({
 				defaults = {
+					file_ignore_patterns = { ".git/" },
 					preview = {
 						-- Do not show previewer for certain files
 						filetype_hook = function(filepath, bufnr, opts)
