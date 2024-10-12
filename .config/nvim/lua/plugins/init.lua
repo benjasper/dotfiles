@@ -31,7 +31,7 @@ return {
 		event = "VeryLazy",
 		keys = {
 			{
-				"<leader>ct",
+				"<leader>nn",
 				"<cmd>:NoNeckPain<CR>",
 				mode = { "n", "x" }
 			}
