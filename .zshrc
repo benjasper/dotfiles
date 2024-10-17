@@ -1,20 +1,8 @@
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-autoload -Uz compinit
-compinit
-
 # zsh theme
-ZSH_THEME=""
+ZSH_THEME=""  # You can set this to a Zinit theme if desired
 
-zstyle ':omz:update' mode auto # update automatically without asking
-
-# Plugins
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
+# Set environment variables
 export LANG=en_US.UTF-8
-
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # Compilation flags
@@ -29,30 +17,35 @@ export GOPATH="$HOME/go"
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
-export PATH=/opt/homebrew/opt/python@3.9/libexec/bin:$PATH
+export PATH="/opt/homebrew/opt/python@3.9/libexec/bin:$PATH"
 export PATH="${HOME}/.pyenv/shims:${PATH}"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 
-# Load Antigen
-source /opt/homebrew/share/antigen/antigen.zsh
+# Zinit installation check and setup
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle pip
-antigen bundle lein
-antigen bundle docker
-antigen bundle docker-compose
-antigen bundle command-not-found
-antigen bundle sunlei/zsh-ssh
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
+# Load Zinit bundles (replace with modern alternatives)
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
 
-# Tell Antigen that you're done.
-antigen apply
+# Additional useful plugins
+zinit light junegunn/fzf-bin  # Fuzzy finder
+zinit light agkozak/zsh-z
+zinit light zsh-users/zsh-history-substring-search
 
+# FZF Initialization
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Aliases
@@ -68,14 +61,14 @@ alias vim="nvim"
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 function killport() {
-	lsof -i tcp:"$1" | grep LISTEN | awk '{print $2}' | xargs kill
+    lsof -i tcp:"$1" | grep LISTEN | awk '{print $2}' | xargs kill
 }
 
-# Enable volta pnpm support
+# Enable Volta pnpm support
 export VOLTA_FEATURE_PNPM=1
 
 # bun completions
-[ -s "$HOME.bun/_bun" ] && source "$HOME.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -90,3 +83,6 @@ eval "$(starship init zsh)"
 
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
+
+# End of configuration
+
