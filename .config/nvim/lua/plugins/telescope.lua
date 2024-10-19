@@ -98,26 +98,4 @@ return {
 			vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
 		end,
 	},
-	{
-		"danielfalk/smart-open.nvim",
-		branch = "main",
-		event = "VeryLazy",
-		config = function()
-			require("telescope").load_extension("smart_open")
-		end,
-		dependencies = {
-			"kkharji/sqlite.lua",
-			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-			{ "nvim-telescope/telescope-fzy-native.nvim" },
-		},
-		keys = {
-			{
-				"<leader>ps",
-				function()
-					require("telescope").extensions.smart_open.smart_open({ cwd_only = true })
-				end,
-				desc = "Open file under cursor"
-			},
-		},
-	}
 }
