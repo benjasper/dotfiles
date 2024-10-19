@@ -19,3 +19,7 @@ Use the `config` alias as `git ...`
 ### Rebuild nix configuration
 
 Run `darwin-rebuild switch --flake ~/.config/nix-darwin`
+
+### Updating packages
+
+Run `nix flake update` and `darwin-rebuild switch --flake ~/.config/nix-darwin` afterwards.
