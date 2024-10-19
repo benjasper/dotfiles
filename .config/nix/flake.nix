@@ -52,9 +52,13 @@
 
     baseConfiguration = { pkgs, ... }: {
       # Cannot be installed with nix packages
-      homebrew.brews = [
+      homebrew = {
+        brews = [
           "volta"
-      ];
+        ];
+        onActivation.autoUpdate = true;
+        onActivation.upgrade = true;
+      };
 
       # Set system settings.
       system.defaults = {
