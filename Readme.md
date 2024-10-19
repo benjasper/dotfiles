@@ -1,6 +1,6 @@
 # dotfiles
 
-## Management
+## Start on a new system
 To checkout this repo on a new system run:
 1. `git clone --bare <git-repo-url> $HOME/.dotfiles`
 
@@ -10,9 +10,13 @@ To checkout this repo on a new system run:
 
 4. Run `config config --local status.showUntrackedFiles no` to hide untracked files.
 
+5. Install nix like this `https://nixos.org/download`
+
 5. Run `nix run nix-darwin -- switch --flake ~/.config/nix` to install nix-darwin and install the configuration.
 
 ## Usage
+
+### Config changes
 
 Use the `config` alias as `git ...`
 
