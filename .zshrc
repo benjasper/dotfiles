@@ -12,7 +12,6 @@ export PATH="$GOPATH/bin:$PATH"
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
-export PATH="/opt/homebrew/opt/python@3.9/libexec/bin:${HOME}/.pyenv/shims:/opt/homebrew/opt/openjdk/bin:/opt/homebrew/opt/mysql-client/bin:$PATH"
 
 # Zinit installation check and setup (run only once)
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -36,7 +35,7 @@ zinit light-mode for \
     zsh-users/zsh-history-substring-search
 
 # FZF Initialization
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 
 # Aliases
 setopt COMPLETE_ALIASES
