@@ -142,7 +142,35 @@
         ];
     };
 
+    darwinConfigurations."MacBook-Pro-BJR" = nix-darwin.lib.darwinSystem {
+      modules = [ 
+          baseConfiguration
+          workConfiguration
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              # Install Homebrew under the default prefix
+              enable = true;
+
+              # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
+              enableRosetta = true;
+
+              # User owning the Homebrew prefix
+              user = "bjr";
+
+              autoMigrate = true;
+
+              # Optional: Enable fully-declarative tap management
+              #
+              # With mutableTaps disabled, taps can no longer be added imperatively with `brew tap`.
+              mutableTaps = true;
+            };
+          }
+        ];
+    };
+
     # Expose the package set, including overlays, for convenience.
     personalDarwinPackages = self.darwinConfigurations."MacBook-Pro-von-Benjamin".pkgs;
+    workDarwinPackages = self.darwinConfigurations."MacBook-Pro-BJR".pkgs;
   };
 }

@@ -12,7 +12,10 @@ To checkout this repo on a new system run:
 
 5. Install nix like this `https://nixos.org/download`
 
-5. Run `nix run nix-darwin -- switch --flake ~/.config/nix` to install nix-darwin and install the configuration.
+6. (Optional) In case new host: Configure new host in nix flake or change hostname
+
+7. Run `nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/.config/nix` to install nix-darwin and install the configuration.
+
 
 ## Usage
 
@@ -22,8 +25,12 @@ Use the `config` alias as `git ...`
 
 ### Rebuild nix configuration
 
-Run `darwin-rebuild switch --flake ~/.config/nix-darwin`
+Run `darwin-rebuild switch --flake ~/.config/nix`
 
 ### Updating packages
 
-Run `nix flake update` and `darwin-rebuild switch --flake ~/.config/nix-darwin` afterwards.
+Run `nix flake update` and `darwin-rebuild switch --flake ~/.config/nix` afterwards.
+
+## Upgrading MacOS
+
+[https://github.com/LnL7/nix-darwin/wiki/Upgrading-macOS](Documentation)
