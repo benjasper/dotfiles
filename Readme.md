@@ -10,6 +10,16 @@ To checkout this repo on a new system run:
 
 4. Run `config config --local status.showUntrackedFiles no` to hide untracked files.
 
+5. Run `nix run nix-darwin -- switch --flake ~/.config/nix` to install nix-darwin and install the configuration.
+
 ## Usage
 
 Use the `config` alias as `git ...`
+
+### Rebuild nix configuration
+
+Run `darwin-rebuild switch --flake ~/.config/nix-darwin`
+
+### Updating packages
+
+Run `nix flake update` and `darwin-rebuild switch --flake ~/.config/nix-darwin` afterwards.

@@ -157,6 +157,7 @@ return {
 				eslint = {},
 				templ = {},
 				gitlab_ci_ls = {},
+				nil_ls = {},
 			}
 
 			-- Special language servers, not managed by mason
