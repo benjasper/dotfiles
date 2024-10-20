@@ -36,22 +36,23 @@
           pkgs.lua
 
           # Language Servers and Language Tools
-          pkgs.typescript-language-server
           pkgs.nodePackages."@astrojs/language-server"
           pkgs.biome
           pkgs.clang-tools
-          pkgs.vscode-langservers-extracted # Contains HTML, CSS, ESLint and JSON
           pkgs.delve
           pkgs.gitlab-ci-ls
           pkgs.gopls
-          pkgs.nodePackages.graphql-language-service-cli
+          pkgs.intelephense
           pkgs.lua-language-server
+          pkgs.nodePackages.graphql-language-service-cli
           pkgs.nil
           pkgs.prettierd
           pkgs.stylua
           pkgs.tailwindcss-language-server
           pkgs.taplo
           pkgs.templ
+          pkgs.typescript-language-server
+          pkgs.vscode-langservers-extracted # Contains HTML, CSS, ESLint and JSON
           pkgs.yaml-language-server
           pkgs.zls
 
@@ -113,7 +114,21 @@
 
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
-    };
+
+      # Write the current system packages to /etc/current-system-packages including their versions
+      environment.etc."current-system-packages".text =
+          let
+            # Extract the package names from environment.systemPackages
+            packages = builtins.map (p: "${p.name}") (commonSystemPackages pkgs);
+
+            # Sort and remove duplicates
+            sortedUnique = pkgs.lib.lists.unique (builtins.sort builtins.lessThan packages);
+
+            # Format as a newline-separated string
+            formatted = builtins.concatStringsSep "\n" sortedUnique;
+          in
+            formatted;
+      };
 
     personalConfiguration = { pkgs, ... }: {
         environment.systemPackages = commonSystemPackages pkgs;
