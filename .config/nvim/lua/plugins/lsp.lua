@@ -192,9 +192,7 @@ return {
 	},
 
 	{ -- Autocompletion
-		-- "hrsh7th/nvim-cmp", // This need to be reset when nvim-cmp is updated and the pr of yioneko is merged
-		"yioneko/nvim-cmp",
-		branch = "perf-up",
+		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
 		dependencies = {
 			-- Snippet Engine & its associated nvim-cmp source
