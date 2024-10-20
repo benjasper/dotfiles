@@ -2,12 +2,7 @@
 return {
 	{ -- LSP Configuration & Plugins
 		"neovim/nvim-lspconfig",
-		dependencies = {
-			-- Automatically install LSPs and related tools to stdpath for neovim
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
-		},
+		dependencies = {},
 		config = function()
 			-- Disable logging, switch to debug when needed
 			vim.lsp.set_log_level("off")
@@ -102,7 +97,7 @@ return {
 				clangd = {},
 				gopls = {},
 				rust_analyzer = {},
-				vtsls = {},
+				ts_ls = {},
 				lua_ls = {
 					settings = {
 						Lua = {
@@ -160,34 +155,12 @@ return {
 				nil_ls = {},
 			}
 
-			-- Special language servers, not managed by mason
-			require('lspconfig').gleam.setup {}
-
-			require("mason").setup({
-				ui = {
-					border = "rounded",
-				},
-			})
-
-			local ensure_installed = vim.tbl_keys(servers or {})
-			vim.list_extend(ensure_installed, {
-				"stylua", -- Used to format lua code
-				"prettierd",
-			})
-			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
-
-			require("mason-lspconfig").setup({
-				handlers = {
-					function(server_name)
-						local server = servers[server_name] or {}
-						-- This handles overriding only values explicitly passed
-						-- by the server configuration above. Useful when disabling
-						-- certain features of an LSP (for example, turning off formatting for tsserver)
-						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						require("lspconfig")[server_name].setup(server)
-					end,
-				},
-			})
+			-- Register language servers with lspconfig
+			local lspconfig = require("lspconfig")
+			for server_name, server in pairs(servers) do
+				server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+				lspconfig[server_name].setup(server)
+			end
 		end,
 	},
 

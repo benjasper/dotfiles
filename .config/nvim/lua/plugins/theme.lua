@@ -17,7 +17,6 @@ return {
 					native_lsp = {
 						enabled = true,
 					},
-					mason = true,
 					neotree = true,
 					neogit = true,
 					lsp_trouble = true,

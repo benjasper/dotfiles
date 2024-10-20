@@ -128,14 +128,4 @@ return {
 			require('dap-go').setup()
 		end
 	},
-	{
-		"jay-babu/mason-nvim-dap.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("mason-nvim-dap").setup({
-				ensure_installed = { "delve" },
-				automatic_installation = true,
-			})
-		end
-	}
 }

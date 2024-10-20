@@ -35,6 +35,26 @@
           pkgs.rustup
           pkgs.lua
 
+          # Language Servers and Language Tools
+          pkgs.typescript-language-server
+          pkgs.nodePackages."@astrojs/language-server"
+          pkgs.biome
+          pkgs.clang-tools
+          pkgs.vscode-langservers-extracted # Contains HTML, CSS, ESLint and JSON
+          pkgs.delve
+          pkgs.gitlab-ci-ls
+          pkgs.gopls
+          pkgs.nodePackages.graphql-language-service-cli
+          pkgs.lua-language-server
+          pkgs.nil
+          pkgs.prettierd
+          pkgs.stylua
+          pkgs.tailwindcss-language-server
+          pkgs.taplo
+          pkgs.templ
+          pkgs.yaml-language-server
+          pkgs.zls
+
           # Tools
           pkgs.obsidian
     ];
