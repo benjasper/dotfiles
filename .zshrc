@@ -48,7 +48,7 @@ alias dcp="docker compose exec php-fpm bash"
 alias encryptkey="ssh-keygen -p -o -f"
 alias vim="nvim"
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias nix-rebuild="darwin-rebuild switch --flake ~/.config/nix"
+alias nix-switch="darwin-rebuild switch --flake ~/.config/nix"
 alias nix-update="nix flake update --flake ~/.config/nix"
 
 function killport() {
