@@ -48,6 +48,7 @@
           pkgs.nil
           pkgs.prettierd
           pkgs.stylua
+          pkgs.sqls
           pkgs.tailwindcss-language-server
           pkgs.taplo
           pkgs.templ
