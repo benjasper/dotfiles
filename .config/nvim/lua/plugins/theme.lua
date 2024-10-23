@@ -16,6 +16,12 @@ return {
 					cmp = true,
 					native_lsp = {
 						enabled = true,
+						underlines = {
+							errors = { "undercurl" },
+							hints = { "undercurl" },
+							warnings = { "undercurl" },
+							information = { "undercurl" },
+						},
 					},
 					neotree = true,
 					neogit = true,
@@ -36,7 +42,7 @@ return {
 						FloatTitle = { fg = "#ffffff" },
 						TelescopeTitle = { fg = colors.text },
 						NormalFloat = { bg = colors.base },
-						FloatBorder = { fg = myBorder},
+						FloatBorder = { fg = myBorder },
 						NeoTreeNormal = { bg = colors.base },
 						NeoTreeFloatTitle = { bg = colors.base, fg = myBorder },
 						NeoTreeFloatBorder = { bg = colors.base, fg = myBorder, bold = false },
