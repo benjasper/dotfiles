@@ -97,14 +97,21 @@
           ];
 
           # Set system settings.
-          system.defaults = {
-            loginwindow.GuestEnabled = false;
-            dock.autohide = true;
-            trackpad.Clicking = false;
-            finder.AppleShowAllExtensions = true;
-            finder.AppleShowAllFiles = true;
-            NSGlobalDomain.KeyRepeat = 2;
-            NSGlobalDomain.AppleInterfaceStyle = "Dark";
+          system = {
+            defaults = {
+              loginwindow.GuestEnabled = false;
+              dock.autohide = true;
+              dock.minimize-to-application = true;
+              dock.show-recents = false;
+              trackpad.Clicking = false;
+              finder.AppleShowAllExtensions = true;
+              finder.AppleShowAllFiles = true;
+              NSGlobalDomain.KeyRepeat = 2;
+              NSGlobalDomain.AppleInterfaceStyle = "Dark";
+            };
+
+            keyboard.enableKeyMapping = true;
+            keyboard.remapCapsLockToEscape = true;
           };
 
           nixpkgs.config.allowUnfree = true;
