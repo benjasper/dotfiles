@@ -360,7 +360,8 @@ return {
 					php = { "php_cs_fixer" },
 					css = { "prettierd" },
 					less = { "prettierd" },
-					scss = { "prettierd" }
+					scss = { "prettierd" },
+					nix = { "nixfmt" },
 				},
 				formatters = {
 					php_cs_fixer = {
@@ -387,7 +388,8 @@ return {
 					},
 					biome = {
 						require_cwd = true,
-					}
+					},
+					nixfmt = {},
 				},
 			})
 		end,
