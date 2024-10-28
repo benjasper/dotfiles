@@ -33,4 +33,4 @@ Run `nix flake update` and `darwin-rebuild switch --flake ~/.config/nix` afterwa
 
 ## Upgrading MacOS
 
-[https://github.com/LnL7/nix-darwin/wiki/Upgrading-macOS](Documentation)
+[Documentation](https://github.com/LnL7/nix-darwin/wiki/Upgrading-macOS)
