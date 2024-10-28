@@ -29,9 +29,7 @@
         pkgs.fd
         pkgs.ripgrep
         pkgs.fzf
-        pkgs.nerdfonts
         pkgs.bruno
-        pkgs.zed
         pkgs.sqlite
 
         # Languages
@@ -163,6 +161,17 @@
               "discord"
             ];
             onActivation.cleanup = "zap";
+          };
+
+          system.defaults = {
+            dock.persistent-apps = [
+              "/Applications/Safari.app"
+              "/Applications/Google Chrome.app"
+              "/System/Applications/Mail.app"
+              "/System/Applications/Calendar.app"
+              "/System/Applications/Music.app"
+              "${pkgs.kitty}/Applications/Kitty.app"
+            ];
           };
         };
 
