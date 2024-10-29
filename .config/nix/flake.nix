@@ -20,6 +20,8 @@
       commonSystemPackages = pkgs: [
         # Development
         pkgs.git
+        pkgs.delta
+        pkgs.git-lfs
         pkgs.lazygit
         pkgs.neovim
         pkgs.kitty
