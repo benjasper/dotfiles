@@ -24,7 +24,6 @@
         pkgs.git-lfs
         pkgs.lazygit
         pkgs.neovim
-        pkgs.kitty
         pkgs.zoxide
         pkgs.starship
         pkgs.maccy
@@ -76,6 +75,7 @@
         "maccy"
         "linearmouse"
         "docker"
+        "kitty" # Because the nix os package is broken
       ];
 
       baseConfiguration =
@@ -172,7 +172,7 @@
               "/System/Applications/Mail.app"
               "/System/Applications/Calendar.app"
               "/System/Applications/Music.app"
-              "${pkgs.kitty}/Applications/Kitty.app"
+              "/Applications/Kitty.app"
             ];
           };
         };
