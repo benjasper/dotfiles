@@ -32,6 +32,7 @@
         pkgs.fzf
         pkgs.bruno
         pkgs.sqlite
+        pkgs.sqlc
 
         # Languages
         pkgs.go
