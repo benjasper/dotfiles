@@ -83,10 +83,6 @@ return {
 				{ border = 'rounded' }
 			)
 
-			-- Configure nvim-cmp
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
-
 			--  Add any additional override configuration in the following tables. Available keys are:
 			--  - cmd (table): Override the default command used to start the server
 			--  - filetypes (table): Override the default list of associated filetypes for the server
@@ -158,117 +154,68 @@ return {
 			-- Register language servers with lspconfig
 			local lspconfig = require("lspconfig")
 			for server_name, server in pairs(servers) do
-				server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+				server.capabilities = require('blink.cmp').get_lsp_capabilities(server.capabilities)
 				lspconfig[server_name].setup(server)
 			end
 		end,
 	},
 
-	{ -- Autocompletion
-		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
-		dependencies = {
-			-- Snippet Engine & its associated nvim-cmp source
-			{
-				"L3MON4D3/LuaSnip",
-				build = (function()
-					-- Build Step is needed for regex support in snippets
-					-- This step is not supported in many windows environments
-					-- Remove the below condition to re-enable on windows
-					if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
-						return
-					end
-					return "make install_jsregexp"
-				end)(),
+	{
+		'saghen/blink.cmp',
+		lazy = false, -- lazy loading handled internally
+		-- optional: provides snippets for the snippet source
+		dependencies = 'rafamadriz/friendly-snippets',
+
+		-- use a release tag to download pre-built binaries
+		version = 'v0.*',
+		-- OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
+		-- build = 'cargo build --release',
+		-- If you use nix, you can build from source using latest nightly rust with:
+		-- build = 'nix run .#build-plugin',
+
+		---@module 'blink.cmp'
+		---@type blink.cmp.Config
+		opts = {
+			-- 'default' for mappings similar to built-in completion
+			-- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
+			-- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
+			-- see the "default configuration" section below for full documentation on how to define
+			-- your own keymap.
+			keymap = { preset = 'enter' },
+
+			highlight = {
+				-- sets the fallback highlight groups to nvim-cmp's highlight groups
+				-- useful for when your theme doesn't support blink.cmp
+				-- will be removed in a future release, assuming themes add support
+				use_nvim_cmp_as_default = false,
 			},
-			"saadparwaiz1/cmp_luasnip",
+			windows = {
+				autocomplete = {
+					max_height = 15,
+					min_width = 20,
+					border = 'rounded',
+				},
 
-			-- Adds other completion capabilities.
-			--  nvim-cmp does not ship with all sources by default. They are split
-			--  into multiple repos for maintenance purposes.
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-path",
+				documentation = {
+					border = 'rounded',
+					auto_show = true,
+				},
 
-			{
-				'L3MON4D3/LuaSnip',
-				build = (function()
-					-- Build Step is needed for regex support in snippets
-					-- This step is not supported in many windows environments
-					-- Remove the below condition to re-enable on windows
-					if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
-						return
-					end
-					return 'make install_jsregexp'
-				end)(),
-				dependencies = {
-					-- `friendly-snippets` contains a variety of premade snippets.
-					--    See the README about individual language/framework/plugin snippets:
-					--    https://github.com/rafamadriz/friendly-snippets
-					{
-						'rafamadriz/friendly-snippets',
-						config = function()
-							require('luasnip.loaders.from_vscode').lazy_load()
-						end,
-					},
+				signature_help = {
+					border = 'rounded',
 				},
 			},
-		},
-		config = function()
-			-- See `:help cmp`
-			local cmp = require("cmp")
-			local luasnip = require("luasnip")
-			luasnip.config.setup({})
 
-			cmp.setup({
-				preselect = "item",
-				window = {
-					completion = cmp.config.window.bordered(),
-					documentation = cmp.config.window.bordered(),
-				},
-				snippet = {
-					expand = function(args)
-						luasnip.lsp_expand(args.body)
-					end,
-				},
-				completion = { completeopt = "menu,menuone,noinsert" },
-				mapping = {
-					-- Select the [n]ext item
-					["<C-n>"] = cmp.mapping.select_next_item(),
-					-- Select the [p]revious item
-					["<C-p>"] = cmp.mapping.select_prev_item(),
+			-- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+			-- adjusts spacing to ensure icons are aligned
+			nerd_font_variant = 'mono',
 
-					-- Accept ([y]es) the completion.
-					--  This will auto-import if your LSP supports it.
-					--  This will expand snippets if the LSP sent a snippet.
-					["<Enter>"] = cmp.mapping.confirm({ select = true }),
+			-- experimental auto-brackets support
+			accept = { auto_brackets = { enabled = true } },
 
-					-- Manually trigger a completion from nvim-cmp.
-					--  Generally you don't need this, because nvim-cmp will display
-					--  completions whenever it has completion options available.
-					["<C-Space>"] = cmp.mapping.complete({}),
-
-					["<C-y>"] = nil
-				},
-				formatting = {
-					format = function(entry, vim_item)
-						-- Set the menu field to show the source name
-						vim_item.menu = ({
-							nvim_lsp = "[LSP]",
-							luasnip = "[Snip]",
-							path = "[Path]",
-							-- Add other sources if you have them
-						})[entry.source.name]
-
-						return vim_item
-					end
-				},
-				sources = {
-					{ name = "nvim_lsp", priority = 100 },
-					{ name = "path",     priority = 50 },
-					{ name = "luasnip",  priority = 1 },
-				},
-			})
-		end,
+			-- experimental signature help support
+			trigger = { signature_help = { enabled = true } }
+		}
 	},
 
 	-- better diagnostics list and others

@@ -6,7 +6,6 @@ return {
 		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
 		"catppuccin/nvim",
 		name = "catppuccin",
-		version = "*",
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
 		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
@@ -14,6 +13,7 @@ return {
 				flavour = "mocha",
 				integrations = {
 					cmp = true,
+					blink_cmp = true,
 					native_lsp = {
 						enabled = true,
 						underlines = {
@@ -42,7 +42,9 @@ return {
 						FloatTitle = { fg = "#ffffff" },
 						TelescopeTitle = { fg = colors.text },
 						NormalFloat = { bg = colors.base },
+						Pmenu = { bg = colors.base },
 						FloatBorder = { fg = myBorder },
+						BlinkCmpMenuBorder = { fg = myBorder },
 						NeoTreeNormal = { bg = colors.base },
 						NeoTreeFloatTitle = { bg = colors.base, fg = myBorder },
 						NeoTreeFloatBorder = { bg = colors.base, fg = myBorder, bold = false },
