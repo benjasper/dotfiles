@@ -62,7 +62,6 @@
         pkgs.typescript-language-server
         pkgs.vscode-langservers-extracted # Contains HTML, CSS, ESLint and JSON
         pkgs.yaml-language-server
-        pkgs.zls
 
         # Tools
         pkgs.obsidian
