@@ -118,7 +118,7 @@ return {
 				intelephense = {
 					init_options = {
 						-- NOTE: Enter licenceKey for intelephense here when on new machine
-						licenceKey = "xxx",
+						-- licenceKey = "xxx",
 					},
 					settings = {
 						intelephense = {
