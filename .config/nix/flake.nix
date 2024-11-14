@@ -33,6 +33,7 @@
         pkgs.bruno
         pkgs.sqlite
         pkgs.sqlc
+        pkgs.kitty
 
         # Languages
         pkgs.go
@@ -75,7 +76,6 @@
         "maccy"
         "linearmouse"
         "docker"
-        "kitty" # Because the nix os package is broken
       ];
 
       baseConfiguration =
@@ -172,7 +172,7 @@
               "/System/Applications/Mail.app"
               "/System/Applications/Calendar.app"
               "/System/Applications/Music.app"
-              "/Applications/Kitty.app"
+              "${pkgs.kitty}/Applications/Kitty.app"
             ];
           };
         };
