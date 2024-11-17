@@ -79,7 +79,7 @@
       ];
 
       baseConfiguration =
-        { pkgs, ... }:
+        { pkgs,config, ... }:
         {
           # Cannot be installed with nix packages
           homebrew = {
@@ -137,19 +137,25 @@
           # The platform the configuration will be used on.
           nixpkgs.hostPlatform = "aarch64-darwin";
 
-          # Write the current system packages to /etc/current-system-packages including their versions
-          environment.etc."current-system-packages".text =
-            let
-              # Extract the package names from environment.systemPackages
-              packages = builtins.map (p: "${p.name}") (commonSystemPackages pkgs);
+          # Write the current system packages to the nix flake repo
+          system.activationScripts.postUserActivation = {
+            text = ''
+              echo "copying current system packages to $FILEPATH/current-system-packages..."
+              FILEPATH=$HOME/.config/nix
 
-              # Sort and remove duplicates
-              sortedUnique = pkgs.lib.lists.unique (builtins.sort builtins.lessThan packages);
+              # Get the package list as a newline-separated string
+              packages="${
+                builtins.concatStringsSep "\n" (
+                  pkgs.lib.lists.unique (
+                    builtins.sort builtins.lessThan (builtins.map (p: "${p.name}") (commonSystemPackages pkgs))
+                  )
+                )
+              }"
 
-              # Format as a newline-separated string
-              formatted = builtins.concatStringsSep "\n" sortedUnique;
-            in
-            formatted;
+              # Write the package list to a file
+              echo "$packages" > "$FILEPATH/current-system-packages"
+            '';
+          };
         };
 
       personalConfiguration =
