@@ -52,7 +52,7 @@ alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias nix-build="darwin-rebuild build --flake ~/.config/nix"
 alias nix-update="nix flake update --flake ~/.config/nix"
 alias nix-check-update="$aliases[nix-update] && $aliases[nix-build] && nix store diff-closures /var/run/current-system ~/.config/nix/result"
-alias nix-switch="darwin-rebuild switch --flake ~/.config/nix -v"
+alias nix-switch="darwin-rebuild switch --flake ~/.config/nix -v && $aliases[config] diff ~/.config/nix/current-system-packages"
 
 function killport() {
     lsof -i tcp:"$1" | grep LISTEN | awk '{print $2}' | xargs kill
