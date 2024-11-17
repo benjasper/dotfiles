@@ -19,6 +19,7 @@
     let
       commonSystemPackages = pkgs: [
         # Development
+        pkgs.bat
         pkgs.git
         pkgs.delta
         pkgs.git-lfs
