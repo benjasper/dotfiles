@@ -34,6 +34,7 @@
         pkgs.sqlite
         pkgs.sqlc
         pkgs.kitty
+        pkgs.wget
 
         # Languages
         pkgs.go
