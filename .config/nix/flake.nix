@@ -142,8 +142,8 @@
           # Write the current system packages to the nix flake repo
           system.activationScripts.postUserActivation = {
             text = ''
-              echo "copying current system packages to $FILEPATH/current-system-packages..."
               FILEPATH=$HOME/.config/nix
+              echo "copying current system packages to $FILEPATH/current-system-packages..."
 
               # Get the package list as a newline-separated string
               packages="${
