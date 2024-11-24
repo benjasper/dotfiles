@@ -41,7 +41,7 @@ return {
 					return {
 						FloatTitle = { fg = "#ffffff" },
 						TelescopeTitle = { fg = colors.text },
-						NormalFloat = { bg = colors.base },
+						NormalFloat = { fg = myBorder, bg = colors.base },
 						Pmenu = { bg = colors.base },
 						FloatBorder = { fg = myBorder },
 						BlinkCmpMenuBorder = { fg = myBorder },
