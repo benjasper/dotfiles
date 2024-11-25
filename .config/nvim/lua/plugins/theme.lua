@@ -41,9 +41,11 @@ return {
 					return {
 						FloatTitle = { fg = "#ffffff" },
 						TelescopeTitle = { fg = colors.text },
-						NormalFloat = { fg = myBorder, bg = colors.base },
+						NormalFloat = { bg = colors.base },
 						Pmenu = { bg = colors.base },
 						FloatBorder = { fg = myBorder },
+						BlinkCmpDocBorder = { fg = myBorder },
+						BlinkCmpSignatureHelpBorder = { fg = myBorder },
 						BlinkCmpMenuBorder = { fg = myBorder },
 						NeoTreeNormal = { bg = colors.base },
 						NeoTreeFloatTitle = { bg = colors.base, fg = myBorder },
