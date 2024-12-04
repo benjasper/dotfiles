@@ -97,23 +97,11 @@ return {
 				lua_ls = {
 					settings = {
 						Lua = {
-							runtime = { version = "LuaJIT" },
-							workspace = {
-								checkThirdParty = false,
-								-- Tells lua_ls where to find all the Lua files that you have loaded
-								-- for your neovim configuration.
-								library = {
-									"${3rd}/luv/library",
-									unpack(vim.api.nvim_get_runtime_file("", true)),
-								},
-								-- If lua_ls is really slow on your computer, you can try this instead:
-								-- library = { vim.env.VIMRUNTIME },
-							},
-							completion = {
-								callSnippet = "Replace",
+							diagnostics = {
+								disable = { "missing-parameters", "missing-fields" }
 							},
 						},
-					},
+					}
 				},
 				intelephense = {
 					init_options = {
@@ -160,7 +148,17 @@ return {
 			end
 		end,
 	},
-
+	{
+		"folke/lazydev.nvim",
+		ft = "lua", -- only load on lua files
+		opts = {
+			library = {
+				-- See the configuration section for more details
+				-- Load luvit types when the `vim.uv` word is found
+				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+			},
+		},
+	},
 	{
 		'saghen/blink.cmp',
 		lazy = false, -- lazy loading handled internally
@@ -184,39 +182,42 @@ return {
 			-- your own keymap.
 			keymap = { preset = 'enter' },
 
-			highlight = {
-				-- sets the fallback highlight groups to nvim-cmp's highlight groups
-				-- useful for when your theme doesn't support blink.cmp
-				-- will be removed in a future release, assuming themes add support
+			appearance = {
+				-- Sets the fallback highlight groups to nvim-cmp's highlight groups
+				-- Useful for when your theme doesn't support blink.cmp
+				-- will be removed in a future release
 				use_nvim_cmp_as_default = false,
-			},
-			windows = {
-				autocomplete = {
-					max_height = 15,
-					min_width = 20,
-					border = 'rounded',
-				},
-
-				documentation = {
-					border = 'rounded',
-					auto_show = true,
-				},
-
-				signature_help = {
-					border = 'rounded',
-				},
+				-- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+				-- Adjusts spacing to ensure icons are aligned
+				nerd_font_variant = 'mono',
 			},
 
-			-- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-			-- adjusts spacing to ensure icons are aligned
-			nerd_font_variant = 'mono',
+			-- default list of enabled providers defined so that you can extend it
+			-- elsewhere in your config, without redefining it, via `opts_extend`
+			sources = {
+				completion = {
+					enabled_providers = { 'lsp', 'path', 'snippets', 'buffer' },
+				},
+			},
 
 			-- experimental auto-brackets support
-			accept = { auto_brackets = { enabled = true } },
+			completion = {
+				accept = {
+					auto_brackets = { enabled = true }
+				},
+				menu = { border = 'rounded', min_width = 15, max_height = 20 },
+				documentation = {
+					auto_show = true,
+					window = { border = 'rounded' },
+				},
+			},
 
 			-- experimental signature help support
-			trigger = { signature_help = { enabled = true } }
-		}
+			signature = { enabled = true, window = { border = 'rounded' } },
+		},
+		-- allows extending the enabled_providers array elsewhere in your config
+		-- without having to redefine it
+		opts_extend = { "sources.completion.enabled_providers" }
 	},
 
 	-- better diagnostics list and others
