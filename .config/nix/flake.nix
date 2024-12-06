@@ -95,7 +95,7 @@
           # Fonts
           fonts.packages = with pkgs; [
             # Only install the Nerd Fonts Symbols Only
-            (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+            nerd-fonts.symbols-only
           ];
 
           # Set system settings.
