@@ -27,7 +27,6 @@
         pkgs.neovim
         pkgs.zoxide
         pkgs.starship
-        pkgs.maccy
         pkgs.fd
         pkgs.ripgrep
         pkgs.fzf
