@@ -9,7 +9,7 @@ fd-10.2.0
 fsouza-prettierd-0.25.3
 fzf-0.56.3
 git-2.47.0
-git-lfs-3.5.1
+git-lfs-3.6.0
 gitlab-ci-ls-0.22.0
 go-1.23.3
 go-task-3.40.0
@@ -22,7 +22,7 @@ lua-5.2.4
 lua-language-server-3.13.2
 neovim-0.10.2
 nil-2024-08-06
-nixfmt-unstable-2024-11-26
+nixfmt-unstable-2024-12-04
 obsidian-1.7.7
 php-with-extensions-8.3.14
 ripgrep-14.1.1
