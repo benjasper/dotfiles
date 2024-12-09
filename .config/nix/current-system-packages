@@ -19,7 +19,7 @@ intelephense-1.12.6
 kitty-0.37.0
 lazygit-0.44.1
 lua-5.2.4
-lua-language-server-3.13.2
+lua-language-server-3.13.3
 neovim-0.10.2
 nil-2024-08-06
 nixfmt-unstable-2024-12-04
@@ -31,7 +31,7 @@ sqlc-1.27.0
 sqlite-3.46.1
 sqls-0.2.28
 starship-1.21.1
-stylua-0.20.0
+stylua-2.0.1
 tailwindcss-language-server-0.0.21
 taplo-0.9.3
 templ-0.2.793
