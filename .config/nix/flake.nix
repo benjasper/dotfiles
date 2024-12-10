@@ -67,6 +67,7 @@
 
         # Tools
         pkgs.obsidian
+        pkgs.croc
       ];
 
       commonCasks = [
