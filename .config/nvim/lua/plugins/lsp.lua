@@ -311,6 +311,7 @@ return {
 					less = { "prettierd" },
 					scss = { "prettierd" },
 					nix = { "nixfmt" },
+					sql = { "sql_formatter" },
 				},
 				formatters = {
 					php_cs_fixer = {
