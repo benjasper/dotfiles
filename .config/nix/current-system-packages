@@ -13,7 +13,7 @@ git-2.47.0
 git-lfs-3.6.0
 gitlab-ci-ls-0.22.0
 go-1.23.3
-go-task-3.40.0
+go-task-3.40.1
 gopls-0.16.2
 graphql-language-service-cli-3.5.0
 intelephense-1.12.6
@@ -28,11 +28,11 @@ obsidian-1.7.7
 php-with-extensions-8.3.14
 ripgrep-14.1.1
 rustup-1.27.1
+sql-formatter-15.4.3
 sqlc-1.27.0
 sqlite-3.46.1
-sqls-0.2.28
 starship-1.21.1
-stylua-2.0.1
+stylua-2.0.2
 tailwindcss-language-server-0.0.21
 taplo-0.9.3
 templ-0.2.793
