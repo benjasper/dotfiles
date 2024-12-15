@@ -94,6 +94,7 @@ return {
 				gopls = {
 					settings = {
 						gopls = {
+							semanticTokens = true,
 							staticcheck = true,
 							gofumpt = true,
 							analyses = {
@@ -108,7 +109,6 @@ return {
 								waitgroup = true,
 								yield = true,
 								httpresponse = true,
-								fieldalignment = true,
 							},
 						},
 					},
