@@ -91,7 +91,28 @@ return {
 			--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 			local servers = {
 				clangd = {},
-				gopls = {},
+				gopls = {
+					settings = {
+						gopls = {
+							staticcheck = true,
+							gofumpt = true,
+							analyses = {
+								unusedparams = true,
+								unusedresult = true,
+								nilness = true,
+								buildtag = true,
+								nilerr = true,
+								defers = true,
+								loopclosure = true,
+								printf = true,
+								waitgroup = true,
+								yield = true,
+								httpresponse = true,
+								fieldalignment = true,
+							},
+						},
+					},
+				},
 				rust_analyzer = {},
 				ts_ls = {},
 				lua_ls = {

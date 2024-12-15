@@ -50,6 +50,7 @@
         pkgs.delve
         pkgs.gitlab-ci-ls
         pkgs.gopls
+        pkgs.go-tools
         pkgs.intelephense
         pkgs.lua-language-server
         pkgs.nixfmt-rfc-style
