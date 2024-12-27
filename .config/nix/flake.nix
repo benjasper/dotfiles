@@ -20,9 +20,13 @@
       commonSystemPackages = pkgs: [
         # Development
         pkgs.bat
+        pkgs.buf # for buf connect
         pkgs.git
         pkgs.delta
         pkgs.git-lfs
+        pkgs.grpcurl # for buf
+        pkgs.go-protobuf # for buf
+        pkgs.protoc-gen-connect-go # for buf
         pkgs.lazygit
         pkgs.neovim
         pkgs.zoxide
