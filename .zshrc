@@ -54,6 +54,12 @@ alias nix-update="nix flake update --flake ~/.config/nix"
 alias nix-check-update="$aliases[nix-update] && $aliases[nix-build] && nix store diff-closures /var/run/current-system ~/.config/nix/result"
 alias nix-switch="darwin-rebuild switch --flake ~/.config/nix -v && $aliases[config] diff ~/.config/nix/current-system-packages"
 
+# Copies terminfo to remote server. From https://ghostty.org/docs/help/terminfo#copy-ghostty's-terminfo-to-a-remote-machine
+function ssh-copy-terminfo() {
+    infocmp -x | ssh "$1" -- tic -x -
+}
+
+# Kills a process by taking the blocked port as an argument
 function killport() {
     lsof -i tcp:"$1" | grep LISTEN | awk '{print $2}' | xargs kill
 }
