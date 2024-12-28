@@ -29,6 +29,7 @@
         pkgs.protoc-gen-connect-go # for buf
         pkgs.lazygit
         pkgs.neovim
+        pkgs.neofetch
         pkgs.zoxide
         pkgs.starship
         pkgs.fd
@@ -37,7 +38,6 @@
         pkgs.bruno
         pkgs.sqlite
         pkgs.sqlc
-        pkgs.kitty
         pkgs.wget
 
         # Languages
@@ -83,6 +83,7 @@
         "maccy"
         "linearmouse"
         "docker"
+        "ghostty"
       ];
 
       baseConfiguration =
@@ -185,7 +186,7 @@
               "/System/Applications/Mail.app"
               "/System/Applications/Calendar.app"
               "/System/Applications/Music.app"
-              "${pkgs.kitty}/Applications/Kitty.app"
+              "/Applications/Ghostty.app"
             ];
           };
         };

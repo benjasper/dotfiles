@@ -1,0 +1,24 @@
+font-family = "SF Mono"
+theme = "catppuccin-mocha"
+background = "#1C1C2A"
+font-size = 14
+adjust-cursor-thickness = 2
+
+# Keybindings
+keybind = ctrl+alt+v=new_split:right
+keybind = ctrl+alt+s=new_split:down
+
+keybind = ctrl+alt+h=goto_split:left
+keybind = ctrl+alt+j=goto_split:bottom
+keybind = ctrl+alt+k=goto_split:top
+keybind = ctrl+alt+l=goto_split:right
+
+keybind = ctrl+alt+left=resize_split:left,10
+keybind = ctrl+alt+right=resize_split:right,10
+keybind = ctrl+alt+up=resize_split:up,10
+keybind = ctrl+alt+down=resize_split:down,10
+
+keybind = ctrl+alt+equal=equalize_splits
+
+keybind = global:super+^=toggle_quick_terminal
+
