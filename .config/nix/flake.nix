@@ -21,6 +21,7 @@
         # Development
         pkgs.bat
         pkgs.buf # for buf connect
+        pkgs.btop
         pkgs.git
         pkgs.delta
         pkgs.git-lfs
@@ -83,8 +84,9 @@
         "maccy"
         "linearmouse"
         "docker"
-        "ghostty"
+        "ghostty@tip"
         "yaak"
+        "altair-graphql-client"
       ];
 
       baseConfiguration =
