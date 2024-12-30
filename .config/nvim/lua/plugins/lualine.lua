@@ -42,8 +42,11 @@ return {
 						padding = { left = 0, right = 1 },
 						path = 1,
 						file_status = true,
+						newfile_status = true,
 						symbols = {
 							modified = '●',
+							readonly = '',
+							unnamed = '',
 						}
 					}
 				},
