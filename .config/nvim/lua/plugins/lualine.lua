@@ -35,8 +35,18 @@ return {
 				lualine_a = { '[[]]', { 'mode', padding = { left = 0, right = 1 } } },
 				lualine_b = { 'location', 'progress' },
 				lualine_c = { { 'branch', padding = { left = 2, right = 1 } }, 'diagnostics', '%=', debuggingIntegration },
-				lualine_x = { },
-				lualine_y = { { 'filetype', icon_only = true, padding = { left = 1, right = 0 } }, { 'filename', padding = { left = 0, right = 1 }, path = 1, file_status = true } },
+				lualine_x = {},
+				lualine_y = { { 'filetype', icon_only = true, padding = { left = 1, right = 0 } },
+					{
+						'filename',
+						padding = { left = 0, right = 1 },
+						path = 1,
+						file_status = true,
+						symbols = {
+							modified = '●',
+						}
+					}
+				},
 				lualine_z = { { '[[]]' }, { 'vim.fn.fnamemodify(vim.fn.getcwd(), ":t")', path = 4, padding = { left = 0, right = 1 } } }
 			},
 			inactive_sections = {
