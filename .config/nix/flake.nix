@@ -22,6 +22,7 @@
         pkgs.bat
         pkgs.buf # for buf connect
         pkgs.btop
+        pkgs.bruno
         pkgs.git
         pkgs.delta
         pkgs.git-lfs
