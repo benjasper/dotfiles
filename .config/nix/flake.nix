@@ -85,7 +85,7 @@
         "maccy"
         "linearmouse"
         "docker"
-        "ghostty@tip"
+        "ghostty"
         "yaak"
         "altair-graphql-client"
       ];
