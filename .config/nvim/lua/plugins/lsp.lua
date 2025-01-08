@@ -224,6 +224,7 @@ return {
 
 			-- Use luasnip as a snippet engine for now, because of weird highlighting issues with vim.snippet https://www.reddit.com/r/neovim/comments/1fj1gbl/highlighted_text_when_expanding_snippets_using/
 			snippets = {
+				preset = 'luasnip',
 				expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
 				active = function(filter)
 					if filter and filter.direction then
@@ -234,7 +235,7 @@ return {
 				jump = function(direction) require('luasnip').jump(direction) end,
 			},
 			sources = {
-				default = { 'lsp', 'path', 'luasnip', 'buffer' },
+				default = { 'lsp', 'path', 'snippets', 'buffer' },
 				-- disable cmdline completions
 				cmdline = {},
 			},
