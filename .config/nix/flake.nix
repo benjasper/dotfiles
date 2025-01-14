@@ -37,7 +37,6 @@
         pkgs.fd
         pkgs.ripgrep
         pkgs.fzf
-        # pkgs.bruno temporally disabled because of build issues, using yaak for now
         pkgs.sqlite
         pkgs.sqlc
         pkgs.wget
