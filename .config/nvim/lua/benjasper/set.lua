@@ -55,10 +55,8 @@ vim.opt.scrolloff = 10
 
 vim.opt.sidescrolloff = 5
 
--- Change the title of the terminal
+-- Display the title of the current buffer
 vim.opt.title = true
-vim.opt.titlelen = 0 -- do not shorten title
-vim.opt.titlestring = 'nvim %{expand("%:f")}'
 
 vim.opt.wrap = false
 
