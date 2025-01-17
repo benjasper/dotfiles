@@ -193,7 +193,7 @@ return {
 	{
 		'saghen/blink.cmp',
 		lazy = false, -- lazy loading handled internally
-		dependencies = {{ 'L3MON4D3/LuaSnip', version = 'v2.*' }},
+		dependencies = { { 'L3MON4D3/LuaSnip', version = 'v2.*' } },
 
 		-- use a release tag to download pre-built binaries
 		version = '*',
@@ -258,6 +258,32 @@ return {
 		-- allows extending the enabled_providers array elsewhere in your config
 		-- without having to redefine it
 		opts_extend = { "sources.default" }
+	},
+
+	{
+		"rachartier/tiny-inline-diagnostic.nvim",
+		event = "VeryLazy", -- Or `LspAttach`
+		priority = 1000, -- needs to be loaded in first
+		config = function()
+			require('tiny-inline-diagnostic').setup(
+				{
+					preset = 'modern',
+					options = {
+						multiple_diag_under_cursor = true,
+						multilines = {
+							-- Enable multiline diagnostic messages
+							enabled = true,
+
+							-- Always show messages on all lines for multiline diagnostics
+							always_show = true,
+						},
+					}
+				}
+			)
+			vim.diagnostic.config({
+				virtual_text = false,
+			})
+		end
 	},
 
 	-- better diagnostics list and others
