@@ -67,8 +67,8 @@
         pkgs.tailwindcss-language-server
         pkgs.taplo
         pkgs.templ
-        pkgs.typescript-language-server
         pkgs.vscode-langservers-extracted # Contains HTML, CSS, ESLint and JSON
+        pkgs.vtsls
         pkgs.yaml-language-server
 
         # Tools
