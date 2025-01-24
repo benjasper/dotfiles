@@ -31,11 +31,11 @@ nixfmt-unstable-2024-12-04
 obsidian-1.7.7
 php-with-extensions-8.3.15
 prettierd-0.25.3
-protoc-gen-connect-go-1.18.0
+protoc-gen-connect-go-1.18.1
 ripgrep-14.1.1
 rustup-1.27.1
-sql-formatter-15.4.3
-sqlc-1.27.0
+sql-formatter-15.4.9
+sqlc-1.28.0
 sqlite-3.47.2
 starship-1.22.1
 stylua-2.0.2
