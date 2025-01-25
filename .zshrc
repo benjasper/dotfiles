@@ -50,6 +50,7 @@ alias encrypt-secrets="gpg --symmetric --cipher-algo AES256 ~/.secrets.env"
 alias decrypt-secrets="gpg --quiet --batch --decrypt ~/.secrets.env.gpg > ~/.secrets.env && chmod 600 ~/.secrets.env"
 alias vim="nvim"
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias config-lazygit='lazygit --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 alias nix-build="darwin-rebuild build --flake ~/.config/nix"
 alias nix-update="nix flake update --flake ~/.config/nix"
