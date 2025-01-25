@@ -59,9 +59,9 @@ return {
 					--  See `:help K` for why this keymap
 					map("K", vim.lsp.buf.hover, "Hover Documentation")
 
-					-- Show signature help
-					map("gk", vim.lsp.buf.signature_help, "Show signature help")
-					vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help)
+					-- Show signature help - commented out in favor of blink.cmp signature help
+					-- map("gk", vim.lsp.buf.signature_help, "Show signature help")
+					-- vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help)
 
 					-- Highlight usages of the symbol under your cursor
 					map("gh", vim.lsp.buf.document_highlight, "Highlight usages")
@@ -209,7 +209,25 @@ return {
 			-- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
 			-- see the "default configuration" section below for full documentation on how to define
 			-- your own keymap.
-			keymap = { preset = 'enter' },
+			keymap = {
+				preset = 'none',
+				['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+				['<C-e>'] = { 'hide' },
+				['<C-z>'] = { 'select_and_accept' },
+
+				['<Up>'] = { 'select_prev', 'fallback' },
+				['<Down>'] = { 'select_next', 'fallback' },
+				['<C-p>'] = { 'select_prev', 'fallback' },
+				['<C-n>'] = { 'select_next', 'fallback' },
+
+				['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
+				['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
+
+				['<Tab>'] = { 'snippet_forward', 'fallback' },
+				['<S-Tab>'] = { 'snippet_backward', 'fallback' },
+
+				['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
+			},
 
 			appearance = {
 				-- Sets the fallback highlight groups to nvim-cmp's highlight groups
@@ -252,7 +270,7 @@ return {
 			},
 
 			-- experimental signature help support
-			signature = { enabled = true, window = { border = 'rounded' } },
+			signature = { enabled = true, window = { border = 'rounded', show_documentation = true } },
 		},
 		-- allows extending the enabled_providers array elsewhere in your config
 		-- without having to redefine it
