@@ -128,8 +128,7 @@ return {
 				},
 				intelephense = {
 					init_options = {
-						-- NOTE: Enter licenceKey for intelephense here when on new machine
-						-- licenceKey = "xxx",
+						licenceKey = vim.env.INTELEPHENSE_LICENSE_KEY,
 					},
 					settings = {
 						intelephense = {

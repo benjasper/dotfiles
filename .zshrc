@@ -46,6 +46,8 @@ alias dcd="docker compose down"
 alias dce="docker compose exec webserver bash"
 alias dcp="docker compose exec php-fpm bash"
 alias encryptkey="ssh-keygen -p -o -f"
+alias encrypt-secrets="gpg --symmetric --cipher-algo AES256 ~/.secrets.env"
+alias decrypt-secrets="gpg --quiet --batch --decrypt ~/.secrets.env.gpg > ~/.secrets.env && chmod 600 ~/.secrets.env"
 alias vim="nvim"
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
@@ -63,6 +65,11 @@ function ssh-copy-terminfo() {
 function killport() {
     lsof -i tcp:"$1" | grep LISTEN | awk '{print $2}' | xargs kill
 }
+
+# Source .secrets.env
+if [ -f ~/.secrets.env ]; then
+	export $(grep -v '^#' "$HOME/.secrets.env" | xargs)
+fi
 
 # Enable Volta pnpm support
 export VOLTA_FEATURE_PNPM=1

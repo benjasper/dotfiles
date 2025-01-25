@@ -16,6 +16,8 @@ To checkout this repo on a new system run:
 
 7. Run `nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/.config/nix` to install nix-darwin and install the configuration.
 
+8. Run `decrypt-secrets` to decrypt secret environment variables.
+
 
 ## Usage
 
