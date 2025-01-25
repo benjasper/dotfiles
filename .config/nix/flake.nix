@@ -19,6 +19,7 @@
     let
       commonSystemPackages = pkgs: [
         # Development
+        pkgs.atlas
         pkgs.bat
         pkgs.buf # for buf connect
         pkgs.btop
