@@ -4,7 +4,7 @@ return {
 		"voldikss/vim-floaterm",
 		cmd = "FloatermNew",
 		keys = {
-			{ "<leader>gl", "<cmd>FloatermNew lazygit<cr>", desc = "Open lazygit" },
+			{ "<leader>gl", "<cmd>FloatermNew --cwd=<buffer> lazygit<cr>", desc = "Open lazygit" },
 		},
 		config = function()
 			vim.g.floaterm_width = 0.95
