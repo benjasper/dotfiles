@@ -284,7 +284,10 @@ return {
 		config = function()
 			require('tiny-inline-diagnostic').setup(
 				{
-					preset = 'modern',
+					preset = 'classic',
+					hi = {
+						background = "NormalFloat"
+					},
 					options = {
 						multiple_diag_under_cursor = true,
 						multilines = {
