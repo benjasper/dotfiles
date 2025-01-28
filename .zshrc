@@ -51,6 +51,7 @@ alias decrypt-secrets="gpg --quiet --batch --decrypt ~/.secrets.env.gpg > ~/.sec
 alias vim="nvim"
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias config-lazygit='lazygit --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias git-clean-branches="git fetch -p ; git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -D"
 
 alias nix-build="darwin-rebuild build --flake ~/.config/nix"
 alias nix-update="nix flake update --flake ~/.config/nix"
