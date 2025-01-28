@@ -402,7 +402,10 @@ return {
 				formatters = {
 					php_cs_fixer = {
 						cwd = util.root_file({ ".php-cs-fixer.dist.php", ".php-cs-fixer.php" }),
-						require_cwd = true
+						require_cwd = true,
+						env = {
+							PHP_CS_FIXER_IGNORE_ENV = true,
+						},
 					},
 					prettierd = {
 						require_cwd = true,
