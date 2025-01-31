@@ -83,7 +83,10 @@ return {
 				{
 					event = events.FILE_OPENED,
 					handler = function()
-						vim.fn.setreg("#", vim.w.neo_tree_before_open_visible_buffer)
+						local buf = vim.w.neo_tree_before_open_visible_buffer
+						if buf and vim.api.nvim_buf_is_valid(buf) then
+							vim.api.nvim_set_current_buf(buf)
+						end
 					end,
 				},
 			}
