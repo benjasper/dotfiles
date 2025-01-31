@@ -111,6 +111,15 @@ return {
 				enhanced_diff_hl = true
 			})
 		end,
+		cmd = {
+			"DiffviewOpen",
+			"DiffviewClose",
+			"DiffviewToggleFiles",
+			"DiffviewFocusFiles",
+			"DiffviewRefresh",
+			"DiffviewFileHistory",
+			"DiffviewOpenInWindow",
+		},
 		keys = {
 			{
 				"<leader>gd",
