@@ -34,6 +34,8 @@ return {
 		end
 	end,
 	config = function()
+		local events = require("neo-tree.events")
+
 		require("neo-tree").setup({
 			close_if_last_window = true,
 			popup_border_style = "rounded",
@@ -69,6 +71,19 @@ return {
 					event = "neo_tree_buffer_enter",
 					handler = function()
 						vim.opt_local.relativenumber = true
+					end,
+				},
+				-- NOTE: restore alternate file for files opened with neo-tree
+				{
+					event = events.NEO_TREE_WINDOW_BEFORE_OPEN,
+					handler = function()
+						vim.w.neo_tree_before_open_visible_buffer = vim.api.nvim_get_current_buf()
+					end,
+				},
+				{
+					event = events.FILE_OPENED,
+					handler = function()
+						vim.fn.setreg("#", vim.w.neo_tree_before_open_visible_buffer)
 					end,
 				},
 			}
