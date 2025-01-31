@@ -289,7 +289,6 @@ return {
 						background = "NormalFloat"
 					},
 					options = {
-						multiple_diag_under_cursor = true,
 						multilines = {
 							-- Enable multiline diagnostic messages
 							enabled = true,
