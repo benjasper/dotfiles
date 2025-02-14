@@ -25,7 +25,7 @@ grpcurl-1.9.2
 intelephense-1.12.6
 lazygit-0.45.2
 lua-5.2.4
-lua-language-server-3.13.5
+lua-language-server-3.13.6
 neofetch-unstable-2021-12-10
 neovim-0.10.4
 nil-2024-08-06
@@ -48,4 +48,4 @@ vscode-langservers-extracted-4.10.0
 vtsls-0.2.6
 wget-1.25.0
 yaml-language-server-1.15.0
-zoxide-0.9.6
+zoxide-0.9.7
