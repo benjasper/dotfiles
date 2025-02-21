@@ -60,7 +60,6 @@
         pkgs.intelephense
         pkgs.lua-language-server
         pkgs.nixfmt-rfc-style
-        pkgs.nodePackages.graphql-language-service-cli
         pkgs.nil
         pkgs.prettierd
         pkgs.stylua
