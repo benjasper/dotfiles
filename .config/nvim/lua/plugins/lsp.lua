@@ -251,10 +251,11 @@ return {
 				end,
 				jump = function(direction) require('luasnip').jump(direction) end,
 			},
+			cmdline = {
+				enabled = false,
+			},
 			sources = {
 				default = { 'lsp', 'path', 'snippets', 'buffer' },
-				-- disable cmdline completions
-				cmdline = {},
 			},
 
 			-- experimental auto-brackets support
