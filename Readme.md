@@ -12,7 +12,7 @@ To checkout this repo on a new system run:
 
 5. Install nix like this `https://nixos.org/download`
 
-6. (Optional) In case new host: Configure new host in nix flake or change hostname
+6. (Optional) In case new host: Configure new host in nix flake or change hostname (`scutil --get LocalHostName` to get current hostname)
 
 7. Run `nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/.config/nix` to install nix-darwin and install the configuration.
 
