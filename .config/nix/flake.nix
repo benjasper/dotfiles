@@ -233,7 +233,7 @@
         ];
       };
 
-      darwinConfigurations."MacBook-Pro-BJR" = nix-darwin.lib.darwinSystem {
+      darwinConfigurations."LQ21HJ29YV" = nix-darwin.lib.darwinSystem {
         modules = [
           baseConfiguration
           workConfiguration
@@ -247,7 +247,7 @@
               enableRosetta = true;
 
               # User owning the Homebrew prefix
-              user = "bjr";
+              user = "benjaminjasper";
 
               autoMigrate = true;
 
@@ -262,6 +262,6 @@
 
       # Expose the package set, including overlays, for convenience.
       personalDarwinPackages = self.darwinConfigurations."MacBook-Pro-von-Benjamin".pkgs;
-      workDarwinPackages = self.darwinConfigurations."MacBook-Pro-BJR".pkgs;
+      workDarwinPackages = self.darwinConfigurations."LQ21HJ29YV".pkgs;
     };
 }
