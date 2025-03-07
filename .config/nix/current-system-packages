@@ -2,7 +2,7 @@ astro-language-server-2.15.4
 atlas-0.31.0
 bat-0.25.0
 biome-1.9.4
-bruno-1.38.1
+bruno-1.39.1
 btop-1.4.0
 buf-1.50.0
 clang-tools-19.1.7
@@ -15,14 +15,14 @@ git-2.48.1
 git-lfs-3.6.1
 gitlab-ci-ls-1.0.2
 gnupg-2.4.7
-go-1.23.6
+go-1.24.0
 go-protobuf-1.5.4
 go-task-3.41.0
 go-tools-2025.1
 gopls-0.18.1
 grpcurl-1.9.2
 intelephense-1.14.1
-lazygit-0.47.2
+lazygit-0.48.0
 lua-5.2.4
 lua-language-server-3.13.6
 neofetch-unstable-2021-12-10
