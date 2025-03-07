@@ -43,7 +43,7 @@
         pkgs.wget
 
         # Languages
-        pkgs.go
+        pkgs.go_1_24
         pkgs.go-task
         pkgs.php
         pkgs.rustup
