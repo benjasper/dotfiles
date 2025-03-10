@@ -12,6 +12,7 @@ return {
 				extension = {
 					typoscript = 'typoscript',
 					tsconfig = 'typoscript',
+					gitconfig = 'gitconfig',
 				}
 			})
 
