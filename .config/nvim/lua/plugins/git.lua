@@ -51,6 +51,9 @@ return {
 		config = function()
 			local neogit = require('neogit')
 			neogit.setup({
+				integrations = {
+					diffview = false,
+				},
 				log_view = {
 					kind = "vsplit",
 				},

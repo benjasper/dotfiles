@@ -75,6 +75,7 @@
         pkgs.obsidian
         pkgs.croc
         pkgs.gnupg
+        pkgs.gnugrep
       ];
 
       commonCasks = [
