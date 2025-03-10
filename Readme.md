@@ -18,6 +18,13 @@ To checkout this repo on a new system run:
 
 8. Run `decrypt-secrets` to decrypt secret environment variables.
 
+9. Put this in your `~/.config/git/config` file:
+
+```
+[include]
+    path = ~/.config/git/custom.gitconfig
+```
+
 
 ## Usage
 

@@ -96,6 +96,7 @@ return {
 				gopls = {
 					settings = {
 						gopls = {
+							buildFlags = {"-tags=unittest"},
 							semanticTokens = true,
 							staticcheck = true,
 							gofumpt = true,

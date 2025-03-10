@@ -129,7 +129,32 @@ return {
 		event = "VeryLazy",
 		dependencies = { "mfussenegger/nvim-dap" },
 		config = function()
-			require('dap-go').setup()
+			require('dap-go').setup({
+				dap_configurations = {
+					{
+						type = "go",
+						name = "Debug test (go.mod) with build flags",
+						request = "launch",
+						mode = "test",
+						program = "./${relativeFileDirname}",
+						buildFlags = require("dap-go").get_build_flags,
+					},
+					{
+						type = "go",
+						name = "Attach remote with port 5555",
+						mode = "remote",
+						request = "attach",
+						port = 5555,
+					},
+					{
+						type = "go",
+						name = "Attach remote with port 5556",
+						mode = "remote",
+						request = "attach",
+						port = 5556,
+					},
+				}
+			})
 		end
 	},
 }
