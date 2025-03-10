@@ -14,6 +14,7 @@ fzf-0.60.2
 git-2.48.1
 git-lfs-3.6.1
 gitlab-ci-ls-1.0.2
+gnugrep-3.11
 gnupg-2.4.7
 go-1.24.0
 go-protobuf-1.5.4
