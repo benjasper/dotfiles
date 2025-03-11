@@ -25,6 +25,8 @@ To checkout this repo on a new system run:
     path = ~/.config/git/custom.gitconfig
 ```
 
+10. Download & Install SF Mono https://developer.apple.com/fonts/
+
 
 ## Usage
 
