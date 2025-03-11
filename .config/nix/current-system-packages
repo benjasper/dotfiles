@@ -10,13 +10,13 @@ croc-10.2.1
 delta-0.18.2
 delve-1.24.0
 fd-10.2.0
-fzf-0.60.2
+fzf-0.60.3
 git-2.48.1
 git-lfs-3.6.1
 gitlab-ci-ls-1.0.2
 gnugrep-3.11
 gnupg-2.4.7
-go-1.24.0
+go-1.24.1
 go-protobuf-1.5.4
 go-task-3.41.0
 go-tools-2025.1
@@ -29,8 +29,8 @@ lua-language-server-3.13.6
 neofetch-unstable-2021-12-10
 neovim-0.10.4
 nil-2024-08-06
-nixfmt-unstable-2024-12-04
-obsidian-1.8.7
+nixfmt-unstable-2025-03-03
+obsidian-1.8.9
 php-with-extensions-8.3.17
 prettierd-0.26.1
 protoc-gen-connect-go-1.18.1
