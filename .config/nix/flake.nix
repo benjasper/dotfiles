@@ -45,7 +45,19 @@
         # Languages
         pkgs.go_1_24
         pkgs.go-task
-        pkgs.php
+        (pkgs.php83.buildEnv {
+          extensions = (
+            { enabled, all }:
+            enabled
+            ++ (with all; [
+              grpc
+              apcu
+              memcached
+              imagick
+            ])
+          );
+        })
+        pkgs.php83Packages.composer
         pkgs.rustup
         pkgs.lua
 
@@ -92,7 +104,7 @@
       ];
 
       baseConfiguration =
-        { pkgs,config, ... }:
+        { pkgs, config, ... }:
         {
           # Cannot be installed with nix packages
           homebrew = {
