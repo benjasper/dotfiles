@@ -2,6 +2,7 @@
 
 return {
 	"nvim-neo-tree/neo-tree.nvim",
+	lazy = "VeryLazy",
 	version = "*",
 	cmd = "Neotree",
 	dependencies = {
@@ -11,13 +12,6 @@ return {
 	},
 	keys = {
 		{
-			"<leader>pv",
-			function()
-				require("neo-tree.command").execute({ toggle = true, reveal = true, position = "current" })
-			end,
-			"[P]roject [V]iew"
-		},
-		{
 			"<leader>pV",
 			function()
 				require("neo-tree.command").execute({ toggle = true, reveal = true, position = "float" })
@@ -25,22 +19,13 @@ return {
 			"[P]roject [V]iew"
 		}
 	},
-	init = function()
-		if vim.fn.argc(-1) == 1 then
-			local stat = vim.loop.fs_stat(vim.fn.argv(0))
-			if stat and stat.type == "directory" then
-				require("neo-tree")
-			end
-		end
-	end,
 	config = function()
 		local events = require("neo-tree.events")
 
 		require("neo-tree").setup({
-			close_if_last_window = true,
+			close_if_last_window = false,
 			popup_border_style = "rounded",
 			filesystem = {
-				hijack_netrw_behavior = "open_current",
 				filtered_items = {
 					visible = true,
 					hide_dotfiles = false,
@@ -54,7 +39,7 @@ return {
 				},
 				window = {
 					mappings = {
-						["o"] = "system_open",
+						["gx"] = "system_open",
 					},
 				},
 				commands = {
