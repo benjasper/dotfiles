@@ -5,7 +5,7 @@ return {
 		dependencies = {},
 		config = function()
 			-- Disable logging, switch to debug when needed
-			vim.lsp.set_log_level("off")
+			vim.lsp.set_log_level("error")
 
 			vim.fn.sign_define("DiagnosticSignError",
 				{ text = "●", texthl = "DiagnosticSignError" })
