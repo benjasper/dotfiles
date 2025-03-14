@@ -2,7 +2,6 @@ return {
 	{ -- Fuzzy Finder (files, lsp, etc)
 		"nvim-telescope/telescope.nvim",
 		event = "VeryLazy",
-		branch = "0.1.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{ -- If encountering errors, see telescope-fzf-native README for install instructions
@@ -38,6 +37,7 @@ return {
 			local putils = require("telescope.previewers.utils")
 			require("telescope").setup({
 				defaults = {
+					path_display = { "filename_first" },
 					file_ignore_patterns = { ".git/" },
 					preview = {
 						-- Do not show previewer for certain files
