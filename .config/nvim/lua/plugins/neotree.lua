@@ -76,8 +76,5 @@ return {
 				},
 			}
 		})
-
-		vim.keymap.set("n", "<leader>pv", ":Neotree reveal position=current<cr>")
-		vim.keymap.set("n", "<leader>pV", ":Neotree toggle reveal position=float<cr>")
 	end
 }
