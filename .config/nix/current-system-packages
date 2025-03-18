@@ -9,12 +9,12 @@ clang-tools-19.1.7
 composer-2.8.5
 croc-10.2.1
 delta-0.18.2
-delve-1.24.0
+delve-1.24.1
 fd-10.2.0
 fzf-0.60.3
 git-2.48.1
 git-lfs-3.6.1
-gitlab-ci-ls-1.0.2
+gitlab-ci-ls-1.0.3
 gnugrep-3.11
 gnupg-2.4.7
 go-1.24.1
@@ -32,7 +32,7 @@ neovim-0.10.4
 nil-2024-08-06
 nixfmt-unstable-2025-03-03
 obsidian-1.8.9
-php-with-extensions-8.3.17
+php-with-extensions-8.3.19
 prettierd-0.26.1
 protoc-gen-connect-go-1.18.1
 ripgrep-14.1.1
