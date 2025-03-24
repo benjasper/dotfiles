@@ -84,7 +84,16 @@ return {
 				"<leader>gs",
 				function()
 					local neogit = require('neogit')
-					neogit.open({ kind = "split_above_all", cwd = vim.fn.expand('%:p:h')})
+
+					local cwd = vim.fn.expand('%:p:h')
+					if vim.bo.filetype == 'oil' then
+						cwd = require('oil').get_current_dir()
+					end
+
+					neogit.open({
+						kind = "split_above_all",
+						cwd = cwd
+					})
 				end,
 				"[G]it [S]tatus"
 			},

@@ -148,13 +148,13 @@ return {
 				cssls = {},
 				astro = {},
 				biome = {},
-				-- graphql = {
-				-- 	filetypes = {
-				-- 		"graphql",
-				-- 		"typescript",
-				-- 		"typescriptreact",
-				-- 	}
-				-- }, -- TODO: Enable when graphql lsp is working again
+				graphql = {
+					filetypes = {
+						"graphql",
+						"typescript",
+						"typescriptreact",
+					}
+				}, -- TODO: Enable when graphql lsp is working again
 				taplo = {},
 				html = {},
 				eslint = {},
