@@ -7,15 +7,6 @@ return {
 			-- Disable logging, switch to debug when needed
 			vim.lsp.set_log_level("error")
 
-			vim.fn.sign_define("DiagnosticSignError",
-				{ text = "●", texthl = "DiagnosticSignError" })
-			vim.fn.sign_define("DiagnosticSignWarn",
-				{ text = "●", texthl = "DiagnosticSignWarn" })
-			vim.fn.sign_define("DiagnosticSignInfo",
-				{ text = "●", texthl = "DiagnosticSignInfo" })
-			vim.fn.sign_define("DiagnosticSignHint",
-				{ text = "●", texthl = "DiagnosticSignHint" })
-
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 				callback = function(event)
@@ -70,18 +61,41 @@ return {
 
 			-- Add borders to floats
 			vim.diagnostic.config({
+				severity_sort = true,
+				signs = {
+					text = {
+						[vim.diagnostic.severity.ERROR] = '●',
+						[vim.diagnostic.severity.WARN] = '●',
+						[vim.diagnostic.severity.INFO] = '●',
+						[vim.diagnostic.severity.HINT] = '●',
+					}
+				},
 				float = { border = 'rounded', sources = { 'always' } },
+				virtual_lines = {
+					current_line = true
+				},
+				-- NOTE: Try lsp lines for now
+				virtual_text = false
+				-- virtual_text = {
+				-- 	source = 'if_many',
+				-- 	spacing = 2,
+				-- 	format = function(diagnostic)
+				-- 		local diagnostic_message = {
+				-- 			[vim.diagnostic.severity.ERROR] = diagnostic.message,
+				-- 			[vim.diagnostic.severity.WARN] = diagnostic.message,
+				-- 			[vim.diagnostic.severity.INFO] = diagnostic.message,
+				-- 			[vim.diagnostic.severity.HINT] = diagnostic.message,
+				-- 		}
+				-- 		return diagnostic_message[diagnostic.severity]
+				-- 	end,
+				-- },
 			})
 
-			vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-				vim.lsp.handlers.hover,
-				{ border = 'rounded' }
-			)
-
-			vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
-				vim.lsp.handlers.signature_help,
-				{ border = 'rounded' }
-			)
+			vim.keymap.set("n", "<leader>dv", function()
+				vim.diagnostic.config({
+					virtual_lines = { current_line = not vim.diagnostic.config().virtual_lines.current_line },
+				})
+			end, { desc = "Toggle global virtual lines" })
 
 			--  Add any additional override configuration in the following tables. Available keys are:
 			--  - cmd (table): Override the default command used to start the server
@@ -96,7 +110,7 @@ return {
 				gopls = {
 					settings = {
 						gopls = {
-							buildFlags = {"-tags=unittest"},
+							buildFlags = { "-tags=unittest" },
 							semanticTokens = true,
 							staticcheck = true,
 							gofumpt = true,
@@ -277,34 +291,6 @@ return {
 		-- allows extending the enabled_providers array elsewhere in your config
 		-- without having to redefine it
 		opts_extend = { "sources.default" }
-	},
-
-	{
-		"rachartier/tiny-inline-diagnostic.nvim",
-		event = "VeryLazy", -- Or `LspAttach`
-		priority = 1000, -- needs to be loaded in first
-		config = function()
-			require('tiny-inline-diagnostic').setup(
-				{
-					preset = 'classic',
-					hi = {
-						background = "NormalFloat"
-					},
-					options = {
-						multilines = {
-							-- Enable multiline diagnostic messages
-							enabled = true,
-
-							-- Always show messages on all lines for multiline diagnostics
-							always_show = true,
-						},
-					}
-				}
-			)
-			vim.diagnostic.config({
-				virtual_text = false,
-			})
-		end
 	},
 
 	-- better diagnostics list and others

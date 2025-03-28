@@ -34,7 +34,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Keep signcolumn on by default
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "yes:2"
 
 -- Decrease update time
 vim.opt.updatetime = 250
@@ -59,6 +59,9 @@ vim.opt.sidescrolloff = 5
 vim.opt.title = true
 
 vim.opt.wrap = false
+
+-- Make all floating windows rounded
+vim.o.winborder = 'rounded'
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
