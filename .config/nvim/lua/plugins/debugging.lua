@@ -3,21 +3,41 @@
 return {
 	{
 		"mfussenegger/nvim-dap",
-		keys = {
-			{ "<F6>",       function() require('dap').continue() end },
-			{ "<Leader>b",  function() require('dap').toggle_breakpoint() end },
-			{ "<Leader>B",  function() require('dap').set_breakpoint() end },
-			{ "<Leader>lp", function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end },
-		},
+		keys = function()
+			local dap = require("dap")
+			local widgets = require("dap.ui.widgets")
+
+			return {
+				{ "<F6>",      function() dap.continue() end },
+				{ "<Leader>b", function() dap.toggle_breakpoint() end },
+				{
+					"<Leader>B",
+					function()
+						vim.ui.input(
+							{ prompt = "Breakpoint condition: " },
+							function(input) dap.set_breakpoint(input) end
+						)
+					end,
+					desc = "Conditional Breakpoint",
+				},
+				{ "<Leader>lp", function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end },
+				{
+					"<leader>ds",
+					function() widgets.centered_float(widgets.scopes, { border = "rounded" }) end,
+					desc = "DAP Scopes",
+				},
+			}
+		end,
 		config = function()
 			local dap = require('dap')
 
 			-- Configure Signs
-			vim.fn.sign_define('DapBreakpoint', { text = '󰄯', texthl = 'DapBreakpoint' })
-			vim.fn.sign_define('DapBreakpointCondition', { text = ' ﳁ', texthl = 'DapBreakpoint' })
-			vim.fn.sign_define('DapBreakpointRejected', { text = ' ', texthl = 'DapBreakpoint' })
-			vim.fn.sign_define('DapLogPoint', { text = ' ', texthl = 'DapLogPoint' })
-			vim.fn.sign_define('DapStopped', { text = ' ', texthl = 'DapStopped' })
+			local sign = vim.fn.sign_define
+			sign("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+			sign("DapBreakpointCondition", { text = "", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
+			sign("DapBreakpointRejected", { text = "", texthl = "DiagnosticWarn", linehl = "", numhl = "" })
+			sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
+			sign("DapStopped", { texthl = "DiagnosticOk" })
 
 			dap.adapters.php = {
 				type = "executable",
@@ -44,41 +64,6 @@ return {
 			vim.keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)
 			vim.keymap.set('n', '<Leader>dh', function() require('dap.ui.widgets').hover() end)
 			vim.keymap.set('n', '<Leader>dp', function() require('dap.ui.widgets').preview() end)
-
-			-- TODO: This is not working yet, there is a problem restoring the keymap
-			--[[ -- A keymapping to allow hover while a debug session is active
-			local dap = require('dap')
-			local api = vim.api
-			local keymap_restore = {}
-			dap.listeners.after['event_initialized']['me'] = function()
-				for _, buf in pairs(api.nvim_list_bufs()) do
-					local keymaps = api.nvim_buf_get_keymap(buf, 'n')
-					for _, keymap in pairs(keymaps) do
-						if keymap.lhs == "K" then
-							table.insert(keymap_restore, keymap)
-							api.nvim_buf_del_keymap(buf, 'n', 'K')
-						end
-					end
-				end
-				api.nvim_set_keymap(
-					'n', 'K', '<Cmd>lua require("dap.ui.widgets").hover()<CR>', { silent = true })
-			end
-
-			local revert_keymaps = function()
-				for _, keymap in pairs(keymap_restore) do
-					api.nvim_buf_set_keymap(
-						keymap.buffer,
-						keymap.mode,
-						keymap.lhs,
-						keymap.rhs,
-						{ silent = keymap.silent == 1 }
-					)
-				end
-				keymap_restore = {}
-			end
-
-			dap.listeners.after['event_terminated']['me'] = revert_keymaps
-			dap.listeners.after['disconnect']['me'] = revert_keymaps ]]
 		end
 	},
 	{

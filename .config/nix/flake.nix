@@ -69,6 +69,7 @@
         pkgs.gitlab-ci-ls
         pkgs.gopls
         pkgs.go-tools
+        pkgs.gotestsum
         pkgs.intelephense
         pkgs.lua-language-server
         pkgs.nixfmt-rfc-style

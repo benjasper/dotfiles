@@ -22,6 +22,7 @@ go-protobuf-1.5.4
 go-task-3.41.0
 go-tools-2025.1.1
 gopls-0.18.1
+gotestsum-1.12.0-unstable-2024-09-17
 grpcurl-1.9.3
 intelephense-1.14.1
 lazygit-0.48.0
