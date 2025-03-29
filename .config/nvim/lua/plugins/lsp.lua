@@ -36,7 +36,7 @@ return {
 
 					-- Fuzzy find all the symbols in your current document.
 					--  Symbols are things like variables, functions, types, etc.
-					map("<leader>gs", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+					map("gs", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
 
 					-- Rename the variable under your cursor
 					--  Most Language Servers support renaming across files, etc.
