@@ -175,6 +175,7 @@ return {
 				templ = {},
 				gitlab_ci_ls = {},
 				nil_ls = {},
+				protols = {},
 			}
 
 			-- Register language servers with lspconfig

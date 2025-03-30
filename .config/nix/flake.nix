@@ -75,6 +75,7 @@
         pkgs.nixfmt-rfc-style
         pkgs.nil
         pkgs.prettierd
+        pkgs.protols
         pkgs.stylua
         pkgs.sql-formatter
         pkgs.tailwindcss-language-server
