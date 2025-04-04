@@ -113,7 +113,7 @@ return {
 							buildFlags = { "-tags=unittest" },
 							semanticTokens = true,
 							staticcheck = true,
-							gofumpt = true,
+							-- gofumpt = true, -- Disabled for now
 							analyses = {
 								unusedparams = true,
 								unusedresult = true,
@@ -168,7 +168,7 @@ return {
 						"typescript",
 						"typescriptreact",
 					}
-				}, -- TODO: Enable when graphql lsp is working again
+				},
 				taplo = {},
 				html = {},
 				eslint = {},

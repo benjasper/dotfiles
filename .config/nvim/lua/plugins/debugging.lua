@@ -35,7 +35,7 @@ return {
 			local sign = vim.fn.sign_define
 			sign("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
 			sign("DapBreakpointCondition", { text = "", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
-			sign("DapBreakpointRejected", { text = "", texthl = "DiagnosticWarn", linehl = "", numhl = "" })
+			sign("DapBreakpointRejected", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
 			sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
 			sign("DapStopped", { texthl = "DiagnosticOk" })
 
@@ -99,7 +99,9 @@ return {
 		dependencies = { "mfussenegger/nvim-dap" },
 		event = "VeryLazy",
 		config = function()
-			require("nvim-dap-virtual-text").setup()
+			require("nvim-dap-virtual-text").setup({
+				commented = true
+			})
 		end
 	},
 	{
@@ -124,20 +126,6 @@ return {
 						mode = "test",
 						program = "./${relativeFileDirname}",
 						buildFlags = require("dap-go").get_build_flags,
-					},
-					{
-						type = "go",
-						name = "Attach remote with port 5555",
-						mode = "remote",
-						request = "attach",
-						port = 5555,
-					},
-					{
-						type = "go",
-						name = "Attach remote with port 5556",
-						mode = "remote",
-						request = "attach",
-						port = 5556,
 					},
 				}
 			})
