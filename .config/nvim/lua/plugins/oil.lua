@@ -91,7 +91,7 @@ return {
 					-- Show files and directories that start with "."
 					show_hidden = true,
 					-- This function defines what will never be shown, even when `show_hidden` is set
-					is_always_hidden = function(name, bufnr)
+					is_always_hidden = function(name, _)
 						-- DS_Store
 						return name:match('^%.DS_Store$')
 					end,
