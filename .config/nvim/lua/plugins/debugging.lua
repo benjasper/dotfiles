@@ -105,14 +105,6 @@ return {
 		end
 	},
 	{
-		"nvim-telescope/telescope-dap.nvim",
-		dependencies = { "mfussenegger/nvim-dap" },
-		event = "VeryLazy",
-		config = function()
-			require('telescope').load_extension('dap')
-		end
-	},
-	{
 		"leoluz/nvim-dap-go",
 		event = "VeryLazy",
 		dependencies = { "mfussenegger/nvim-dap" },

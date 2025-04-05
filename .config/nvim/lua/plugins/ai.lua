@@ -11,7 +11,7 @@ return {
 					accept_word = "<C-h>",
 				},
 				log_level = "off",
-				ignore_filetypes = { NeogitStatus = true, ["Neo-tree"] = true, ["neo-tree-popup"] = true, TelescopePrompt = true, oil = true },
+				ignore_filetypes = { NeogitStatus = true, oil = true },
 			})
 		end,
 	},
