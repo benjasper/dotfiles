@@ -135,6 +135,7 @@
               finder.AppleShowAllExtensions = true;
               finder.AppleShowAllFiles = true;
               NSGlobalDomain.KeyRepeat = 2;
+              NSGlobalDomain.InitialKeyRepeat = 10;
               NSGlobalDomain.AppleInterfaceStyle = "Dark";
             };
 
