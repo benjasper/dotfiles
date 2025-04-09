@@ -30,6 +30,7 @@
         pkgs.grpcurl # for buf
         pkgs.go-protobuf # for buf
         pkgs.protoc-gen-connect-go # for buf
+        pkgs.protoc-gen-doc
         pkgs.lazygit
         pkgs.neovim
         pkgs.neofetch
