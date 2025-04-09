@@ -26,7 +26,8 @@ return {
 					lsp_trouble = true,
 					harpoon = true,
 					grug_far = true,
-					snacks = true,
+					snacks = { enabled = true },
+					neotest = true,
 				},
 				color_overrides = {
 					all = {
