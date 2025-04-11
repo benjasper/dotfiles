@@ -11,7 +11,7 @@ return {
 				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 				callback = function(event)
 					local map = function(keys, func, desc)
-						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+						vim.keymap.set({"n", "v"}, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
 
 					-- NOTE: Other LSP mappings are in the `snacks` picker module
@@ -172,8 +172,8 @@ return {
 				-- See the configuration section for more details
 				-- Load luvit types when the `vim.uv` word is found
 				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-				{ path = "snacks.nvim", words = { "Snacks" } },
-                { path = "lazy.nvim", words = { "LazyVim", "LazySpec" } },
+				{ path = "snacks.nvim",        words = { "Snacks" } },
+				{ path = "lazy.nvim",          words = { "LazyVim", "LazySpec" } },
 			},
 		},
 	},
@@ -287,7 +287,16 @@ return {
 	},
 
 	-- Highlight todo, notes, etc in comments
-	{ "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = { signs = false } },
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = { signs = false },
+		keys = {
+			{ "<leader>pt", function() Snacks.picker.todo_comments() end,                                           desc = "Todo" },
+			{ "<leader>pT", function() Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } }) end,  desc = "Todo/Fix/Fixme" },
+
+		}
+	},
 
 	{
 		"j-hui/fidget.nvim",
