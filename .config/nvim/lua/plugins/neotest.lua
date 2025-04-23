@@ -26,8 +26,19 @@ return {
 					}),
 					require("neotest-phpunit")({
 						phpunit_cmd = function()
-							-- TODO: Maybe switch to docker container
-							return "vendor/bin/phpunit"
+							local path = vim.fn.getcwd()
+							if (string.find(path, "docker-compose.yml")) then
+								return {
+									"docker",
+									"compose",
+									"exec",
+									"php-fpm",
+									"php",
+									"vendor/bin/phpunit",
+								}
+							else
+								return "vendor/bin/phpunit"
+							end
 						end
 					}),
 				},
@@ -38,7 +49,7 @@ return {
 			{ "<leader>td", function() require("neotest").run.run({ strategy = "dap" }) end, desc = "Run test with debugging" },
 			{ "<leader>tf", function() require("neotest").run.run(vim.fn.expand("%")) end,   desc = "Run test file" },
 			{ "<leader>to", function() require("neotest").summary.toggle() end,              desc = "Run test summary" },
-			{ "<leader>ts", function() require("neotest").output.open() end, desc = "Show output of test" },
+			{ "<leader>ts", function() require("neotest").output.open() end,                 desc = "Show output of test" },
 		}
 	}
 }
