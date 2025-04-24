@@ -41,9 +41,8 @@ return {
 
 			dap.adapters.php = {
 				type = "executable",
-				command = "node",
 				-- NOTE: This needs to be installed manually installed
-				args = { os.getenv("HOME") .. "/debugger/vscode-php-debug/out/phpDebug.js" }
+				command = os.getenv("HOME") .. "/debugger/vscode-php-debug/run.sh",
 			}
 			dap.configurations.php = {
 				{

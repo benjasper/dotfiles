@@ -6,7 +6,7 @@ export LANG=en_US.UTF-8
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # Set path
-export PATH="/opt/homebrew/bin:/usr/local/bin:/opt/homebrew/sbin:/opt/homebrew/opt/curl/bin:$PATH"
+export PATH="/opt/homebrew/bin:/usr/local/bin:/opt/homebrew/sbin:/opt/homebrew/opt/curl/bin:$HOME/.local/bin:$PATH"
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 
