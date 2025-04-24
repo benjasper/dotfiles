@@ -20,7 +20,7 @@ return {
 				gemini = function()
 					return require("codecompanion.adapters").extend("gemini", {
 						env = {
-							api_key = "AIzaSyAr7EfbLTK-ln3SKcZofESl_3RmJDwxo9I",
+							api_key = vim.env.CODE_COMPANION_API_KEY,
 						},
 					})
 				end,
