@@ -59,6 +59,7 @@
           );
         })
         pkgs.php83Packages.composer
+        pkgs.pipx
         pkgs.rustup
         pkgs.lua
 

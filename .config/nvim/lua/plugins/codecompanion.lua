@@ -3,7 +3,6 @@
 return {
 	{
 		"olimorris/codecompanion.nvim",
-		event = "VeryLazy",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
@@ -11,16 +10,20 @@ return {
 			{
 				"Davidyz/VectorCode",
 				version = "*",
-				build = "pipx install vectorcode",
+				build = "pipx install vectorcode || pipx upgrade vectorcode",
 				dependencies = { "nvim-lua/plenary.nvim" },
 			},
+		},
+		cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionInline", "CodeCompanionActions" },
+		keys = {
+			{ "<leader>cc", "<cmd>CodeCompanionChat<cr>", desc = "CodeCompanion: Open" },
 		},
 		opts = {
 			adapters = {
 				gemini = function()
 					return require("codecompanion.adapters").extend("gemini", {
 						env = {
-							api_key = vim.env.CODE_COMPANION_API_KEY,
+							api_key = vim.env.GEMINI_API_KEY,
 						},
 					})
 				end,
