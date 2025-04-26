@@ -27,12 +27,14 @@ return {
 					"vim",
 					"vimdoc",
 					"php",
+					"phpdoc",
 					"go",
 					"typoscript",
 					"typescript",
 					"javascript",
 					"gitcommit",
-					"regex"
+					"regex",
+					"comment"
 				},
 				-- Autoinstall languages that are not installed
 				auto_install = true,
