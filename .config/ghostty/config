@@ -1,6 +1,7 @@
 font-family = "SF Mono Regular"
 theme = "catppuccin-mocha"
 background = "#1C1C2A"
+split-divider-color = "#4A4C5F"
 cursor-text = "#0E0E15"
 font-size = 14
 adjust-cursor-thickness = 2
