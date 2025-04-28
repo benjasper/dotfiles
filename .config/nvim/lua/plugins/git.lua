@@ -143,5 +143,6 @@ return {
 				"Closes the diffview"
 			}
 		}
-	}
+	},
+	{ 'akinsho/git-conflict.nvim', version = "*", opts = {} },
 }
