@@ -4,7 +4,6 @@ return {
 	{
 		"numToStr/Comment.nvim",
 		event = "BufEnter",
-		opts = {},
 		keys = {
 			{ "<leader>xt", "<cmd>TodoTrouble<cr>", "Opens todos in a trouble list" }
 		},
