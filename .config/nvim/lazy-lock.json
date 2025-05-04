@@ -24,6 +24,7 @@
   "neotest": { "branch": "master", "commit": "6267dcd577aa519c828d2526b05844770d3a2c6a" },
   "neotest-golang": { "branch": "main", "commit": "75d471fc87eb06f071748b63d069c3ed7c22fdde" },
   "neotest-phpunit": { "branch": "main", "commit": "baae8dfa0a3aaacd9f0bb6845d6348f5bcdc48bb" },
+  "nightfall.nvim": { "branch": "main", "commit": "6a662fd39df9417c4a3d849e46849a98a35de61b" },
   "no-neck-pain.nvim": { "branch": "main", "commit": "9cef4b9a54657f430cbac95a83c7cbf0bff28d31" },
   "nvim-colorizer.lua": { "branch": "master", "commit": "a065833f35a3a7cc3ef137ac88b5381da2ba302e" },
   "nvim-dap": { "branch": "master", "commit": "8df427aeba0a06c6577dc3ab82de3076964e3b8d" },

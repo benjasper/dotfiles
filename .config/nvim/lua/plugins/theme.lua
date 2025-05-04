@@ -1,4 +1,23 @@
 return {
+	{
+		-- dir = "/Users/benni/Workspace/nightfall.nvim",
+		"benjasper/nightfall.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			-- Ensure the module can be required
+			local status_ok, nightfall = pcall(require, "nightfall")
+			if not status_ok then
+				vim.notify("nightfall module not found!", vim.log.levels.ERROR)
+				return
+			end
+
+			-- Setup the colorscheme
+			nightfall.setup()
+
+			vim.cmd([[colorscheme nightfall]])
+		end,
+	},
 	{ -- You can easily change to a different colorscheme.
 		-- Change the name of the colorscheme plugin below, and then
 		-- change the command in the config to whatever the name of that colorscheme is
@@ -51,7 +70,7 @@ return {
 				end
 			})
 
-			vim.cmd.colorscheme("catppuccin")
+			-- vim.cmd.colorscheme("catppuccin")
 		end,
 	},
 }
