@@ -4,6 +4,7 @@ background = "#1C1C2A"
 split-divider-color = "#4A4C5F"
 cursor-text = "#0E0E15"
 font-size = 14
+font-feature = "-calt, -liga, -dlig"
 adjust-cursor-thickness = 2
 
 # Keybindings
