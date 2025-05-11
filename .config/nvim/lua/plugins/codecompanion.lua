@@ -7,12 +7,6 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
 			"j-hui/fidget.nvim",
-			{
-				"Davidyz/VectorCode",
-				version = "*",
-				build = "pipx install vectorcode || pipx upgrade vectorcode",
-				dependencies = { "nvim-lua/plenary.nvim" },
-			},
 		},
 		cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionInline", "CodeCompanionActions" },
 		keys = {
@@ -44,6 +38,16 @@ return {
 					adapter = "gemini",
 				},
 			},
+			extensions = {
+				mcphub = {
+					callback = "mcphub.extensions.codecompanion",
+					opts = {
+						show_result_in_chat = false, -- Show the mcp tool result in the chat buffer
+						make_vars = true,   -- make chat #variables from MCP server resources
+						make_slash_commands = true, -- make /slash_commands from MCP server prompts
+					},
+				}
+			}
 		},
 	}
 }

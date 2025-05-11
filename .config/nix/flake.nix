@@ -36,6 +36,7 @@
         pkgs.neofetch
         pkgs.zoxide
         pkgs.starship
+        pkgs.uv
         pkgs.fd
         pkgs.ripgrep
         pkgs.fzf
@@ -59,7 +60,6 @@
           );
         })
         pkgs.php83Packages.composer
-        pkgs.pipx
         pkgs.rustup
         pkgs.lua
 
