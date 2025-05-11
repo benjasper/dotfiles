@@ -3,31 +3,38 @@
 return {
 	{
 		"mfussenegger/nvim-dap",
-		keys = function()
-			local dap = require("dap")
-			local widgets = require("dap.ui.widgets")
-
-			return {
-				{ "<F6>",      function() dap.continue() end },
-				{ "<Leader>b", function() dap.toggle_breakpoint() end },
-				{
-					"<Leader>B",
-					function()
-						vim.ui.input(
-							{ prompt = "Breakpoint condition: " },
-							function(input) dap.set_breakpoint(input) end
-						)
-					end,
-					desc = "Conditional Breakpoint",
-				},
-				{ "<Leader>lp", function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end },
-				{
-					"<leader>ds",
-					function() widgets.centered_float(widgets.scopes, { border = "rounded" }) end,
-					desc = "DAP Scopes",
-				},
+		dependencies = {
+			"leoluz/nvim-dap-go",
+			"theHamsta/nvim-dap-virtual-text",
+			{
+				"rcarriga/nvim-dap-ui",
+				dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
 			}
-		end,
+		},
+		keys = {
+			{ "<F6>",      function() require("dap").continue() end },
+			{ "<Leader>b", function() require("dap").toggle_breakpoint() end },
+			{
+				"<Leader>B",
+				function()
+					vim.ui.input(
+						{ prompt = "Breakpoint condition: " },
+						function(input) require("dap").set_breakpoint(input) end
+					)
+				end,
+				desc = "Conditional Breakpoint",
+			},
+			{ "<Leader>lp", function() require("dap").set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end },
+			{
+				"<leader>ds",
+				function()
+					require("dap.ui.widgets").centered_float(require("dap.ui.widgets").scopes,
+						{ border = "rounded" })
+				end,
+				desc = "DAP Scopes",
+			},
+			{ "<leader>du", function() require("dapui").toggle() end }
+		},
 		config = function()
 			local dap = require('dap')
 
@@ -37,7 +44,7 @@ return {
 			sign("DapBreakpointCondition", { text = "", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
 			sign("DapBreakpointRejected", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
 			sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
-			sign("DapStopped", { texthl = "DiagnosticOk" })
+			sign("DapStopped", { texthl = "DapStopped" })
 
 			dap.adapters.php = {
 				type = "executable",
@@ -63,16 +70,30 @@ return {
 			vim.keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)
 			vim.keymap.set('n', '<Leader>dh', function() require('dap.ui.widgets').hover() end)
 			vim.keymap.set('n', '<Leader>dp', function() require('dap.ui.widgets').preview() end)
-		end
-	},
-	{
-		"rcarriga/nvim-dap-ui",
-		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-		event = "VeryLazy",
-		config = function()
-			local dap = require("dap")
-			require("dapui").setup()
+
+			-- Setup virtual text
+			require("nvim-dap-virtual-text").setup({
+				all_references = true
+			})
+
+			-- Setup dap-go
+			require('dap-go').setup({
+				dap_configurations = {
+					{
+						type = "go",
+						name = "Debug test (go.mod) with build flags",
+						request = "launch",
+						mode = "test",
+						program = "./${relativeFileDirname}",
+						buildFlags = require("dap-go").get_build_flags,
+					},
+				}
+			})
+
+			-- Setup dap ui
 			local dapui = require("dapui")
+			dapui.setup()
+
 			dap.listeners.before.attach.dapui_config = function()
 				dapui.open()
 			end
@@ -88,38 +109,6 @@ return {
 			dap.listeners.after.disconnect.dapui_config = function()
 				dapui.close()
 			end
-
-
-			vim.keymap.set('n', '<Leader>du', function() dapui.toggle() end)
-		end
-	},
-	{
-		"theHamsta/nvim-dap-virtual-text",
-		dependencies = { "mfussenegger/nvim-dap" },
-		event = "VeryLazy",
-		config = function()
-			require("nvim-dap-virtual-text").setup({
-				commented = true
-			})
-		end
-	},
-	{
-		"leoluz/nvim-dap-go",
-		event = "VeryLazy",
-		dependencies = { "mfussenegger/nvim-dap" },
-		config = function()
-			require('dap-go').setup({
-				dap_configurations = {
-					{
-						type = "go",
-						name = "Debug test (go.mod) with build flags",
-						request = "launch",
-						mode = "test",
-						program = "./${relativeFileDirname}",
-						buildFlags = require("dap-go").get_build_flags,
-					},
-				}
-			})
 		end
 	},
 }

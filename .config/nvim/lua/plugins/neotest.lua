@@ -9,7 +9,8 @@ return {
 			"nvim-treesitter/nvim-treesitter",
 			-- Providers
 			{ "fredrikaverpil/neotest-golang", version = "*" },
-			{ "olimorris/neotest-phpunit" }
+			{ "olimorris/neotest-phpunit" },
+			{ "mfussenegger/nvim-dap" },
 		},
 		config = function()
 			require("neotest").setup({
