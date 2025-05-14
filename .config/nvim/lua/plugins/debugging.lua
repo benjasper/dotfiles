@@ -73,7 +73,7 @@ return {
 
 			-- Setup virtual text
 			require("nvim-dap-virtual-text").setup({
-				all_references = true
+				virt_lines = true
 			})
 
 			-- Setup dap-go

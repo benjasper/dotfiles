@@ -14,6 +14,9 @@ return {
 		},
 		config = function()
 			require("neotest").setup({
+				diagnostic = {
+					severity = 2,
+				},
 				adapters = {
 					require("neotest-golang")({
 						runner = "gotestsum",
