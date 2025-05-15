@@ -12,6 +12,10 @@ return {
 				replace_netrw = false,
 			},
 			picker = {
+				main = {
+					file = false,
+					current = true,
+				},
 				layout = {
 					default = {
 						backdrop = false,
