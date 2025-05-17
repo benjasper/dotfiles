@@ -19,21 +19,4 @@ return {
 			})
 		end
 	},
-
-	{
-		"shortcuts/no-neck-pain.nvim",
-		version = "*",
-		keys = {
-			{
-				"<leader>nn",
-				"<cmd>:NoNeckPain<CR>",
-				mode = { "n", "x" }
-			}
-		},
-		config = function(self, opts)
-			require("no-neck-pain").setup({
-				width = 160,
-			})
-		end
-	},
 }

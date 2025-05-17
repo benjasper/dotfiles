@@ -5,6 +5,7 @@ return {
 		"mfussenegger/nvim-dap",
 		dependencies = {
 			"leoluz/nvim-dap-go",
+			"jbyuki/one-small-step-for-vimkind",
 			"theHamsta/nvim-dap-virtual-text",
 			{
 				"rcarriga/nvim-dap-ui",
@@ -33,7 +34,8 @@ return {
 				end,
 				desc = "DAP Scopes",
 			},
-			{ "<leader>du", function() require("dapui").toggle() end }
+			{ "<leader>du", function() require("dapui").toggle() end },
+			{ "<leader>dn", function() require "osv".launch({ port = 8086 }) end },
 		},
 		config = function()
 			local dap = require('dap')
@@ -51,6 +53,11 @@ return {
 				-- NOTE: This needs to be installed manually installed
 				command = os.getenv("HOME") .. "/debugger/vscode-php-debug/run.sh",
 			}
+
+			dap.adapters.nlua = function(callback, config)
+				callback({ type = 'server', host = config.host or "127.0.0.1", port = config.port or 8086 })
+			end
+
 			dap.configurations.php = {
 				{
 					type = "php",
@@ -62,6 +69,15 @@ return {
 					}
 				}
 			}
+
+			dap.configurations.lua = {
+				{
+					type = 'nlua',
+					request = 'attach',
+					name = "Attach to running Neovim instance",
+				}
+			}
+
 			vim.keymap.set('n', '<F7>', function() dap.step_over() end)
 			vim.keymap.set('n', '<F8>', function() dap.step_into() end)
 			vim.keymap.set('n', '<F9>', function() dap.step_out() end)

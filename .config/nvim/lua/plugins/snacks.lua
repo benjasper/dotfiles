@@ -86,7 +86,7 @@ return {
 						filter = { cwd = true },
 						matcher = {
 							frecency = false,
-						}
+						},
 					})
 				end,
 				desc = "Recent"
