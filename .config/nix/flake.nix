@@ -101,10 +101,19 @@
         "tableplus"
         "maccy"
         "linearmouse"
-        "docker"
         "ghostty"
         "yaak"
         "altair-graphql-client"
+      ];
+
+      personalOnlyCasks = [
+        "docker"
+        "1password"
+        "discord"
+      ];
+
+      workOnlyCasks = [
+        "orbstack"
       ];
 
       baseConfiguration =
@@ -192,10 +201,7 @@
           environment.systemPackages = commonSystemPackages pkgs;
           homebrew = {
             enable = true;
-            casks = commonCasks ++ [
-              "1password"
-              "discord"
-            ];
+            casks = commonCasks ++ personalOnlyCasks;
             onActivation.cleanup = "zap";
           };
 
@@ -217,7 +223,7 @@
           environment.systemPackages = commonSystemPackages pkgs;
           homebrew = {
             enable = true;
-            casks = commonCasks;
+            casks = commonCasks ++ workOnlyCasks;
           };
         };
     in
