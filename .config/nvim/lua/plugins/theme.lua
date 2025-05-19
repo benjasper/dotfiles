@@ -1,6 +1,6 @@
 return {
 	{
-		dir = "/Users/benjaminjasper/Workspace/nightfall.nvim",
+		dir = "/Users/benni/Workspace/nightfall.nvim",
 		-- "benjasper/nightfall.nvim",
 		lazy = false,
 		priority = 1000,
