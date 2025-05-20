@@ -117,8 +117,14 @@
       ];
 
       baseConfiguration =
-        { pkgs, config, ... }:
+        { pkgs, config, lib, ... }:
         {
+          # Define primary user for the configuration
+          system.primaryUser = {
+            personal = "benni";
+            work = "benjaminjasper";
+          }.${config.networking.hostName} or "benni";
+
           # Cannot be installed with nix packages
           homebrew = {
             brews = [
@@ -174,30 +180,38 @@
           # The platform the configuration will be used on.
           nixpkgs.hostPlatform = "aarch64-darwin";
 
-          # Write the current system packages to the nix flake repo
-          system.activationScripts.postUserActivation = {
-            text = ''
-              FILEPATH=$HOME/.config/nix
-              echo "copying current system packages to $FILEPATH/current-system-packages..."
+          # Replace postUserActivation with a custom activation script
+          system.activationScripts.extraActivation.text = ''
+            echo "Writing current system packages list..."
 
-              # Get the package list as a newline-separated string
-              packages="${
-                builtins.concatStringsSep "\n" (
-                  pkgs.lib.lists.unique (
-                    builtins.sort builtins.lessThan (builtins.map (p: "${p.name}") (commonSystemPackages pkgs))
-                  )
+            # Get the current user from primaryUser
+            currentUser="${config.system.primaryUser}"
+
+            # Get the user's home directory
+            userHome=$(eval echo ~$currentUser)
+            FILEPATH="$userHome/.config/nix"
+
+            # Create directory if it doesn't exist
+            sudo -u "$currentUser" mkdir -p "$FILEPATH"
+
+            # Get the package list as a newline-separated string
+            packages="${
+              builtins.concatStringsSep "\n" (
+                pkgs.lib.lists.unique (
+                  builtins.sort builtins.lessThan (builtins.map (p: "${p.name}") (commonSystemPackages pkgs))
                 )
-              }"
+              )
+            }"
 
-              # Write the package list to a file
-              echo "$packages" > "$FILEPATH/current-system-packages"
-            '';
-          };
+            # Write the package list to a file, using sudo to write as the proper user
+            echo "$packages" | sudo -u "$currentUser" tee "$FILEPATH/current-system-packages" > /dev/null
+          '';
         };
 
       personalConfiguration =
         { pkgs, ... }:
         {
+          networking.hostName = "personal";
           environment.systemPackages = commonSystemPackages pkgs;
           homebrew = {
             enable = true;
@@ -220,6 +234,7 @@
       workConfiguration =
         { pkgs, ... }:
         {
+          networking.hostName = "LQ21HJ29YV";
           environment.systemPackages = commonSystemPackages pkgs;
           homebrew = {
             enable = true;
@@ -229,8 +244,8 @@
     in
     {
       # Build darwin flake using:
-      # $ darwin-rebuild build --flake .#MacBook-Pro-von-Benjamin
-      darwinConfigurations."MacBook-Pro-von-Benjamin" = nix-darwin.lib.darwinSystem {
+      # $ darwin-rebuild build --flake .#personal
+      darwinConfigurations."personal" = nix-darwin.lib.darwinSystem {
         modules = [
           baseConfiguration
           personalConfiguration
@@ -285,7 +300,7 @@
       };
 
       # Expose the package set, including overlays, for convenience.
-      personalDarwinPackages = self.darwinConfigurations."MacBook-Pro-von-Benjamin".pkgs;
+      personalDarwinPackages = self.darwinConfigurations."personal".pkgs;
       workDarwinPackages = self.darwinConfigurations."LQ21HJ29YV".pkgs;
     };
 }
