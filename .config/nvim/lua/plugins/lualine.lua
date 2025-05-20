@@ -12,7 +12,7 @@ return {
 				theme = 'auto',
 				component_separators = { left = '', right = '' },
 				section_separators = { left = '', right = '' },
-				disabled_filetypes = { 'lazy', 'neo-tree', 'Outline', 'navstack' },
+				disabled_filetypes = { 'lazy', 'neo-tree', 'Outline', 'navstack', 'nvim-dap-view' },
 				ignore_focus = {},
 				always_divide_middle = true,
 				globalstatus = false,

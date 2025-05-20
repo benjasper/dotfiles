@@ -8,9 +8,20 @@ return {
 			"jbyuki/one-small-step-for-vimkind",
 			"theHamsta/nvim-dap-virtual-text",
 			{
-				"rcarriga/nvim-dap-ui",
-				dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-			}
+				"igorlfs/nvim-dap-view",
+				opts = {
+					windows = {
+						terminal = {
+							hide = { "go" },
+						},
+					},
+					winbar = {
+						controls = {
+							enabled = true,
+						},
+					},
+				}
+			},
 		},
 		keys = {
 			{ "<F6>",      function() require("dap").continue() end },
@@ -34,8 +45,8 @@ return {
 				end,
 				desc = "DAP Scopes",
 			},
-			{ "<leader>du", function() require("dapui").toggle() end },
 			{ "<leader>dn", function() require "osv".launch({ port = 8086 }) end },
+			{ "<leader>dw", function() require("dap-view").add_expr() end },
 		},
 		config = function()
 			local dap = require('dap')
@@ -89,7 +100,7 @@ return {
 
 			-- Setup virtual text
 			require("nvim-dap-virtual-text").setup({
-				virt_lines = true
+				virt_text_pos = 'eol',
 			})
 
 			-- Setup dap-go
@@ -106,24 +117,19 @@ return {
 				}
 			})
 
-			-- Setup dap ui
-			local dapui = require("dapui")
-			dapui.setup()
-
-			dap.listeners.before.attach.dapui_config = function()
-				dapui.open()
+			-- Setup dap view
+			local dv = require("dap-view")
+			dap.listeners.before.attach["dap-view-config"] = function()
+				dv.open()
 			end
-			dap.listeners.before.launch.dapui_config = function()
-				dapui.open()
+			dap.listeners.before.launch["dap-view-config"] = function()
+				dv.open()
 			end
-			dap.listeners.before.event_terminated.dapui_config = function()
-				dapui.close()
+			dap.listeners.before.event_terminated["dap-view-config"] = function()
+				dv.close()
 			end
-			dap.listeners.before.event_exited.dapui_config = function()
-				dapui.close()
-			end
-			dap.listeners.after.disconnect.dapui_config = function()
-				dapui.close()
+			dap.listeners.before.event_exited["dap-view-config"] = function()
+				dv.close()
 			end
 		end
 	},
