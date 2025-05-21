@@ -122,7 +122,7 @@
           # Define primary user for the configuration
           system.primaryUser = {
             personal = "benni";
-            work = "benjaminjasper";
+            LQ21HJ29YV = "benjaminjasper";
           }.${config.networking.hostName} or "benni";
 
           # Cannot be installed with nix packages
