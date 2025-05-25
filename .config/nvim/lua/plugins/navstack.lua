@@ -1,5 +1,5 @@
 return {
-	"benjasper/navstack.nvim",
+	dir = "~/Workspace/navstack",
 	dependencies = {
 		{ 'echasnovski/mini.icons', version = '*' }, -- or { 'nvim-tree/nvim-web-devicons', version = '*' }
 	},
