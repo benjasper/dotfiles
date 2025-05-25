@@ -56,7 +56,7 @@ alias git-clean-branches="git fetch -p ; git branch -r | awk '{print $1}' | egre
 alias nix-build="darwin-rebuild build --flake ~/.config/nix"
 alias nix-update="nix flake update --flake ~/.config/nix"
 alias nix-check-update="$aliases[nix-update] && $aliases[nix-build] && nix store diff-closures /var/run/current-system ~/.config/nix/result"
-alias nix-switch="darwin-rebuild switch --flake ~/.config/nix -v && $aliases[config] diff ~/.config/nix/current-system-packages"
+alias nix-switch="sudo darwin-rebuild switch --flake ~/.config/nix -v && $aliases[config] diff ~/.config/nix/current-system-packages"
 
 # Copies terminfo to remote server. From https://ghostty.org/docs/help/terminfo#copy-ghostty's-terminfo-to-a-remote-machine
 function ssh-copy-terminfo() {
