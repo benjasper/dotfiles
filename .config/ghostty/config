@@ -1,6 +1,5 @@
 font-family = ""
-theme = "catppuccin-mocha"
-background = "#1C1C2A"
+theme = "nightfall"
 split-divider-color = "#4A4C5F"
 cursor-text = "#0E0E15"
 font-size = 14
