@@ -100,7 +100,7 @@ return {
 			{ "<leader>pac",     function() Snacks.picker.grep({ ignored = true, hidden = true }) end, desc = "Grep in all files" },
 			{ "<leader>pC",      function() Snacks.picker.grep_buffers() end,                          desc = "Grep Open Buffers" },
 
-			{ "<leader>gh",      function() Snacks.picker.git_log_file() end,                          desc = "Git Log File" },
+			-- { "<leader>gh",      function() Snacks.picker.git_log_file() end,                          desc = "Git Log File" },
 
 			-- LSP
 			{ "gd",              function() Snacks.picker.lsp_definitions() end,                       desc = "Goto Definition" },

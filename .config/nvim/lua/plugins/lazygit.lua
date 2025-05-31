@@ -8,7 +8,8 @@ return {
 			function()
 				-- if lazygit is running in the background but hidden, show it.
 				-- otherwise, start it and focus it.
-				require("tsugit").toggle()
+				require("tsugit").toggle({},
+					{ term_opts = { win = { width = 0.95, height = 0.95, border = "rounded" } } })
 			end,
 			{ silent = true, desc = "toggle lazygit" },
 		},
@@ -17,7 +18,8 @@ return {
 			function()
 				-- display the commit history for the current file in lazygit.
 				-- do not keep lazygit open after it has been closed.
-				require("tsugit").toggle_for_file()
+				require("tsugit").toggle_for_file(nil,
+					{ term_opts = { win = { width = 0.95, height = 0.95, border = "rounded" } } })
 			end,
 			{ silent = true, desc = "lazygit file commits" },
 		},
@@ -36,6 +38,6 @@ return {
 			-- when lazygit is open and focused, kill it and warm up the next
 			-- instance
 			force_quit = "<c-c>",
-		}
+		},
 	},
 }
