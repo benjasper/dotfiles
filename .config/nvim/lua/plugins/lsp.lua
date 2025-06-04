@@ -10,7 +10,12 @@ return {
 			vim.filetype.add({
 				pattern = {
 					-- Matches any filename containing "jenkins" (case-insensitive)
-					[".*jenkins/.*"] = "groovy",
+					-- Matches all files in a `jenkins/` directory with no extension
+					[".*/jenkins/.+"] = function(path, _)
+						if not path:match("%.[^/]+$") then
+							return "groovy"
+						end
+					end,
 					[".*Jenkinsfile"] = "groovy",
 				},
 			})

@@ -1,7 +1,6 @@
 return {
 	{
-		dir = "/Users/benni/Workspace/nightfall.nvim",
-		-- "benjasper/nightfall.nvim",
+		"benjasper/nightfall.nvim",
 		lazy = false,
 		priority = 1000,
 		config = function()
