@@ -7,11 +7,19 @@ return {
 			-- Disable logging, switch to debug when needed
 			vim.lsp.set_log_level("error")
 
+			vim.filetype.add({
+				pattern = {
+					-- Matches any filename containing "jenkins" (case-insensitive)
+					[".*jenkins/.*"] = "groovy",
+					[".*Jenkinsfile"] = "groovy",
+				},
+			})
+
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 				callback = function(event)
 					local map = function(keys, func, desc)
-						vim.keymap.set({"n", "v"}, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+						vim.keymap.set({ "n", "v" }, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
 
 					-- NOTE: Other LSP mappings are in the `snacks` picker module
@@ -293,8 +301,8 @@ return {
 		event = "BufEnter",
 		opts = { signs = false },
 		keys = {
-			{ "<leader>pt", function() Snacks.picker.todo_comments() end,                                           desc = "Todo" },
-			{ "<leader>pT", function() Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } }) end,  desc = "Todo/Fix/Fixme" },
+			{ "<leader>pt", function() Snacks.picker.todo_comments() end,                                          desc = "Todo" },
+			{ "<leader>pT", function() Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } }) end, desc = "Todo/Fix/Fixme" },
 
 		}
 	},
