@@ -94,6 +94,9 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter-context",
 		event = "VeryLazy",
+		keys = {
+			{ "<leader>gg", function() require("treesitter-context").go_to_context() end, desc = "Go to context" },
+		},
 		config = function()
 			require("treesitter-context").setup({
 				enable = true,

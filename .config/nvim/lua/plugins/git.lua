@@ -137,11 +137,6 @@ return {
 				":DiffviewOpen<CR>",
 				"Opens the diffview"
 			},
-			{
-				"<leader>gc",
-				":DiffviewClose<CR>",
-				"Closes the diffview"
-			}
 		}
 	},
 	{ 'akinsho/git-conflict.nvim', version = "*", opts = {} },
