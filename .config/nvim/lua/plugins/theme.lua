@@ -1,6 +1,7 @@
 return {
 	{
 		"benjasper/nightfall.nvim",
+		-- dir = "~/Workspace/nightfall.nvim/",
 		lazy = false,
 		priority = 1000,
 		config = function()

@@ -91,4 +91,17 @@ return {
 			--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 		end,
 	},
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		event = "VeryLazy",
+		config = function()
+			require("treesitter-context").setup({
+				enable = true,
+				max_lines = 1, -- How many lines the window should span. Values <= 0 mean no limit.
+				trim_scope = "outer", -- Which context lines to discard if `max_lines` is exceeded. Choices: "inner", "outer"
+				min_window_height = 0, -- Minimum number of lines to be in the window.
+				separator = "─",
+			})
+		end,
+	},
 }
