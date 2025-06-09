@@ -1,8 +1,8 @@
 astro-language-server-2.15.4
-atlas-0.33.1
+atlas-0.34.0
 bat-0.25.0
 biome-1.9.4
-bruno-2.3.0
+bruno-2.4.0
 btop-1.4.3
 buf-1.52.1
 clang-tools-19.1.7
@@ -25,7 +25,7 @@ gopls-0.18.1
 gotestsum-1.12.2
 grpcurl-1.9.3
 intelephense-1.14.4
-lazygit-0.51.1
+lazygit-0.52.0
 lua-5.2.4
 lua-language-server-3.14.0
 neofetch-unstable-2021-12-10
@@ -33,11 +33,11 @@ neovim-0.11.2
 nil-2024-08-06
 nixfmt-unstable-2025-04-04
 obsidian-1.8.10
-php-with-extensions-8.3.21
+php-with-extensions-8.3.22
 prettierd-0.26.1
 protoc-gen-connect-go-1.18.1
 protoc-gen-doc-1.5.1
-protols-0.12.0
+protols-0.12.5
 ripgrep-14.1.1
 rustup-1.28.2
 sql-formatter-15.6.2
@@ -48,9 +48,9 @@ stylua-2.1.0
 tailwindcss-language-server-0.14.19
 taplo-0.9.3
 templ-0.3.865
-uv-0.7.9
+uv-0.7.12
 vscode-langservers-extracted-4.10.0
 vtsls-0.2.9
 wget-1.25.0
-yaml-language-server-1.17.0
+yaml-language-server-1.18.0
 zoxide-0.9.8
