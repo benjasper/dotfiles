@@ -12,16 +12,24 @@ return {
 			-- fix oil path
 			if bufname:match('oil://') then
 				local replace = bufname:gsub('oil://', '')
-				return vim.fn.fnamemodify(replace, ':.:h')
+				bufname = replace
 			end
 
 			local path = vim.fn.fnamemodify(bufname, ':.:h')
 
-			if path == '.' then
+			if path == '.' or path == '' then
 				return ''
 			end
 
-			return path
+			local max_components = 5  -- max folder segments to show
+			local sep = package.config:sub(1, 1) -- platform path separator
+			local parts = vim.split(path, sep)
+
+			if #parts <= max_components then
+				return path
+			else
+				return table.concat({ parts[1], '…', unpack(parts, #parts - max_components + 2) }, sep)
+			end
 		end
 
 		require('lualine').setup({
@@ -53,7 +61,7 @@ return {
 						}
 					},
 				},
-				lualine_c = { { 'diagnostics' } },
+				lualine_c = { { 'progress' }, { 'diagnostics' } },
 				lualine_x = { { 'diagnostics', sources = { 'nvim_workspace_diagnostic' } } },
 				lualine_y = {
 					{ 'branch', padding = { left = 1, right = 1 } },

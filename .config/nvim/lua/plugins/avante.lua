@@ -1,6 +1,6 @@
 return {
 	"yetone/avante.nvim",
-	event = "VeryLazy",
+	cmd = { "AvanteAsk", "AvanteBuild", "AvanteToggle" },
 	version = false, -- Never set this value to "*"! Never!
 	opts = {
 		-- add any opts here
