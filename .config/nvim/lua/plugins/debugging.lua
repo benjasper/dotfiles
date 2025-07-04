@@ -40,6 +40,87 @@ return {
 		config = function()
 			local dap = require('dap')
 
+			-- Function to update launch.json with ticket number
+			local function update_launch_json_with_ticket()
+				local launch_json_path = vim.fn.getcwd() .. "/.vscode/launch.json"
+
+				-- Check if launch.json exists
+				if vim.fn.filereadable(launch_json_path) == 0 then
+					return
+				end
+
+				-- Read the current launch.json
+				local file = io.open(launch_json_path, "r")
+				if not file then
+					return
+				end
+
+				local content = file:read("*all")
+				file:close()
+
+				-- Parse JSON
+				local json = vim.json.decode(content)
+				if not json or not json.configurations then
+					return
+				end
+
+				-- Check if there's a PHP configuration
+				local has_php_config = false
+				for _, config in ipairs(json.configurations) do
+					if config.type == "php" then
+						has_php_config = true
+						break
+					end
+				end
+
+				if not has_php_config then
+					return
+				end
+
+				-- Get ticket number from get-test-server command
+				local handle = io.popen("get-test-server --ticket")
+				if not handle then
+					return
+				end
+
+				local ticket_output = handle:read("*a")
+				handle:close()
+
+				-- Extract ticket number (assuming it's a number)
+				local ticket_number = ticket_output:match("(%d+)")
+				if not ticket_number then
+					vim.notify("Could not extract ticket number from get-test-server --ticket", vim.log.levels.WARN)
+					return
+				end
+
+				-- Update path mappings in PHP configurations
+				for _, config in ipairs(json.configurations) do
+					if config.type == "php" and config.pathMappings then
+						-- Create a new pathMappings table to preserve order and avoid issues
+						local new_path_mappings = {}
+						for server_path, local_path in pairs(config.pathMappings) do
+							-- Replace the ticket number in the server path
+							local new_server_path = server_path:gsub("/releases/%d+", "/releases/" .. ticket_number)
+							new_path_mappings[new_server_path] = local_path
+						end
+						config.pathMappings = new_path_mappings
+					end
+				end
+
+				-- Write the updated JSON back to file
+				local updated_content = vim.json.encode(json)
+				local pretty = vim.fn.system("jq .", updated_content)
+				if pretty then
+					file = io.open(launch_json_path, "w")
+					if file then
+						file:write(pretty)
+						file:close()
+
+						vim.notify("Updated launch.json with ticket number: " .. ticket_number, vim.log.levels.INFO)
+					end
+				end
+			end
+
 			-- Configure Signs
 			local sign = vim.fn.sign_define
 			sign("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
@@ -114,6 +195,8 @@ return {
 				dapui.open()
 			end
 			dap.listeners.before.launch.dapui_config = function()
+				-- Update launch.json with ticket number before launching
+				update_launch_json_with_ticket()
 				dapui.open()
 			end
 			dap.listeners.before.event_terminated.dapui_config = function()
