@@ -8,9 +8,22 @@ return {
 			"jbyuki/one-small-step-for-vimkind",
 			"theHamsta/nvim-dap-virtual-text",
 			{
-				"rcarriga/nvim-dap-ui",
-				dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-			}
+				"igorlfs/nvim-dap-view",
+				---@module 'dap-view'
+				---@type dapview.Config
+				opts = {
+					auto_toggle = true,
+					winbar = {
+						sections = { "repl", "watches", "scopes", "breakpoints", "threads", "exceptions", "console" },
+						default_section = "repl",
+					},
+					windows = {
+						terminal = {
+							hide = { "php", "go" },
+						},
+					}
+				},
+			},
 		},
 		keys = {
 			{ "<F6>",      function() require("dap").continue() end },
@@ -121,6 +134,10 @@ return {
 				end
 			end
 
+			dap.listeners.before.attach.change_branch = function()
+				update_launch_json_with_ticket()
+			end
+
 			-- Configure Signs
 			local sign = vim.fn.sign_define
 			sign("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
@@ -186,28 +203,6 @@ return {
 					},
 				}
 			})
-
-			-- Setup dap ui
-			local dapui = require("dapui")
-			dapui.setup()
-
-			dap.listeners.before.attach.dapui_config = function()
-				dapui.open()
-			end
-			dap.listeners.before.launch.dapui_config = function()
-				-- Update launch.json with ticket number before launching
-				update_launch_json_with_ticket()
-				dapui.open()
-			end
-			dap.listeners.before.event_terminated.dapui_config = function()
-				dapui.close()
-			end
-			dap.listeners.before.event_exited.dapui_config = function()
-				dapui.close()
-			end
-			dap.listeners.after.disconnect.dapui_config = function()
-				dapui.close()
-			end
 		end
 	},
 }
