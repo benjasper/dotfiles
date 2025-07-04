@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		{ 'echasnovski/mini.icons', version = '*' }, -- or { 'nvim-tree/nvim-web-devicons', version = '*' }
 	},
+	event = "VeryLazy",
 	config = function()
 		local navstack = require("navstack")
 
