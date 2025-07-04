@@ -2,3 +2,4 @@ packer_compiled.lua
 .cfg
 state.yml
 .DS_Store
+.secrets.env
