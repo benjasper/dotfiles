@@ -1,6 +1,25 @@
 {
   description = "My Darwin system flake";
 
+  # ---‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑
+  # Binary cache configuration (Cachix)
+  # Add as many public or private caches as you like.
+  # The public keys come from the cache page on https://app.cachix.org.
+  nixConfig = {
+    extra-substituters = [
+      "https://benjasper.cachix.org" # your own cache
+      "https://nix-community.cachix.org" # popular public cache
+    ];
+
+    extra-trusted-public-keys = [
+      # benjasper.cachix.org public key
+      "benjasper.cachix.org-1:vy2BNZSDmHNDJXDaeHaXPlh4oumXSW2Z+6a42WBNzH0="
+      # nix‑community public key
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+  };
+  # ---‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
@@ -88,6 +107,7 @@
         pkgs.yaml-language-server
 
         # Tools
+        pkgs.cachix
         pkgs.obsidian
         pkgs.croc
         pkgs.gnupg
@@ -117,13 +137,20 @@
       ];
 
       baseConfiguration =
-        { pkgs, config, lib, ... }:
+        {
+          pkgs,
+          config,
+          lib,
+          ...
+        }:
         {
           # Define primary user for the configuration
-          system.primaryUser = {
-            personal = "benni";
-            LQ21HJ29YV = "benjaminjasper";
-          }.${config.networking.hostName} or "benni";
+          system.primaryUser =
+            {
+              personal = "benni";
+              LQ21HJ29YV = "benjaminjasper";
+            }
+            .${config.networking.hostName} or "benni";
 
           # Cannot be installed with nix packages
           homebrew = {
@@ -219,6 +246,8 @@
             onActivation.cleanup = "zap";
           };
 
+          nix.settings.trusted-users = [ "root" "benni" ];
+
           system.defaults = {
             dock.persistent-apps = [
               "/Applications/Safari.app"
@@ -240,6 +269,8 @@
             enable = true;
             casks = commonCasks ++ workOnlyCasks;
           };
+
+          nix.settings.trusted-users = [ "root" "benjaminjasper" ];
         };
     in
     {

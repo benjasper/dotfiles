@@ -53,9 +53,8 @@ alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias config-lazygit='lazygit --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias git-clean-branches="git fetch -p ; git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -D"
 
-alias nix-build="darwin-rebuild build --flake ~/.config/nix"
+alias nix-build="darwin-rebuild build --max-jobs 4 --flake ~/.config/nix | cachix push benjasper"
 alias nix-update="nix flake update --flake ~/.config/nix"
-alias nix-check-update="$aliases[nix-update] && $aliases[nix-build] && nix store diff-closures /var/run/current-system ~/.config/nix/result"
 alias nix-switch="sudo darwin-rebuild switch --flake ~/.config/nix -v && $aliases[config] diff ~/.config/nix/current-system-packages"
 
 # Copies terminfo to remote server. From https://ghostty.org/docs/help/terminfo#copy-ghostty's-terminfo-to-a-remote-machine
