@@ -124,10 +124,11 @@
         "ghostty"
         "yaak"
         "altair-graphql-client"
+        "chatgpt"
       ];
 
       personalOnlyCasks = [
-        "docker"
+        "docker-desktop"
         "1password"
         "discord"
       ];
