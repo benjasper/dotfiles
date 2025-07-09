@@ -112,6 +112,7 @@
         pkgs.croc
         pkgs.gnupg
         pkgs.gnugrep
+        pkgs.ffmpeg_6
       ];
 
       commonCasks = [
