@@ -87,7 +87,6 @@
         pkgs.biome
         pkgs.clang-tools
         pkgs.delve
-        pkgs.gitlab-ci-ls
         pkgs.gopls
         pkgs.go-tools
         pkgs.gotestsum
