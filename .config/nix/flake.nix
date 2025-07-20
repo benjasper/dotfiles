@@ -52,6 +52,7 @@
         pkgs.protoc-gen-doc
         pkgs.lazygit
         pkgs.neovim
+        pkgs.neovide
         pkgs.neofetch
         pkgs.zoxide
         pkgs.starship
@@ -62,6 +63,7 @@
         pkgs.sqlite
         pkgs.sqlc
         pkgs.wget
+        pkgs.zed-editor
 
         # Languages
         pkgs.go

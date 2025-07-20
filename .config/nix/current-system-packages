@@ -30,6 +30,7 @@ lazygit-0.53.0
 lua-5.2.4
 lua-language-server-3.15.0
 neofetch-unstable-2021-12-10
+neovide-0.15.0
 neovim-0.11.3
 nil-2025-06-13
 nixfmt-1.0.0
@@ -54,4 +55,5 @@ vscode-langservers-extracted-4.10.0
 vtsls-0.2.9
 wget-1.25.0
 yaml-language-server-1.18.0
+zed-editor-0.195.3
 zoxide-0.9.8
