@@ -127,6 +127,7 @@
         "yaak"
         "altair-graphql-client"
         "chatgpt"
+        "zen-browser"
       ];
 
       personalOnlyCasks = [
