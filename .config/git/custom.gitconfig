@@ -8,6 +8,7 @@
     path = ~/.config/git/catppuccin.gitconfig
 
 [delta]
+	line-numbers = true
     navigate = true  # use n and N to move between diff sections
     dark = true      # or light = true, or omit for auto-detection
 	features = catppuccin-mocha
