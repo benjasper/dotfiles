@@ -26,6 +26,7 @@ gui:
     searchingActiveBorderColor:
       - '#f9e2af'
 git:
+  localBranchSortOrder: recency
   paging:
     colorArg: always
     pager: delta --dark --paging=never
