@@ -43,6 +43,7 @@
         pkgs.buf # for buf connect
         pkgs.btop
         pkgs.bruno
+        pkgs.codex
         pkgs.git
         pkgs.delta
         pkgs.git-lfs
@@ -127,7 +128,6 @@
         "yaak"
         "altair-graphql-client"
         "chatgpt"
-        "zen-browser"
         "kreya"
       ];
 
