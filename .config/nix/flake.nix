@@ -55,6 +55,7 @@
         pkgs.neovim
         pkgs.neovide
         pkgs.neofetch
+        pkgs.opencode
         pkgs.zoxide
         pkgs.starship
         pkgs.uv
