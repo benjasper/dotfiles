@@ -169,11 +169,10 @@ return {
 				protols = {},
 			}
 
-			-- Register language servers with lspconfig
-			local lspconfig = require("lspconfig")
-			for server_name, server in pairs(servers) do
-				server.capabilities = require('blink.cmp').get_lsp_capabilities(server.capabilities)
-				lspconfig[server_name].setup(server)
+			-- Register language servers
+			for server_name, config in pairs(servers) do
+				vim.lsp.config(server_name, config)
+				vim.lsp.enable(server_name)
 			end
 		end,
 	},
@@ -277,6 +276,8 @@ return {
 					window = { border = 'rounded' },
 				},
 			},
+
+			fuzzy = { implementation = "prefer_rust_with_warning" },
 
 			-- experimental signature help support
 			signature = { enabled = true, window = { border = 'rounded', show_documentation = true } },
