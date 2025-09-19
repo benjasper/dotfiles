@@ -38,6 +38,7 @@
     let
       commonSystemPackages = pkgs: [
         # Development
+        pkgs.ast-grep
         pkgs.atlas
         pkgs.bat
         pkgs.buf # for buf connect
