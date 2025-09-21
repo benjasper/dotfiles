@@ -167,6 +167,7 @@ return {
 				gitlab_ci_ls = {},
 				nil_ls = {},
 				protols = {},
+				sourcekit = {},
 			}
 
 			-- Register language servers
