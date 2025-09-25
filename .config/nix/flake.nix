@@ -131,7 +131,7 @@
         "altair-graphql-client"
         "chatgpt"
         "kreya"
-        "zen-browser"
+        "zen"
       ];
 
       personalOnlyCasks = [
