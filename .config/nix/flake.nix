@@ -182,6 +182,8 @@
               dock.autohide = true;
               dock.minimize-to-application = true;
               dock.show-recents = false;
+              dock.autohide-time-modifier = 0.1;
+              dock.autohide-delay = 0.1;
               trackpad.Clicking = false;
               finder.AppleShowAllExtensions = true;
               finder.AppleShowAllFiles = true;
