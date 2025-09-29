@@ -101,7 +101,7 @@ return {
 				gopls = {
 					settings = {
 						gopls = {
-							buildFlags = { "-tags=unittest" },
+							buildFlags = { "-tags=unittest,wireinject" },
 							semanticTokens = true,
 							staticcheck = true,
 							-- gofumpt = true, -- Disabled for now
