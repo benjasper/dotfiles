@@ -142,6 +142,7 @@
 
       workOnlyCasks = [
         "orbstack"
+        "cursor-cli"
       ];
 
       baseConfiguration =
