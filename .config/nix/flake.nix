@@ -258,12 +258,16 @@
             onActivation.cleanup = "zap";
           };
 
-          nix.settings.trusted-users = [ "root" "benni" ];
+          nix.settings.trusted-users = [
+            "root"
+            "benni"
+          ];
 
           system.defaults = {
             dock.persistent-apps = [
               "/Applications/Safari.app"
               "/Applications/Google Chrome.app"
+              "/Applications/Zen.app"
               "/System/Applications/Mail.app"
               "/System/Applications/Calendar.app"
               "/System/Applications/Music.app"
@@ -282,7 +286,10 @@
             casks = commonCasks ++ workOnlyCasks;
           };
 
-          nix.settings.trusted-users = [ "root" "benjaminjasper" ];
+          nix.settings.trusted-users = [
+            "root"
+            "benjaminjasper"
+          ];
         };
     in
     {
