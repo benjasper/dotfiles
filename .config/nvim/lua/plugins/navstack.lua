@@ -14,7 +14,7 @@ return {
 			win_type = "float",
 			sidebar = {
 				show_current = true,
-				open_on_start = true
+				open_on_start = false,
 			},
 			direct_jump_as_new_entry = false,
 			quit_when_last_window = true,
