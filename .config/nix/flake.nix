@@ -165,6 +165,7 @@
           homebrew = {
             brews = [
               "volta"
+              "tree-sitter-cli"
             ];
             onActivation.autoUpdate = true;
             onActivation.upgrade = true;
