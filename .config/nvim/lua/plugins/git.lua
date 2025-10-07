@@ -39,75 +39,35 @@ return {
 			})
 		end
 	},
-
 	{
-		"NeogitOrg/neogit",
-		cmd = "Neogit",
-		dependencies = {
-			"nvim-lua/plenary.nvim", -- required
-			"sindrets/diffview.nvim", -- optional - Diff integration
+		"tpope/vim-fugitive",
+		keys = {
+			{ "<leader>gs", ":Git<CR>", desc = "Open Fugitive status" },
 		},
 		config = function()
-			local neogit = require('neogit')
-			neogit.setup({
-				integrations = {
-					diffview = false,
-				},
-				log_view = {
-					kind = "vsplit",
-				},
-				commit_select_view = {
-					kind = "vsplit",
-				},
-				commit_editor = {
-					kind = "split",
-					show_staged_diff = false
-				},
-				mappings = {
-					commit_editor = {
-						["<c-p>"] = "PrevMessage",
-						["<c-n>"] = "NextMessage",
-					},
-				},
+			-- Define buffer-local keymaps when inside fugitive status window
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = "fugitive",
+				callback = function()
+					local bufnr = vim.api.nvim_get_current_buf()
+					local opts = { buffer = bufnr, remap = false }
+					vim.keymap.set("n", "<leader>p", function()
+						vim.cmd.Git('push')
+					end, opts)
+
+					-- rebase always
+					vim.keymap.set("n", "<leader>P", function()
+						vim.cmd.Git({ 'pull' })
+					end, opts)
+
+					-- quit status window
+					vim.keymap.set("n", "q", function()
+						vim.cmd.q()
+					end, opts)
+				end,
 			})
 		end,
-		keys = {
-			{
-				"<leader>gs",
-				function()
-					local neogit = require('neogit')
-
-					local cwd = vim.fn.expand('%:p:h')
-					if vim.bo.filetype == 'oil' then
-						cwd = require('oil').get_current_dir()
-					end
-
-					neogit.open({
-						kind = "split_above_all",
-						cwd = cwd
-					})
-				end,
-				"[G]it [S]tatus"
-			},
-			{
-				"<leader>gp",
-				function()
-					local neogit = require('neogit')
-					neogit.action('pull', 'from_pushremote')
-				end,
-				"[G]it [p]ull"
-			},
-			{
-				"<leader>gP",
-				function()
-					local neogit = require('neogit')
-					neogit.action('push', 'to_pushremote')
-				end,
-				"[G]it [P]ush"
-			}
-		}
 	},
-
 	{
 		"sindrets/diffview.nvim",
 		config = function()

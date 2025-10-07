@@ -58,8 +58,19 @@ return {
 
 			},
 			input = {},
+			lazygit = {
+				win = {
+					border = "single",
+				}
+			},
 		},
 		keys = {
+			{
+				"<leader>gl",
+				function()
+					Snacks.lazygit.open()
+				end,
+			},
 			{
 				"<leader>pe",
 				function()
