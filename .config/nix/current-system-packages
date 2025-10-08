@@ -24,6 +24,7 @@ go-1.25.1
 go-protobuf-1.5.4
 go-task-3.45.4
 go-tools-2025.1.1
+golangci-lint-2.5.0
 gopls-0.20.0
 gotestsum-1.13.0
 grpcurl-1.9.3

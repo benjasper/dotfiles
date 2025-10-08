@@ -94,6 +94,7 @@
         pkgs.delve
         pkgs.gopls
         pkgs.go-tools
+        pkgs.golangci-lint
         pkgs.gotestsum
         pkgs.intelephense
         pkgs.lua-language-server
