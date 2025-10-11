@@ -41,7 +41,7 @@ return {
 	},
 
 	{
-		"NeogitOrg/neogit",
+		"benjasper/neogit", -- NeogitOrg/neogit.git when commit hook issues are resolved
 		cmd = "Neogit",
 		dependencies = {
 			"nvim-lua/plenary.nvim", -- required
@@ -50,6 +50,7 @@ return {
 		config = function()
 			local neogit = require('neogit')
 			neogit.setup({
+				process_spinner = true,
 				integrations = {
 					diffview = false,
 				},
