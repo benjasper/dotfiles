@@ -89,9 +89,9 @@ return {
 				desc = "Explorer"
 			},
 
-			{ "<leader>pb", function() Snacks.picker.buffers() end,                                desc = "Buffers" },
-			{ "<leader>pf", function() Snacks.picker.files({ ignored = true, hidden = true }) end, desc = "Find Files" },
-			{ "<leader>pg", function() Snacks.picker.files({ ignored = false }) end,               desc = "Find Git Files" },
+			{ "<leader>pb", function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
+			{ "<leader>pf", function() Snacks.picker.files({ ignored = true, hidden = true }) end,  desc = "Find Files" },
+			{ "<leader>pg", function() Snacks.picker.files({ ignored = false, hidden = true }) end, desc = "Find Git Files" },
 			{
 				"<leader>ph",
 				function()

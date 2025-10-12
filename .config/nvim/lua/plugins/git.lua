@@ -49,6 +49,16 @@ return {
 		},
 		config = function()
 			local neogit = require('neogit')
+
+			-- Auto refresh because it seems to be broken: see https://github.com/NeogitOrg/neogit/issues/1735
+			vim.api.nvim_create_autocmd({ "BufEnter" }, {
+				pattern = "NeogitStatus",
+				callback = function()
+					neogit.dispatch_refresh()
+				end,
+				group = neogit.autocmd_group,
+			})
+
 			neogit.setup({
 				process_spinner = true,
 				integrations = {
