@@ -1,6 +1,14 @@
 return {
 	"folke/sidekick.nvim",
 	opts = {
+		cli = {
+			win = {
+				keys = {
+					hide_n = { "q", "hide", mode = "n" },
+					hide_ctrl_dot = false
+				}
+			},
+		}
 	},
 	keys = {
 		{
