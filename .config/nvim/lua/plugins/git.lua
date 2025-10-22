@@ -41,7 +41,7 @@ return {
 	},
 
 	{
-		"benjasper/neogit", -- NeogitOrg/neogit.git when commit hook issues are resolved
+		"NeogitOrg/neogit",
 		cmd = "Neogit",
 		dependencies = {
 			"nvim-lua/plenary.nvim", -- required
@@ -71,7 +71,7 @@ return {
 					kind = "vsplit",
 				},
 				commit_editor = {
-					kind = "split",
+					kind = "split_above",
 					show_staged_diff = false
 				},
 				mappings = {
