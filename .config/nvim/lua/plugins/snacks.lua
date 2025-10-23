@@ -114,6 +114,7 @@ return {
 			{ "<leader>pC",      function() Snacks.picker.grep_buffers() end,                          desc = "Grep Open Buffers" },
 
 			-- { "<leader>gh",      function() Snacks.picker.git_log_file() end,                          desc = "Git Log File" },
+			{ "<leader>gD",      function() Snacks.picker.git_diff() end,                          desc = "Git Diff" },
 
 			-- LSP
 			{ "gd",              function() Snacks.picker.lsp_definitions() end,                       desc = "Goto Definition" },
@@ -121,6 +122,8 @@ return {
 			{ "gD",              function() Snacks.picker.lsp_declarations() end,                      desc = "Goto Declaration" },
 			{ "gi",              function() Snacks.picker.lsp_implementations() end,                   desc = "Goto Implementation" },
 			{ "gt",              function() Snacks.picker.lsp_type_definitions() end,                  desc = "Goto T[y]pe Definition" },
+			{ "gI",              function() Snacks.picker.lsp_incoming_calls() end,                    desc = "Goto Incoming Calls" },
+			{ "gO",              function() Snacks.picker.lsp_outgoing_calls() end,                    desc = "Goto Outgoing Calls" },
 		}
 	}
 }
