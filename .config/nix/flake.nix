@@ -119,6 +119,7 @@
         pkgs.gnupg
         pkgs.gnugrep
         pkgs.ffmpeg_6
+        pkgs.k6
       ];
 
       commonCasks = [
