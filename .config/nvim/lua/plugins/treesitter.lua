@@ -44,7 +44,7 @@ return {
 				callback = function(args)
 					local filetype = args.match
 					local lang = vim.treesitter.language.get_lang(filetype)
-					if not vim.tbl_contains(treesitter.get_available(), lang) and not vim.tbl_contains(treesitter.get_installed(), lang) then
+					if not vim.tbl_contains(treesitter.get_available(), lang) then
 						return
 					end
 
