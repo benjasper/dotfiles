@@ -63,7 +63,7 @@ return {
 				},
 				float = { border = 'rounded', sources = { 'always' } },
 				virtual_lines = {
-					current_line = true
+					current_line = false,
 				},
 				-- NOTE: Try lsp lines for now
 				virtual_text = false
