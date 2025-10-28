@@ -82,6 +82,20 @@ return {
 				-- },
 			})
 
+			-- Show virtual lines for current line, else show virtual text
+			vim.keymap.set('n', '<leader>k', function()
+				vim.diagnostic.config({ virtual_lines = { current_line = true }, virtual_text = false })
+
+				vim.api.nvim_create_autocmd('CursorMoved', {
+					group = vim.api.nvim_create_augroup('line-diagnostics', { clear = true }),
+					callback = function()
+						vim.diagnostic.config({ virtual_lines = false, virtual_text = true })
+						return true
+					end,
+				})
+			end)
+
+			-- Toggle virtual lines for current line
 			vim.keymap.set("n", "<leader>dv", function()
 				vim.diagnostic.config({
 					virtual_lines = { current_line = not vim.diagnostic.config().virtual_lines.current_line },
