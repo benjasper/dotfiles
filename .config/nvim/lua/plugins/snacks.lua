@@ -70,6 +70,7 @@ return {
 					Snacks.lazygit.open()
 				end,
 			},
+			{ "<leader>gL", function() Snacks.lazygit.log_file() end,                               desc = "Git Log File" },
 			{
 				"<leader>pe",
 				function()
@@ -112,8 +113,7 @@ return {
 			{ "<leader>pac",     function() Snacks.picker.grep({ ignored = true, hidden = true }) end, desc = "Grep in all files" },
 			{ "<leader>pC",      function() Snacks.picker.grep_buffers() end,                          desc = "Grep Open Buffers" },
 
-			-- { "<leader>gh",      function() Snacks.picker.git_log_file() end,                          desc = "Git Log File" },
-			{ "<leader>gD",      function() Snacks.picker.git_diff() end,                          desc = "Git Diff" },
+			{ "<leader>gD",      function() Snacks.picker.git_diff() end,                              desc = "Git Diff" },
 
 			-- LSP
 			{ "gd",              function() Snacks.picker.lsp_definitions() end,                       desc = "Goto Definition" },
