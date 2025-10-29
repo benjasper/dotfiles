@@ -114,6 +114,7 @@ return {
 			{ "<leader>pC",      function() Snacks.picker.grep_buffers() end,                          desc = "Grep Open Buffers" },
 
 			{ "<leader>gD",      function() Snacks.picker.git_diff() end,                              desc = "Git Diff" },
+			{ "<leader>gb",      function() Snacks.picker.git_log_line() end,                          desc = "Git Log Line" },
 
 			-- LSP
 			{ "gd",              function() Snacks.picker.lsp_definitions() end,                       desc = "Goto Definition" },
