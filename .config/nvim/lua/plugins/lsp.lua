@@ -131,6 +131,7 @@ return {
 								waitgroup = true,
 								yield = true,
 								httpresponse = true,
+								ST1000 = false,
 							},
 						},
 					},
