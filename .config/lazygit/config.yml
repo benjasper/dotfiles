@@ -2,7 +2,6 @@ os:
   edit: 'nvim --server "$NVIM" --remote-tab {{filename}}'
   editAtLine: 'nvim --server "$NVIM" --remote-tab {{filename}}; [ -z "$NVIM" ] || nvim --server "$NVIM" --remote-send ":{{line}}<CR>"'
   editAtLineAndWait: 'nvim +{{line}} {{filename}}'
-
 promptToReturnFromSubprocess: false
 gui:
   showFileTree: false
@@ -27,17 +26,14 @@ gui:
       - '#f9e2af'
 git:
   localBranchSortOrder: recency
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never
-
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
 services:
   'gitlab.itx.de': 'gitlab:gitlab.itx.de'
-
 keybinding:
   files:
     toggleTreeView: 't'
-
 customCommands:
   - key: "<c-v>"
     context: "global"
