@@ -62,38 +62,8 @@ return {
 					}
 				},
 				float = { border = 'rounded', sources = { 'always' } },
-				virtual_lines = {
-					current_line = false,
-				},
-				-- NOTE: Try lsp lines for now
-				virtual_text = false
-				-- virtual_text = {
-				-- 	source = 'if_many',
-				-- 	spacing = 2,
-				-- 	format = function(diagnostic)
-				-- 		local diagnostic_message = {
-				-- 			[vim.diagnostic.severity.ERROR] = diagnostic.message,
-				-- 			[vim.diagnostic.severity.WARN] = diagnostic.message,
-				-- 			[vim.diagnostic.severity.INFO] = diagnostic.message,
-				-- 			[vim.diagnostic.severity.HINT] = diagnostic.message,
-				-- 		}
-				-- 		return diagnostic_message[diagnostic.severity]
-				-- 	end,
-				-- },
+				virtual_text = false, -- Use tiny diagnostic instead
 			})
-
-			-- Show virtual lines for current line, else show virtual text
-			vim.keymap.set('n', '<leader>k', function()
-				vim.diagnostic.config({ virtual_lines = { current_line = true }, virtual_text = false })
-
-				vim.api.nvim_create_autocmd('CursorMoved', {
-					group = vim.api.nvim_create_augroup('line-diagnostics', { clear = true }),
-					callback = function()
-						vim.diagnostic.config({ virtual_lines = false, virtual_text = true })
-						return true
-					end,
-				})
-			end)
 
 			-- Toggle virtual lines for current line
 			vim.keymap.set("n", "<leader>dv", function()
@@ -314,6 +284,25 @@ return {
 			{ "<leader>xL", "<cmd>Trouble loclist toggle<cr>",                  desc = "Location List (Trouble)" },
 			{ "<leader>xQ", "<cmd>Trouble quickfix toggle<cr>",                 desc = "Quickfix List (Trouble)" },
 		},
+	},
+
+	{
+		"rachartier/tiny-inline-diagnostic.nvim",
+		event = "VeryLazy",
+		priority = 1000,
+		config = function()
+			require("tiny-inline-diagnostic").setup({
+				transparent_bg = true,
+				transparent_cursorline = false,
+				options = {
+					multilines = {
+						enabled = true,
+						always_show = true,
+					},
+				},
+			})
+			vim.diagnostic.config({ virtual_text = false }) -- Disable Neovim's default virtual text diagnostics
+		end,
 	},
 
 	-- Highlight todo, notes, etc in comments
