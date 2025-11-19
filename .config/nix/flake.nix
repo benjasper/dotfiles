@@ -169,6 +169,7 @@
             brews = [
               "volta"
               "tree-sitter-cli"
+              "sdl3"
             ];
             onActivation.autoUpdate = true;
             onActivation.upgrade = true;
