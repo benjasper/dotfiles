@@ -119,29 +119,5 @@ return {
 		}
 	},
 
-	{
-		"sindrets/diffview.nvim",
-		config = function()
-			require("diffview").setup({
-				enhanced_diff_hl = true
-			})
-		end,
-		cmd = {
-			"DiffviewOpen",
-			"DiffviewClose",
-			"DiffviewToggleFiles",
-			"DiffviewFocusFiles",
-			"DiffviewRefresh",
-			"DiffviewFileHistory",
-			"DiffviewOpenInWindow",
-		},
-		keys = {
-			{
-				"<leader>gd",
-				":DiffviewOpen<CR>",
-				"Opens the diffview"
-			},
-		}
-	},
 	{ 'akinsho/git-conflict.nvim', version = "*", opts = {} },
 }
