@@ -135,6 +135,7 @@
         "chatgpt"
         "kreya"
         "zen"
+        "claude-code"
       ];
 
       personalOnlyCasks = [
