@@ -40,3 +40,13 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 		vim.bo.filetype = "yaml.gitlab"
 	end,
 })
+
+-- Remove : from indentkeys to prevent issues with I: inserting tabs
+-- This runs after filetype plugins that may set indentkeys
+vim.api.nvim_create_autocmd("FileType", {
+	callback = function()
+		vim.opt_local.indentkeys:remove(":")
+		vim.opt_local.indentkeys:remove("<:>")
+		vim.opt_local.indentkeys:remove("0:")
+	end,
+})
