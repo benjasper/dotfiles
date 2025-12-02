@@ -67,16 +67,6 @@ return {
 				select = {
 					-- Automatically jump forward to textobj, similar to targets.vim
 					lookahead = true,
-
-					keymaps = {
-						-- You can use the capture groups defined in textobjects.scm
-						["af"] = "@function.outer",
-						["if"] = "@function.inner",
-						["ac"] = "@class.outer",
-						-- You can optionally set descriptions to the mappings (used in the desc parameter of
-						-- nvim_buf_set_keymap) which plugins like which-key display
-						["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-					},
 					-- You can choose the select mode (default is charwise 'v')
 					--
 					-- Can also be a function which gets passed a table with the keys
@@ -101,6 +91,21 @@ return {
 					include_surrounding_whitespace = false,
 				},
 			}
+			vim.keymap.set({ "x", "o" }, "af", function()
+				require "nvim-treesitter-textobjects.select".select_textobject("@function.outer", "textobjects")
+			end)
+			vim.keymap.set({ "x", "o" }, "if", function()
+				require "nvim-treesitter-textobjects.select".select_textobject("@function.inner", "textobjects")
+			end)
+			vim.keymap.set({ "x", "o" }, "ac", function()
+				require "nvim-treesitter-textobjects.select".select_textobject("@class.outer", "textobjects")
+			end)
+			vim.keymap.set({ "x", "o" }, "ic", function()
+				require "nvim-treesitter-textobjects.select".select_textobject("@class.inner", "textobjects")
+			end)
+			vim.keymap.set({ "x", "o" }, "as", function()
+				require "nvim-treesitter-textobjects.select".select_textobject("@local.scope", "locals")
+			end)
 		end,
 	},
 	{
