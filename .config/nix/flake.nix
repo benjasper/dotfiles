@@ -131,7 +131,6 @@
         "linearmouse"
         "ghostty"
         "yaak"
-        "altair-graphql-client"
         "chatgpt"
         "kreya"
         "zen"
