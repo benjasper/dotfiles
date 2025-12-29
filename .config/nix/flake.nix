@@ -97,6 +97,7 @@
         pkgs.golangci-lint
         pkgs.gotestsum
         pkgs.graphql-language-service-cli
+        pkgs.hclfmt
         pkgs.intelephense
         pkgs.lua-language-server
         pkgs.nixfmt-rfc-style
