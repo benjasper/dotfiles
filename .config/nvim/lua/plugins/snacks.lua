@@ -7,7 +7,7 @@ return {
 		opts = {
 			win = {
 				backdrop = {
-					blend = 85
+					blend = 100
 				},
 			},
 			explorer = {

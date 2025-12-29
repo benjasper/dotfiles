@@ -366,6 +366,7 @@ return {
 					scss = { "prettierd" },
 					nix = { "nixfmt" },
 					sql = { "sql_formatter" },
+					hcl = { "hcl" },
 				},
 				formatters = {
 					php_cs_fixer = {
