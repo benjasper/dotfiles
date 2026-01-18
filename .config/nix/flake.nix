@@ -100,7 +100,7 @@
         pkgs.hclfmt
         pkgs.intelephense
         pkgs.lua-language-server
-        pkgs.nixfmt-rfc-style
+        pkgs.nixfmt
         pkgs.nil
         pkgs.prettierd
         pkgs.protols
