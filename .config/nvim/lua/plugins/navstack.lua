@@ -36,7 +36,7 @@ return {
 		vim.keymap.set("n", "<C-p>", function() navstack.jump_to_previous() end, { noremap = true, silent = true })
 		vim.keymap.set("n", "<C-n>", function() navstack.jump_to_next() end, { noremap = true, silent = true })
 		vim.keymap.set("n", "<leader>n", function() navstack.toggle_sidebar() end, { noremap = true, silent = true })
-		vim.keymap.set("n", "<leader>cn", function() navstack.clear() end, { noremap = true, silent = true })
-		vim.keymap.set("n", "<leader>pn", function() navstack.toggle_pin() end, { noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>nc", function() navstack.clear() end, { noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>np", function() navstack.toggle_pin() end, { noremap = true, silent = true })
 	end
 }
