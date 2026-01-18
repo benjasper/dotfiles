@@ -11,7 +11,7 @@ return {
 					accept_word = "<C-h>",
 				},
 				log_level = "off",
-				ignore_filetypes = { NeogitStatus = true, oil = true },
+				ignore_filetypes = { NeogitStatus = true, oil = true, snacks_picker_input = true },
 			})
 		end,
 	},

@@ -71,23 +71,6 @@ return {
 				end,
 			},
 			{ "<leader>gL", function() Snacks.lazygit.log_file() end,                               desc = "Git Log File" },
-			{
-				"<leader>pe",
-				function()
-					Snacks.picker.explorer({
-						win = {
-							list = {
-								keys = {
-									["<c-u>"] = { "list_scroll_up", mode = { "i", "n" } },
-									["<c-d>"] = { "list_scroll_down", mode = { "i", "n" } },
-									["gx"] = { "explorer_open", mode = { "n" } },
-								},
-							}
-						}
-					})
-				end,
-				desc = "Explorer"
-			},
 
 			{ "<leader>pb", function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
 			{ "<leader>pf", function() Snacks.picker.files({ ignored = true, hidden = true }) end,  desc = "Find Files" },

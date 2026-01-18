@@ -25,7 +25,6 @@ return {
 				end,
 				"[P]roject [V]iew"
 			},
-
 		},
 		config = function()
 			-- Declare a global function to retrieve the current directory
@@ -44,6 +43,7 @@ return {
 				{
 					-- Id is automatically added at the beginning, and name at the end
 					-- See :help oil-columns
+					default_file_explorer = false,
 					columns = {
 						"icon",
 					},

@@ -11,10 +11,10 @@ return {
 		local width = 40
 
 		navstack.setup({
-			win_type = "float",
+			win_type = "tabline",
 			sidebar = {
 				show_current = true,
-				open_on_start = false,
+				open_on_start = true,
 			},
 			direct_jump_as_new_entry = false,
 			quit_when_last_window = true,
@@ -22,7 +22,10 @@ return {
 				width = width,
 				col = vim.o.columns - width,
 				height = 18,
-			}
+			},
+			tab_float = {
+				separator = "",
+			},
 		})
 
 		for i = 1, 9 do
