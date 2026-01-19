@@ -4,7 +4,7 @@ return {
 	dependencies = {
 		{ 'echasnovski/mini.icons', version = '*' }, -- or { 'nvim-tree/nvim-web-devicons', version = '*' }
 	},
-	event = "VeryLazy",
+	lazy = false,
 	config = function()
 		local navstack = require("navstack")
 
@@ -23,7 +23,7 @@ return {
 				col = vim.o.columns - width,
 				height = 18,
 			},
-			tab_float = {
+			tabline_config = {
 				separator = "",
 			},
 		})
