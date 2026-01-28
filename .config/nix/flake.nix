@@ -66,7 +66,6 @@
         pkgs.sqlite
         pkgs.sqlc
         pkgs.wget
-        pkgs.zed-editor
 
         # Languages
         pkgs.go
@@ -136,6 +135,7 @@
         "kreya"
         "zen"
         "claude-code"
+        "zed"
       ];
 
       personalOnlyCasks = [
