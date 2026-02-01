@@ -36,7 +36,7 @@ return {
 			options = {
 				icons_enabled = true,
 				theme = 'auto',
-				disabled_filetypes = { 'lazy', 'neo-tree', 'Outline', 'navstack', 'nvim-dap-view' },
+				disabled_filetypes = { 'lazy', 'neo-tree', 'Outline', 'navstack', 'nvim-dap-view', 'sidekick_terminal' },
 				ignore_focus = {},
 				always_divide_middle = true,
 				globalstatus = false,
