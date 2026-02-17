@@ -125,7 +125,6 @@
 
       llmAgentsPackages = pkgs:
         with llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
-          # Add llm-agents packages here, e.g.
           codex
           opencode
         ];
