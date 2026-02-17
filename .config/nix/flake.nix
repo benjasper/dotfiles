@@ -26,6 +26,8 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+
+    llm-agents.url = "github:numtide/llm-agents.nix";
   };
 
   outputs =
@@ -34,6 +36,7 @@
       nix-darwin,
       nixpkgs,
       nix-homebrew,
+      llm-agents,
     }:
     let
       commonSystemPackages = pkgs: [
@@ -44,7 +47,6 @@
         pkgs.buf # for buf connect
         pkgs.btop
         pkgs.bruno
-        pkgs.codex
         pkgs.git
         pkgs.delta
         pkgs.git-lfs
@@ -56,7 +58,6 @@
         pkgs.neovim
         pkgs.neovide
         pkgs.neofetch
-        pkgs.opencode
         pkgs.zoxide
         pkgs.starship
         pkgs.uv
@@ -121,6 +122,13 @@
         pkgs.ffmpeg_6
         pkgs.k6
       ];
+
+      llmAgentsPackages = pkgs:
+        with llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
+          # Add llm-agents packages here, e.g.
+          codex
+          opencode
+        ];
 
       commonCasks = [
         "google-chrome"
@@ -242,7 +250,9 @@
             packages="${
               builtins.concatStringsSep "\n" (
                 pkgs.lib.lists.unique (
-                  builtins.sort builtins.lessThan (builtins.map (p: "${p.name}") (commonSystemPackages pkgs))
+                  builtins.sort builtins.lessThan (
+                    builtins.map (p: "${p.name}") ((commonSystemPackages pkgs) ++ (llmAgentsPackages pkgs))
+                  )
                 )
               )
             }"
@@ -256,7 +266,7 @@
         { pkgs, ... }:
         {
           networking.hostName = "personal";
-          environment.systemPackages = commonSystemPackages pkgs;
+          environment.systemPackages = commonSystemPackages pkgs ++ (llmAgentsPackages pkgs);
           homebrew = {
             enable = true;
             casks = commonCasks ++ personalOnlyCasks;
@@ -285,7 +295,7 @@
         { pkgs, ... }:
         {
           networking.hostName = "LQ21HJ29YV";
-          environment.systemPackages = commonSystemPackages pkgs;
+          environment.systemPackages = commonSystemPackages pkgs ++ (llmAgentsPackages pkgs);
           homebrew = {
             enable = true;
             casks = commonCasks ++ workOnlyCasks;
