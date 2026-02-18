@@ -52,6 +52,7 @@
         pkgs.git-lfs
         pkgs.grpcurl # for buf
         pkgs.go-protobuf # for buf
+        pkgs.protobuf
         pkgs.protoc-gen-connect-go # for buf
         pkgs.protoc-gen-doc
         pkgs.lazygit
@@ -104,6 +105,7 @@
         pkgs.nil
         pkgs.prettierd
         pkgs.protols
+        pkgs.pkg-config-unwrapped # needed for protols
         pkgs.stylua
         pkgs.sql-formatter
         pkgs.tailwindcss-language-server
@@ -164,6 +166,8 @@
           ...
         }:
         {
+          environment.variables.PKG_CONFIG_PATH = "${pkgs.protobuf}/lib/pkgconfig";
+
           # Define primary user for the configuration
           system.primaryUser =
             {
