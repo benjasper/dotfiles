@@ -9,6 +9,7 @@
     extra-substituters = [
       "https://benjasper.cachix.org" # your own cache
       "https://nix-community.cachix.org" # popular public cache
+      "https://cache.numtide.com" # llm-agents cache
     ];
 
     extra-trusted-public-keys = [
@@ -16,6 +17,8 @@
       "benjasper.cachix.org-1:vy2BNZSDmHNDJXDaeHaXPlh4oumXSW2Z+6a42WBNzH0="
       # nix‑community public key
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      # llm-agents cache public key
+      "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
     ];
   };
   # ---‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑
@@ -182,6 +185,7 @@
               "volta"
               "tree-sitter-cli"
               "sdl3"
+              "xcode-build-server"
             ];
             onActivation.autoUpdate = true;
             onActivation.upgrade = true;
