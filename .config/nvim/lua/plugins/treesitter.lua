@@ -121,6 +121,7 @@ return {
 				trim_scope = "outer", -- Which context lines to discard if `max_lines` is exceeded. Choices: "inner", "outer"
 				min_window_height = 0, -- Minimum number of lines to be in the window.
 				separator = "─",
+				multiwindow = true,
 			})
 		end,
 	},
