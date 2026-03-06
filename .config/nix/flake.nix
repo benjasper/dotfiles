@@ -61,7 +61,7 @@
         pkgs.lazygit
         pkgs.neovim
         pkgs.neovide
-        pkgs.neofetch
+        pkgs.fastfetch
         pkgs.zoxide
         pkgs.starship
         pkgs.uv
