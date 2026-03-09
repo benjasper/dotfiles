@@ -44,7 +44,6 @@
     let
       commonSystemPackages = pkgs: [
         # Development
-        pkgs.ast-grep
         pkgs.atlas
         pkgs.bat
         pkgs.buf # for buf connect
@@ -73,7 +72,7 @@
         pkgs.wget
 
         # Languages
-        pkgs.go
+        pkgs.go_1_26
         pkgs.go-task
         (pkgs.php83.buildEnv {
           extensions = (
