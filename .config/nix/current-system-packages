@@ -7,7 +7,7 @@ btop-1.4.6
 buf-1.66.1
 cachix-1.10.1
 clang-tools-21.1.8
-codex-0.114.0
+codex-0.116.0
 composer-2.9.5
 croc-10.4.1
 delta-0.18.2
@@ -40,7 +40,7 @@ neovim-0.11.6
 nil-2025-06-13
 nixfmt-1.2.0
 obsidian-1.12.4
-opencode-1.2.26
+opencode-1.2.27
 php-with-extensions-8.3.30
 pkg-config-0.29.2
 prettierd-0.27.0
