@@ -5,7 +5,7 @@ return {
 		dependencies = {},
 		config = function()
 			-- Disable logging, switch to debug when needed
-			vim.lsp.set_log_level("error")
+			vim.lsp.log.set_level("error")
 
 			vim.filetype.add({
 				pattern = {

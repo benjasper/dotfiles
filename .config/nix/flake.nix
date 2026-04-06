@@ -91,7 +91,6 @@
         pkgs.lua
 
         # Language Servers and Language Tools
-        pkgs.nodePackages."@astrojs/language-server"
         pkgs.biome
         pkgs.clang-tools
         pkgs.delve
