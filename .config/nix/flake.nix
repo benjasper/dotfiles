@@ -126,8 +126,8 @@
         pkgs.k6
       ];
 
-      llmAgentsPackages = pkgs:
-        with llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
+      llmAgentsPackages =
+        pkgs: with llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
           codex
           opencode
         ];
@@ -220,8 +220,21 @@
 
           nix.package = pkgs.nix;
 
-          # Necessary for using flakes on this system.
-          nix.settings.experimental-features = "nix-command flakes";
+          nix = {
+            # Necessary for using flakes on this system.
+            settings.experimental-features = "nix-command flakes";
+
+            gc = {
+              automatic = true;
+              options = "--delete-older-than 30d";
+              interval = {
+                Hour = 12;
+                Minute = 0;
+              };
+            };
+
+            optimise.automatic = true;
+          };
 
           # Create /etc/zshrc that loads the nix-darwin environment.
           programs.zsh.enable = true; # default shell on catalina
