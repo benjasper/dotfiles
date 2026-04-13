@@ -285,9 +285,9 @@
 
           system.defaults = {
             dock.persistent-apps = [
-              # "/Applications/Safari.app"
+              "/Applications/Safari.app"
               # "/Applications/Google Chrome.app"
-              "/Applications/Zen.app"
+              # "/Applications/Zen.app"
               "/System/Applications/Mail.app"
               "/System/Applications/Calendar.app"
               "/System/Applications/Music.app"
