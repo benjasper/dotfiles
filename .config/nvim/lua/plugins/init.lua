@@ -3,7 +3,7 @@ return {
 	-- "gc" to comment visual regions/lines
 	{
 		"numToStr/Comment.nvim",
-		event = "BufEnter",
+		event = "VeryLazy",
 		keys = {
 			{ "<leader>xt", "<cmd>TodoTrouble<cr>", "Opens todos in a trouble list" }
 		},

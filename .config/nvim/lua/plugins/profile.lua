@@ -1,0 +1,26 @@
+-- Profiler for diagnosing runtime sluggishness. Disabled by default — the
+-- autocmd instrumentation adds a thin wrapper to every autocmd dispatch, so
+-- it's not free. To use: uncomment the return below and restart nvim, then
+-- press <F1> to toggle recording. The dump is written to /tmp/nvim-profile.json
+-- and can be opened in https://ui.perfetto.dev or chrome://tracing.
+return {}
+
+-- return {
+-- 	"stevearc/profile.nvim",
+-- 	lazy = false,
+-- 	config = function()
+-- 		local prof = require("profile")
+-- 		prof.instrument_autocmds()
+-- 		vim.keymap.set("", "<f1>", function()
+-- 			if prof.is_recording() then
+-- 				prof.stop()
+-- 				prof.export("/tmp/nvim-profile.json")
+-- 				vim.notify("wrote /tmp/nvim-profile.json", vim.log.levels.INFO)
+-- 			else
+-- 				prof.instrument("*")
+-- 				prof.start("*")
+-- 				vim.notify("profile: recording", vim.log.levels.INFO)
+-- 			end
+-- 		end, { desc = "Toggle profiler" })
+-- 	end,
+-- }

@@ -20,7 +20,10 @@ return {
 				"go",
 				"typoscript",
 				"typescript",
+				"tsx",
 				"javascript",
+				"json",
+				"yaml",
 				"gitcommit",
 				"regex",
 				"comment",
@@ -43,16 +46,20 @@ return {
 			vim.api.nvim_create_autocmd("FileType", {
 				callback = function(args)
 					local bufnr = args.buf
-					local filetype = args.match
+					local lang = vim.treesitter.language.get_lang(args.match)
+					if not lang then return end
 
-					local lang = vim.treesitter.language.get_lang(filetype)
-					if not vim.tbl_contains(treesitter.get_available(), lang) then
+					if vim.tbl_contains(treesitter.get_installed(), lang) then
+						vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+						vim.bo[bufnr].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+						pcall(vim.treesitter.start, bufnr, lang)
 						return
 					end
 
+					if not vim.tbl_contains(treesitter.get_available(), lang) then return end
 					require("nvim-treesitter").install(lang):await(function()
 						vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-						vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+						vim.bo[bufnr].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 						vim.treesitter.start(bufnr, lang)
 					end)
 				end

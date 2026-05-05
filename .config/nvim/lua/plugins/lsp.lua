@@ -62,7 +62,7 @@ return {
 					}
 				},
 				float = { border = 'rounded', sources = { 'always' } },
-				virtual_text = false, -- Use tiny diagnostic instead
+				virtual_text = { prefix = '●' },
 			})
 
 			-- Toggle virtual lines for current line
@@ -286,30 +286,11 @@ return {
 		},
 	},
 
-	{
-		"rachartier/tiny-inline-diagnostic.nvim",
-		event = "VeryLazy",
-		priority = 1000,
-		config = function()
-			require("tiny-inline-diagnostic").setup({
-				transparent_bg = true,
-				transparent_cursorline = false,
-				options = {
-					multilines = {
-						enabled = true,
-						always_show = true,
-					},
-				},
-			})
-			vim.diagnostic.config({ virtual_text = false }) -- Disable Neovim's default virtual text diagnostics
-		end,
-	},
-
 	-- Highlight todo, notes, etc in comments
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		event = "BufEnter",
+		event = "VeryLazy",
 		opts = { signs = false },
 		keys = {
 			{ "<leader>pt", function() Snacks.picker.todo_comments() end,                                          desc = "Todo" },

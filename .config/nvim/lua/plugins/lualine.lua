@@ -66,7 +66,7 @@ return {
 				lualine_y = {
 					{ 'branch', padding = { left = 1, right = 1 } },
 				},
-				lualine_z = { { '[[]]' }, { 'vim.fn.fnamemodify(vim.fn.getcwd(), ":t")', path = 4, padding = { left = 0, right = 1 }, separator = { left = "", right = "" } } }
+				lualine_z = { { '[[]]' }, { function() return vim.fs.basename(vim.fn.getcwd()) end, padding = { left = 0, right = 1 }, separator = { left = "", right = "" } } }
 			},
 			inactive_sections = {
 				lualine_a = {},
