@@ -73,8 +73,8 @@ return {
 			{ "<leader>gL", function() Snacks.lazygit.log_file() end,                               desc = "Git Log File" },
 
 			{ "<leader>pb", function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
-			{ "<leader>pf", function() Snacks.picker.files({ ignored = true, hidden = true }) end,  desc = "Find Files" },
-			{ "<leader>pg", function() Snacks.picker.files({ ignored = false, hidden = true }) end, desc = "Find Git Files" },
+			-- { "<leader>pf", function() Snacks.picker.files({ ignored = true, hidden = true }) end,  desc = "Find Files" },
+			-- { "<leader>pg", function() Snacks.picker.files({ ignored = false, hidden = true }) end, desc = "Find Git Files" },
 			{
 				"<leader>ph",
 				function()
@@ -92,8 +92,8 @@ return {
 			{ "<leader>pl",      function() Snacks.picker.resume() end,                                desc = "Resume" },
 			{ "<leader>vh",      function() Snacks.picker.help() end,                                  desc = "Help" },
 
-			{ "<leader>pc",      function() Snacks.picker.grep({ hidden = true }) end,                 desc = "Grep" },
-			{ "<leader>pac",     function() Snacks.picker.grep({ ignored = true, hidden = true }) end, desc = "Grep in all files" },
+			-- { "<leader>pc",      function() Snacks.picker.grep({ hidden = true }) end,                 desc = "Grep" },
+			-- { "<leader>pac",     function() Snacks.picker.grep({ ignored = true, hidden = true }) end, desc = "Grep in all files" },
 			{ "<leader>pC",      function() Snacks.picker.grep_buffers() end,                          desc = "Grep Open Buffers" },
 
 			{ "<leader>gD",      function() Snacks.picker.git_diff() end,                              desc = "Git Diff" },

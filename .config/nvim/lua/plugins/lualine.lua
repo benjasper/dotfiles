@@ -21,7 +21,7 @@ return {
 				return ''
 			end
 
-			local max_components = 5  -- max folder segments to show
+			local max_components = 5    -- max folder segments to show
 			local sep = package.config:sub(1, 1) -- platform path separator
 			local parts = vim.split(path, sep)
 
@@ -36,15 +36,14 @@ return {
 			options = {
 				icons_enabled = true,
 				theme = 'auto',
-				disabled_filetypes = { 'lazy', 'neo-tree', 'Outline', 'navstack', 'nvim-dap-view', 'sidekick_terminal' },
-				ignore_focus = {},
+				ignore_focus = { 'lazy', 'neo-tree', 'Outline', 'navstack', 'nvim-dap-view', 'sidekick_terminal' },
 				always_divide_middle = true,
-				globalstatus = false,
+				globalstatus = true,
 				section_separators = { left = "", right = "" },
 				component_separators = { left = "" },
 			},
 			sections = {
-				lualine_a = { { "mode", separator = { left = "", right = "" }, right_padding = 2 } },
+				lualine_a = { { "mode", fmt = function(str) return str:sub(1, 1) end, separator = { left = "", right = "" }, right_padding = 2 } },
 				lualine_b = {
 					{ 'filetype', icon_only = true, padding = { left = 1, right = 0 } },
 					get_path,
@@ -61,7 +60,7 @@ return {
 						}
 					},
 				},
-				lualine_c = { { 'progress' }, { 'diagnostics' } },
+				lualine_c = { { 'progress' }, { 'location' }, { 'diagnostics' } },
 				lualine_x = { { 'diagnostics', sources = { 'nvim_workspace_diagnostic' } } },
 				lualine_y = {
 					{ 'branch', padding = { left = 1, right = 1 } },
