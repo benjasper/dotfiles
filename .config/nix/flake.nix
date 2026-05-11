@@ -184,6 +184,7 @@
               "tree-sitter-cli"
               "sdl3"
               "xcode-build-server"
+              "helium"
             ];
             onActivation.autoUpdate = true;
             onActivation.upgrade = true;
