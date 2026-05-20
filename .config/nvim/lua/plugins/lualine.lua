@@ -21,7 +21,7 @@ return {
 				return ''
 			end
 
-			local max_components = 5    -- max folder segments to show
+			local max_components = 7    -- max folder segments to show
 			local sep = package.config:sub(1, 1) -- platform path separator
 			local parts = vim.split(path, sep)
 
