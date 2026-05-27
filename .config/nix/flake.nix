@@ -153,6 +153,7 @@
         "docker-desktop"
         "1password"
         "discord"
+        "rustdesk"
       ];
 
       workOnlyCasks = [
