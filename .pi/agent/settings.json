@@ -1,0 +1,13 @@
+{
+  "lastChangelogVersion": "0.75.3",
+  "packages": [
+    "npm:@sherif-fanous/pi-catppuccin",
+    "npm:@ff-labs/pi-fff",
+    "npm:@ollama/pi-web-search",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:pi-lens"
+  ],
+  "theme": "catppuccin-mocha",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.5"
+}

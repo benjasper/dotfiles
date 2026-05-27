@@ -130,6 +130,7 @@
         pkgs: with llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
           codex
           opencode
+          pi
         ];
 
       commonCasks = [
@@ -184,7 +185,6 @@
               "tree-sitter-cli"
               "sdl3"
               "xcode-build-server"
-              "helium"
             ];
             onActivation.autoUpdate = true;
             onActivation.upgrade = true;
