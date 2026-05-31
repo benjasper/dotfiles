@@ -186,6 +186,7 @@
               "tree-sitter-cli"
               "sdl3"
               "xcode-build-server"
+              "watchman"
             ];
             onActivation.autoUpdate = true;
             onActivation.upgrade = true;
