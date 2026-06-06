@@ -48,6 +48,7 @@ protobuf-34.1
 protoc-gen-connect-go-1.20.0
 protoc-gen-doc-1.5.1
 protols-0.14.0
+pyright-1.1.410
 ripgrep-15.1.0
 rustup-1.29.0
 sql-formatter-15.7.4

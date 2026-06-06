@@ -152,6 +152,7 @@ return {
 				nil_ls = {},
 				protols = {},
 				sourcekit = {},
+				pyright = {},
 			}
 
 			-- Register language servers

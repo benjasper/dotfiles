@@ -87,6 +87,7 @@
           );
         })
         pkgs.php83Packages.composer
+        pkgs.pyright
         pkgs.rustup
         pkgs.lua
 
