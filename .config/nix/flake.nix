@@ -47,8 +47,10 @@
         pkgs.atlas
         pkgs.bat
         pkgs.buf # for buf connect
+        pkgs.bun
         pkgs.btop
         pkgs.bruno
+        pkgs.cocoapods # for swift
         pkgs.git
         pkgs.delta
         pkgs.git-lfs
