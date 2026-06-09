@@ -148,7 +148,7 @@
         "chatgpt"
         "kreya"
         "zen"
-        "claude-code"
+        "claude-code@latest"
         "zed"
       ];
 
