@@ -150,6 +150,7 @@
         "zen"
         "claude-code@latest"
         "zed"
+        "helium-browser"
       ];
 
       personalOnlyCasks = [
