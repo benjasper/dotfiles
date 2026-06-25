@@ -57,6 +57,7 @@ vim.opt.sidescrolloff = 5
 
 -- Display the title of the current buffer
 vim.opt.title = true
+vim.opt.titlestring = [[%{fnamemodify(getcwd(), ':~')} • nvim]]
 
 vim.opt.wrap = false
 
