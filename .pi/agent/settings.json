@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.75.3",
+  "lastChangelogVersion": "0.80.6",
   "packages": [
     "npm:@sherif-fanous/pi-catppuccin",
     "npm:@ff-labs/pi-fff",
@@ -9,5 +9,6 @@
   ],
   "theme": "catppuccin-mocha",
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.5"
+  "defaultModel": "gpt-5.6-sol",
+  "defaultThinkingLevel": "high"
 }
