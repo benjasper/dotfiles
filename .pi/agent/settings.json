@@ -8,6 +8,7 @@
     "npm:pi-lens"
   ],
   "theme": "catppuccin-mocha",
+  "quietStartup": true,
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-sol",
   "defaultThinkingLevel": "high"
