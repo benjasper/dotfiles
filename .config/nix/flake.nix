@@ -138,7 +138,6 @@
 
       commonCasks = [
         "google-chrome"
-        "firefox"
         "raycast"
         "tableplus"
         "maccy"
