@@ -31,6 +31,9 @@
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 
     llm-agents.url = "github:numtide/llm-agents.nix";
+
+    tuicr.url = "github:FeernandoOFF/tuicr/feature/bitbucket-backend";
+    tuicr.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -40,6 +43,7 @@
       nixpkgs,
       nix-homebrew,
       llm-agents,
+      tuicr,
     }:
     let
       commonSystemPackages = pkgs: [
@@ -126,6 +130,9 @@
         pkgs.gnugrep
         pkgs.ffmpeg_6
         pkgs.k6
+
+        # Pull request review TUI with Bitbucket support.
+        tuicr.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
 
       llmAgentsPackages =
