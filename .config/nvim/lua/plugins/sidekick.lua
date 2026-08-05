@@ -9,6 +9,14 @@ return {
 					hide_ctrl_dot = false
 				}
 			},
+			tools = {
+				maki = {
+					cmd = { "maki" },
+					keys = {
+						-- submit = { "<c-s>", function(t) t:send("\n") end },
+					},
+				},
+			},
 		}
 	},
 	keys = {

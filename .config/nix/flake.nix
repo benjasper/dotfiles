@@ -34,6 +34,9 @@
 
     tuicr.url = "github:FeernandoOFF/tuicr/feature/bitbucket-backend";
     tuicr.inputs.nixpkgs.follows = "nixpkgs";
+
+    maki.url = "github:tontinton/maki";
+    maki.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -44,6 +47,7 @@
       nix-homebrew,
       llm-agents,
       tuicr,
+      maki,
     }:
     let
       commonSystemPackages = pkgs: [
@@ -63,6 +67,7 @@
         pkgs.protoc-gen-connect-go # for buf
         pkgs.protoc-gen-doc
         pkgs.lazygit
+        maki.packages.${pkgs.stdenv.hostPlatform.system}.default
         pkgs.neovim
         pkgs.neovide
         pkgs.fastfetch
@@ -234,8 +239,18 @@
           nix.package = pkgs.nix;
 
           nix = {
-            # Necessary for using flakes on this system.
-            settings.experimental-features = "nix-command flakes";
+            settings = {
+              # Necessary for using flakes on this system.
+              experimental-features = "nix-command flakes";
+
+              # Use the personal Cachix cache for system-wide downloads.
+              extra-substituters = [
+                "https://benjasper.cachix.org"
+              ];
+              extra-trusted-public-keys = [
+                "benjasper.cachix.org-1:vy2BNZSDmHNDJXDaeHaXPlh4oumXSW2Z+6a42WBNzH0="
+              ];
+            };
 
             gc = {
               automatic = true;
