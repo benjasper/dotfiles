@@ -202,6 +202,7 @@
               "sdl3"
               "xcode-build-server"
               "watchman"
+              "antidote"
             ];
             onActivation.autoUpdate = true;
             onActivation.upgrade = true;
@@ -265,7 +266,13 @@
           };
 
           # Create /etc/zshrc that loads the nix-darwin environment.
-          programs.zsh.enable = true; # default shell on catalina
+          programs.zsh = {
+            enable = true;
+            enableGlobalCompInit = false;
+            enableBashCompletion = false;
+            promptInit = "";
+          };
+          homebrew.enableZshIntegration = false;
           # programs.fish.enable = true;
 
           # Set Git commit hash for darwin-version.

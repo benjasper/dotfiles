@@ -29,29 +29,16 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export EDITOR="nvim"
 
 if [[ -o interactive ]]; then
-	# Zinit installation check and setup (run only once)
-	if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
-		print -P "%F{33} Installing ZDHARMA-CONTINUUM Zinit plugin manager...%f"
-		command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
-		command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
-			print -P "%F{33} Installation successful.%f%b" || \
-			print -P "%F{160} Clone failed.%f%b"
+	# Antidote plugins
+	if [[ ! -s "$HOME/.zsh_plugins.zsh" || "$HOME/.zsh_plugins.txt" -nt "$HOME/.zsh_plugins.zsh" ]]; then
+		source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+		zstyle ':antidote:static' zcompile yes
+		antidote bundle < "$HOME/.zsh_plugins.txt" >| "$HOME/.zsh_plugins.zsh"
 	fi
+	source "$HOME/.zsh_plugins.zsh"
 
-	source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
-	autoload -Uz _zinit
-	(( ${+_comps} )) && _comps[zinit]=_zinit
-
-	# Zinit plugins
-	zinit ice lucid
-	zinit light-mode for junegunn/fzf-bin
-	zinit ice wait'1' lucid
-	zinit light-mode for \
-		zsh-users/zsh-completions \
-		agkozak/zsh-z \
-		zsh-users/zsh-history-substring-search
-	zinit ice wait'2' lucid
-	zinit light-mode for zsh-users/zsh-syntax-highlighting
+	autoload -Uz compinit
+	compinit -C
 
 	# FZF Initialization (cached)
 	if command -v fzf >/dev/null 2>&1; then
