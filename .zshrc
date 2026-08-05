@@ -78,10 +78,10 @@ if [[ -o interactive ]]; then
 	alias config-lazygit='lazygit --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 	alias git-clean-branches="git fetch -p ; git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -D"
 
-	alias nix-build="darwin-rebuild build --max-jobs 4 --flake ~/.config/nix | cachix push benjasper"
+	alias nix-darwin-build='cachix watch-exec benjasper -- darwin-rebuild build --max-jobs 4 --flake "$HOME/.config/nix"'
 	alias nix-clean="sudo nix profile wipe-history --profile /nix/var/nix/profiles/system --older-than 30d && sudo nix-collect-garbage -d && nix store optimise"
 	alias nix-update="nix flake update --flake ~/.config/nix"
-	alias nix-switch="cachix watch-exec benjasper -- sudo darwin-rebuild switch --flake ~/.config/nix -v && $aliases[config] diff ~/.config/nix/current-system-packages"
+	alias nix-switch='cachix watch-exec benjasper -- darwin-rebuild build --max-jobs 4 --flake "$HOME/.config/nix" -v && sudo darwin-rebuild switch --flake "$HOME/.config/nix" -v && config diff "$HOME/.config/nix/current-system-packages"'
 
 	# Copies terminfo to remote server. From https://ghostty.org/docs/help/terminfo#copy-ghostty's-terminfo-to-a-remote-machine
 	function ssh-copy-terminfo() {
