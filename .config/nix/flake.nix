@@ -32,9 +32,6 @@
 
     llm-agents.url = "github:numtide/llm-agents.nix";
 
-    tuicr.url = "github:FeernandoOFF/tuicr/feature/bitbucket-backend";
-    tuicr.inputs.nixpkgs.follows = "nixpkgs";
-
     maki.url = "github:tontinton/maki";
     maki.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -46,7 +43,6 @@
       nixpkgs,
       nix-homebrew,
       llm-agents,
-      tuicr,
       maki,
     }:
     let
@@ -135,9 +131,7 @@
         pkgs.gnugrep
         pkgs.ffmpeg_6
         pkgs.k6
-
-        # Pull request review TUI with Bitbucket support.
-        tuicr.packages.${pkgs.stdenv.hostPlatform.system}.default
+        pkgs.tuicr
       ];
 
       llmAgentsPackages =
