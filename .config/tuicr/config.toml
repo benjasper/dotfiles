@@ -1,4 +1,5 @@
 leader = " "
+theme = "github-dark"
 
 diff_view = "side-by-side"
 ignore_whitespace = false
