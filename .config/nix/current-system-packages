@@ -9,7 +9,7 @@ clang-tools-21.1.8
 cocoapods-1.16.2
 codex-0.147.0
 composer-2.10.2
-croc-10.6.0
+croc-11.0.1
 delta-0.19.2
 delve-1.27.0
 fastfetch-2.66.0
@@ -61,7 +61,7 @@ stylua-2.5.2
 tailwindcss-language-server-0.14.29
 taplo-0.10.0
 templ-0.3.1020
-tuicr-0.20.0
+tuicr-0.21.0
 uv-0.12.1
 vscode-langservers-extracted-1.126.04524
 vtsls-0.3.0
