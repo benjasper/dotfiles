@@ -11,7 +11,7 @@ codex-0.147.0
 composer-2.10.2
 croc-11.0.1
 delta-0.19.2
-delve-1.27.0
+delve-1.27.1
 fastfetch-2.66.0
 fd-10.4.2
 ffmpeg-6.1.6
@@ -34,14 +34,14 @@ intelephense-1.18.2
 k6-2.0.0
 lazygit-0.64.0
 lua-5.2.4
-lua-language-server-3.18.2
-maki-0.4.5
+lua-language-server-3.19.0
+maki-0.4.7
 neovide-0.16.2
 neovim-0.12.4
 nil-2026-07-23
 nixfmt-1.4.0
 obsidian-1.13.4
-opencode-1.18.15
+opencode-1.18.16
 php-with-extensions-8.3.33
 pi-0.84.1
 pkg-config-0.29.2
