@@ -45,19 +45,9 @@ return {
 		cmd = "Neogit",
 		dependencies = {
 			"nvim-lua/plenary.nvim", -- required
-			"sindrets/diffview.nvim", -- optional - Diff integration
 		},
 		config = function()
 			local neogit = require('neogit')
-
-			-- Auto refresh because it seems to be broken: see https://github.com/NeogitOrg/neogit/issues/1735
-			vim.api.nvim_create_autocmd({ "BufEnter" }, {
-				pattern = "NeogitStatus",
-				callback = function()
-					neogit.dispatch_refresh()
-				end,
-				group = neogit.autocmd_group,
-			})
 
 			neogit.setup({
 				process_spinner = true,
@@ -99,22 +89,6 @@ return {
 					})
 				end,
 				"[G]it [S]tatus"
-			},
-			{
-				"<leader>gp",
-				function()
-					local neogit = require('neogit')
-					neogit.action('pull', 'from_pushremote')
-				end,
-				"[G]it [p]ull"
-			},
-			{
-				"<leader>gP",
-				function()
-					local neogit = require('neogit')
-					neogit.action('push', 'to_pushremote')
-				end,
-				"[G]it [P]ush"
 			}
 		}
 	},
