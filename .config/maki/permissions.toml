@@ -1,0 +1,8 @@
+[bash]
+allow = [
+    "git *",
+    "python3 *",
+    "go *",
+    "head *",
+    "find *",
+]
