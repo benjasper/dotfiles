@@ -1,10 +1,12 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-gcloud.disabled = true
-docker_context.disabled = true
-golang.disabled = true
-nodejs.disabled = true
-php.disabled = true
-lua.disabled = true
-package.disabled = true
-
+format = """
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$line_break\
+$character\
+"""
