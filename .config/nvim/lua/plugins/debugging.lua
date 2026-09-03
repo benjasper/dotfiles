@@ -9,6 +9,7 @@ return {
 			"theHamsta/nvim-dap-virtual-text",
 			{
 				"igorlfs/nvim-dap-view",
+				version = '*',
 				-- let the plugin lazy load itself
 				lazy = false,
 				---@module 'dap-view'
