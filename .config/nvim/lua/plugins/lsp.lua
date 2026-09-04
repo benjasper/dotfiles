@@ -342,7 +342,7 @@ return {
 					yaml = { "prettierd" },
 					json = { "biome", "prettierd" },
 					html = { "prettierd" },
-					php = { "php_cs_fixer" },
+					php = { "mago_format", "php_cs_fixer" },
 					css = { "prettierd" },
 					less = { "prettierd" },
 					scss = { "prettierd" },
@@ -380,6 +380,10 @@ return {
 						require_cwd = true,
 					},
 					nixfmt = {},
+					mago_format = {
+						require_cwd = true,
+						cwd = util.root_file({ "mago.toml" }),
+					},
 				},
 			})
 		end,

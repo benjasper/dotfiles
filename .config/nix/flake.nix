@@ -109,6 +109,7 @@
         pkgs.hclfmt
         pkgs.intelephense
         pkgs.lua-language-server
+        pkgs.mago
         pkgs.nixfmt
         pkgs.nil
         pkgs.prettierd
