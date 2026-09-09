@@ -78,7 +78,7 @@
         pkgs.wget
 
         # Languages
-        pkgs.go_1_26
+        pkgs.go_1_27
         pkgs.go-task
         (pkgs.php83.buildEnv {
           extensions = (
