@@ -125,6 +125,7 @@
         pkgs.yaml-language-server
 
         # Tools
+        pkgs._1password-cli
         pkgs.cachix
         pkgs.obsidian
         pkgs.croc
