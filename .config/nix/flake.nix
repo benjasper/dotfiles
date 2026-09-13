@@ -66,6 +66,7 @@
         maki.packages.${pkgs.stdenv.hostPlatform.system}.default
         pkgs.neovim
         pkgs.neovide
+        pkgs.rtk
         pkgs.fastfetch
         pkgs.zoxide
         pkgs.starship
