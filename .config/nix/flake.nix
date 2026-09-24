@@ -132,6 +132,7 @@
         pkgs.croc
         pkgs.gnupg
         pkgs.gnugrep
+        pkgs.ncdu
         pkgs.ffmpeg_6
         pkgs.k6
         pkgs.tuicr
