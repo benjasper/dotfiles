@@ -142,7 +142,7 @@
         pkgs: with llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
           codex
           opencode
-          pi
+          fx
         ];
 
       commonCasks = [

@@ -16,6 +16,9 @@ return {
 						-- submit = { "<c-s>", function(t) t:send("\n") end },
 					},
 				},
+				fx = {
+					cmd = { "fx" },
+				},
 			},
 		}
 	},
