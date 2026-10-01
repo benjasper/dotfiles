@@ -8,7 +8,7 @@ bun-1.4.2
 cachix-1.12.1
 clang-tools-21.1.8
 cocoapods-1.16.2
-codex-0.158.0
+codex-0.159.2
 composer-2.10.3
 croc-11.5.3
 delta-0.19.2
@@ -16,7 +16,7 @@ delve-1.27.2
 fastfetch-2.68.1
 fd-10.5.0
 ffmpeg-6.1.6
-fx-0.0.11
+fx-0.0.12
 fzf-0.74.4
 git-2.55.0
 git-lfs-3.7.1
@@ -45,11 +45,11 @@ neovim-0.12.5
 nil-2026-07-23
 nixfmt-1.5.0
 obsidian-1.13.7
-opencode-1.18.33
+opencode-1.18.34
 php-with-extensions-8.3.35
 pkg-config-0.29.2
 prettierd-0.28.0
-protobuf-36.1
+protobuf-36.2
 protoc-gen-connect-go-1.21.0
 protoc-gen-doc-1.5.1
 protols-0.14.1
