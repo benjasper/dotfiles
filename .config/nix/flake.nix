@@ -151,7 +151,7 @@
         "tableplus"
         "maccy"
         "linearmouse"
-        "ghostty"
+        "ghostty@tip"
         "yaak"
         "chatgpt"
         "kreya"

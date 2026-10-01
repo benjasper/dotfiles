@@ -5,6 +5,7 @@ cursor-text = "#0E0E15"
 font-size = 14
 font-feature = "-calt, -liga, -dlig"
 adjust-cursor-thickness = 2
+macos-titlebar-style = tabs
 
 # Keybindings
 keybind = ctrl+alt+v=new_split:right
