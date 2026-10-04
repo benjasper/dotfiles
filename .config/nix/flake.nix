@@ -160,6 +160,7 @@
         "zed"
         "helium-browser"
         "bruno"
+        "tailscale-app"
       ];
 
       personalOnlyCasks = [
