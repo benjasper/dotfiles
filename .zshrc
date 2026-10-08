@@ -52,6 +52,9 @@ if [[ -o interactive ]]; then
 	# Aliases
 	setopt COMPLETE_ALIASES
 
+	alias vim="nvim"
+	alias ls="eza"
+
 	alias zshconfig="nvim ~/.zshrc"
 	alias dcu="docker compose up -d --pull=always"
 	alias dcd="docker compose down"
@@ -60,7 +63,6 @@ if [[ -o interactive ]]; then
 	alias encryptkey="ssh-keygen -p -o -f"
 	alias encrypt-secrets="gpg --symmetric --cipher-algo AES256 ~/.secrets.env"
 	alias decrypt-secrets="gpg --quiet --batch --decrypt ~/.secrets.env.gpg > ~/.secrets.env && chmod 600 ~/.secrets.env"
-	alias vim="nvim"
 	alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 	alias config-lazygit='lazygit --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 	alias git-clean-branches="git fetch -p ; git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -D"

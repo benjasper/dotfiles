@@ -128,6 +128,7 @@
         # Tools
         pkgs._1password-cli
         pkgs.cachix
+        pkgs.eza
         pkgs.obsidian
         pkgs.croc
         pkgs.gnupg
