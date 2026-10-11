@@ -1,32 +1,18 @@
 ---@type LazySpec[]
 
 return {
-	{
-		"supermaven-inc/supermaven-nvim",
-		event = "InsertEnter",
-		config = function()
-			require("supermaven-nvim").setup({
-				keymaps = {
-					accept_suggestion = "<C-j>",
-					accept_word = "<C-h>",
-				},
-				log_level = "off",
-				ignore_filetypes = { NeogitStatus = true, oil = true, snacks_picker_input = true, fff_input = true },
-			})
-		end,
-	},
-	{
-		"ravitemer/mcphub.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
-		},
-		-- uncomment the following line to load hub lazily
-		cmd = "MCPHub",  -- lazy load
-		build = "npm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
-		-- uncomment this if you don't want mcp-hub to be available globally or can't use -g
-		-- build = "bundled_build.lua",  -- Use this and set use_bundled_binary = true in opts  (see Advanced configuration)
-		config = function()
-			require("mcphub").setup({})
-		end,
-	}
+	-- {
+	-- 	"supermaven-inc/supermaven-nvim",
+	-- 	event = "InsertEnter",
+	-- 	config = function()
+	-- 		require("supermaven-nvim").setup({
+	-- 			keymaps = {
+	-- 				accept_suggestion = "<C-j>",
+	-- 				accept_word = "<C-h>",
+	-- 			},
+	-- 			log_level = "off",
+	-- 			ignore_filetypes = { NeogitStatus = true, oil = true, snacks_picker_input = true, fff_input = true },
+	-- 		})
+	-- 	end,
+	-- }
 }
