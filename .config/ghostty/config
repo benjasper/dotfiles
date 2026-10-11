@@ -8,23 +8,38 @@ adjust-cursor-thickness = 2
 macos-titlebar-style = tabs
 
 # Keybindings
-keybind = ctrl+alt+v=new_split:right
-keybind = ctrl+alt+s=new_split:down
+keybind = ctrl+v=new_split:right
+keybind = ctrl+s=new_split:down
 
-keybind = ctrl+alt+h=goto_split:left
-keybind = ctrl+alt+j=goto_split:bottom
-keybind = ctrl+alt+k=goto_split:top
-keybind = ctrl+alt+l=goto_split:right
+# Shared Neovim/Ghostty navigation outside Neovim.
+keybind = performable:ctrl+h=goto_split:left
+keybind = performable:ctrl+j=goto_split:down
+keybind = performable:ctrl+k=goto_split:up
+keybind = performable:ctrl+l=goto_split:right
 
-keybind = ctrl+alt+left=resize_split:left,50
-keybind = ctrl+alt+right=resize_split:right,50
-keybind = ctrl+alt+up=resize_split:up,50
-keybind = ctrl+alt+down=resize_split:down,50
+# Shared Neovim/Ghostty resizing outside Neovim.
+keybind = performable:ctrl+left=resize_split:left,50
+keybind = performable:ctrl+right=resize_split:right,50
+keybind = performable:ctrl+up=resize_split:up,50
+keybind = performable:ctrl+down=resize_split:down,50
 
-keybind = ctrl+alt+equal=equalize_splits
+# The smart-splits backend activates this table in Neovim's pane.
+keybind = nvim/
+keybind = nvim/ctrl+h=text:\x08
+keybind = nvim/ctrl+j=text:\x0a
+keybind = nvim/ctrl+k=text:\x0b
+keybind = nvim/ctrl+l=text:\x0c
+
+# Forward Ctrl+arrows to smart-splits while Neovim is active.
+keybind = nvim/ctrl+left=text:\x1b[1;5D
+keybind = nvim/ctrl+right=text:\x1b[1;5C
+keybind = nvim/ctrl+up=text:\x1b[1;5A
+keybind = nvim/ctrl+down=text:\x1b[1;5B
+
+keybind = ctrl+0=equalize_splits
 
 keybind = global:super+^=toggle_quick_terminal
 
 keybind = super+w=close_tab
-keybind = ctrl+alt+q=close_surface
+keybind = ctrl+q=close_surface
 
