@@ -229,6 +229,14 @@
               NSGlobalDomain.KeyRepeat = 2;
               NSGlobalDomain.InitialKeyRepeat = 10;
               NSGlobalDomain.AppleInterfaceStyle = "Dark";
+
+              # Free Ctrl+arrow shortcuts for Ghostty split resizing.
+              CustomUserPreferences."com.apple.symbolichotkeys".AppleSymbolicHotKeys = {
+                "79".enabled = false; # Move left a space
+                "80".enabled = false; # Move left a space (Shift variant)
+                "81".enabled = false; # Move right a space
+                "82".enabled = false; # Move right a space (Shift variant)
+              };
             };
 
             keyboard.enableKeyMapping = true;
