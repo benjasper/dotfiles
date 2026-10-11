@@ -55,8 +55,9 @@
         pkgs.btop
         pkgs.cocoapods # for swift
         pkgs.git
-        pkgs.delta
         pkgs.git-lfs
+        pkgs.github-cli
+        pkgs.delta
         pkgs.grpcurl # for buf
         pkgs.go-protobuf # for buf
         pkgs.protobuf
@@ -232,6 +233,8 @@
 
               # Free Ctrl+arrow shortcuts for Ghostty split resizing.
               CustomUserPreferences."com.apple.symbolichotkeys".AppleSymbolicHotKeys = {
+                "32".enabled = false; # Mission Control (Ctrl+Up)
+                "33".enabled = false; # Application windows (Ctrl+Down)
                 "79".enabled = false; # Move left a space
                 "80".enabled = false; # Move left a space (Shift variant)
                 "81".enabled = false; # Move right a space
