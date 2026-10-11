@@ -231,8 +231,11 @@
               NSGlobalDomain.InitialKeyRepeat = 10;
               NSGlobalDomain.AppleInterfaceStyle = "Dark";
 
-              # Free Ctrl+arrow shortcuts for Ghostty split resizing.
+              # This replaces the whole shortcut dictionary; include all managed overrides.
               CustomUserPreferences."com.apple.symbolichotkeys".AppleSymbolicHotKeys = {
+                "64".enabled = false; # Spotlight search (Cmd+Space); reserve for Raycast
+                "65".enabled = false; # Spotlight Finder search (Cmd+Option+Space)
+                # Free Ctrl+arrow shortcuts for Ghostty split resizing.
                 "32".enabled = false; # Mission Control (Ctrl+Up)
                 "33".enabled = false; # Application windows (Ctrl+Down)
                 "79".enabled = false; # Move left a space
