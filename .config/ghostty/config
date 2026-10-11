@@ -6,6 +6,7 @@ font-size = 14
 font-feature = "-calt, -liga, -dlig"
 adjust-cursor-thickness = 2
 macos-titlebar-style = tabs
+unfocused-split-opacity = 0.75
 
 # Keybindings
 keybind = ctrl+v=new_split:right
