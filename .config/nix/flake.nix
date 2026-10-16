@@ -135,8 +135,10 @@
         pkgs.gnupg
         pkgs.gnugrep
         pkgs.ncdu
+        pkgs.nomad
         pkgs.ffmpeg_6
         pkgs.k6
+        pkgs.signal-desktop
         pkgs.tuicr
       ];
 
