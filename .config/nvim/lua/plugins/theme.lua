@@ -13,7 +13,9 @@ return {
 			end
 
 			-- Setup the colorscheme
-			nightfall.setup()
+			nightfall.setup({
+				palette = 'darker'
+			})
 
 			vim.cmd([[colorscheme nightfall]])
 		end,

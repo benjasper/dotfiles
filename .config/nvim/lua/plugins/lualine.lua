@@ -43,9 +43,8 @@ return {
 				component_separators = { left = "" },
 			},
 			sections = {
-				lualine_a = { { "mode", fmt = function(str) return str:sub(1, 1) end, separator = { left = "", right = "" }, right_padding = 2 } },
+				lualine_a = {},
 				lualine_b = {
-					{ 'filetype', icon_only = true, padding = { left = 1, right = 0 } },
 					get_path,
 					{
 						'filename',
@@ -60,12 +59,13 @@ return {
 						}
 					},
 				},
-				lualine_c = { { 'progress' }, { 'location' }, { 'diagnostics' } },
+				lualine_c = { { 'filetype', icon_only = true, padding = { left = 0, right = 0 } },
+					{ 'progress' }, { 'location' }, { 'diagnostics' } },
 				lualine_x = { { 'diagnostics', sources = { 'nvim_workspace_diagnostic' } } },
 				lualine_y = {
 					{ 'branch', padding = { left = 1, right = 1 } },
 				},
-				lualine_z = { { '[[]]' }, { function() return vim.fs.basename(vim.fn.getcwd()) end, padding = { left = 0, right = 1 }, separator = { left = "", right = "" } } }
+				lualine_z = {}
 			},
 			inactive_sections = {
 				lualine_a = {},
