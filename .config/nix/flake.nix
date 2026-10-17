@@ -213,6 +213,7 @@
 
           # Fonts
           fonts.packages = with pkgs; [
+            pkgs.jetbrains-mono
             # Only install the Nerd Fonts Symbols Only
             nerd-fonts.symbols-only
           ];

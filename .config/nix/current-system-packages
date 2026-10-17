@@ -14,7 +14,7 @@ croc-11.5.4
 delta-0.20.1
 delve-1.27.2
 eza-0.23.5
-fastfetch-2.69.0
+fastfetch-2.70.0
 fd-10.5.0
 ffmpeg-6.1.6
 fx-0.0.13
@@ -48,7 +48,7 @@ nil-2026-07-23
 nixfmt-1.5.0
 nomad-1.11.3
 obsidian-1.14.4
-opencode-1.19.2
+opencode-1.19.3
 php-with-extensions-8.3.35
 pkg-config-0.29.2
 prettierd-0.28.0
