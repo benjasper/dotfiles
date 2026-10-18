@@ -17,7 +17,7 @@ eza-0.23.5
 fastfetch-2.70.0
 fd-10.5.0
 ffmpeg-6.1.6
-fx-0.0.13
+fx-0.0.14
 fzf-0.74.5
 gh-2.102.0
 git-2.55.0
@@ -40,7 +40,7 @@ lazygit-0.66.1
 lua-5.5.1
 lua-language-server-3.19.2
 mago-1.50.0
-maki-0.6.3
+maki-0.6.4
 ncdu-2.11.1
 neovide-0.16.2
 neovim-0.12.6
