@@ -39,7 +39,7 @@ return {
 				ignore_focus = { 'lazy', 'neo-tree', 'Outline', 'navstack', 'nvim-dap-view', 'sidekick_terminal' },
 				always_divide_middle = true,
 				globalstatus = true,
-				section_separators = { left = "", right = "" },
+				section_separators = { left = "", right = "" },
 				component_separators = { left = "" },
 			},
 			sections = {

@@ -9,7 +9,6 @@ rex.bind("ctrl+l", "pane.focus", { direction = "right" })
 rex.bind("ctrl+q", "pane.close")
 
 rex.bind("cmd+w", "client.tab.close")
-rex.bind("cmd+n", "session.new")
 
 rex.bind("ctrl+left", "pane.resize", { direction = "left" })
 rex.bind("ctrl+right", "pane.resize", { direction = "right" })
