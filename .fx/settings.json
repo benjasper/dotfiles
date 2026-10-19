@@ -1,1 +1,1 @@
-{"theme":"ayu-dark","models":{"codex":"gpt-6.1-sol"},"provider":"codex","statusLine":{"context":true},"effort":"auto","fast_mode":false,"fast_mode_model_bound":true}
+{"theme":"ayu-dark","models":{"codex":"gpt-6.1-sol"},"provider":"codex","statusLine":{"context":true},"effort":"auto","fast_mode":false,"fast_mode_model_bound":true,"permission_mode":"yolo","yolo_acknowledged":true,"notifications":{"turn_end":false,"attention_required":false,"max":false}}
