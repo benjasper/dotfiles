@@ -22,23 +22,35 @@ rex.action {
 	title = "Open Dev Layout",
 	args  = { ratio = "number?" },
 	run   = function(ctx, args)
+		local process, err = rex.block.call("com.superlogical.terminal", "process", {
+			block_id = ctx.block_id,
+		})
+		if err ~= nil then error(err, 0) end
+		local cwd = process.foreground and process.foreground.cwd
+		if not cwd then error("Cannot determine the main pane's working directory", 0) end
+
 		local split, err = rex.session.new_split {
+			anchor_block_id = ctx.block_id,
 			direction = "vertical",
 			side      = "after",
 			focus     = false,
 			ratio     = 0.9,
 			layout    = rex.layout.block {
 				flavor = "com.superlogical.terminal.shell",
+				options = { cwd = cwd },
 			},
 		}
+		if err ~= nil then error(err, 0) end
 
 		local split, err = rex.session.new_split {
+			anchor_block_id = ctx.block_id,
 			direction = "horizontal",
 			side      = "after",
 			focus     = false,
 			ratio     = 0.8,
 			layout    = rex.layout.block {
 				flavor = "com.superlogical.terminal.shell",
+				options = { cwd = cwd },
 			},
 		}
 		if err ~= nil then error(err, 0) end
