@@ -31,9 +31,6 @@
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 
     llm-agents.url = "github:numtide/llm-agents.nix";
-
-    maki.url = "github:tontinton/maki";
-    maki.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -43,7 +40,6 @@
       nixpkgs,
       nix-homebrew,
       llm-agents,
-      maki,
     }:
     let
       commonSystemPackages = pkgs: [
@@ -64,7 +60,6 @@
         pkgs.protoc-gen-connect-go # for buf
         pkgs.protoc-gen-doc
         pkgs.lazygit
-        maki.packages.${pkgs.stdenv.hostPlatform.system}.default
         pkgs.neovim
         pkgs.neovide
         pkgs.rtk
