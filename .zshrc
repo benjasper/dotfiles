@@ -116,8 +116,13 @@ if [[ -o interactive ]]; then
 	# bun completions
 	[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
-	# Starship prompt
+	# Determine the server identity once; Starship reads it without subprocesses.
 	export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+	if [[ ${HOST%%.*} == personal-server ]]; then
+		export STARSHIP_SERVER_IDENTITY="$USER@${HOST%%.*}"
+	else
+		unset STARSHIP_SERVER_IDENTITY
+	fi
 	eval "$(starship init zsh)"
 
 	# zoxide

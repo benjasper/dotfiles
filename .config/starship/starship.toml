@@ -1,6 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
+${env_var.STARSHIP_SERVER_IDENTITY}\
 $directory\
 $git_branch\
 $git_commit\
@@ -10,3 +11,6 @@ $git_status\
 $line_break\
 $character\
 """
+
+[env_var.STARSHIP_SERVER_IDENTITY]
+format = '[$env_value]($style) '
