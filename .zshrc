@@ -29,13 +29,44 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export EDITOR="nvim"
 
 if [[ -o interactive ]]; then
-	# Antidote plugins
-	if [[ ! -s "$HOME/.zsh_plugins.zsh" || "$HOME/.zsh_plugins.txt" -nt "$HOME/.zsh_plugins.zsh" ]]; then
-		source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
-		zstyle ':antidote:static' zcompile yes
-		antidote bundle < "$HOME/.zsh_plugins.txt" >| "$HOME/.zsh_plugins.zsh"
-	fi
-	source "$HOME/.zsh_plugins.zsh"
+	# Antidote plugins: user installs, Homebrew (Apple Silicon/Intel), and Linux.
+	() {
+		local plugin_list="$HOME/.zsh_plugins.txt"
+		local plugin_cache="$HOME/.zsh_plugins.zsh"
+		local antidote_source candidate bundle_tmp
+
+		if [[ -r "$plugin_list" && ( ! -s "$plugin_cache" || "$plugin_list" -nt "$plugin_cache" ) ]]; then
+			for candidate in \
+				"${ANTIDOTE_HOME:-${XDG_DATA_HOME:-$HOME/.local/share}/antidote}/antidote.zsh" \
+				"$HOME/.antidote/antidote.zsh" \
+				/opt/homebrew/opt/antidote/share/antidote/antidote.zsh \
+				/usr/local/opt/antidote/share/antidote/antidote.zsh \
+				/usr/share/zsh-antidote/antidote.zsh \
+				/usr/share/antidote/antidote.zsh \
+				/usr/local/share/antidote/antidote.zsh; do
+				if [[ -r "$candidate" ]]; then
+					antidote_source="$candidate"
+					break
+				fi
+			done
+
+			if [[ -n "$antidote_source" ]] && source "$antidote_source"; then
+				zstyle ':antidote:static' zcompile yes
+				if bundle_tmp=$(mktemp "${plugin_cache}.XXXXXX"); then
+					if antidote bundle < "$plugin_list" >| "$bundle_tmp" && [[ -s "$bundle_tmp" ]]; then
+						command mv -f -- "$bundle_tmp" "$plugin_cache"
+					else
+						command rm -f -- "$bundle_tmp"
+						print -u2 'Antidote: bundle generation failed; keeping the existing cache.'
+					fi
+				fi
+			else
+				print -u2 'Antidote: installation not found; keeping any existing plugin cache.'
+			fi
+		fi
+
+		[[ ! -s "$plugin_cache" ]] || source "$plugin_cache"
+	}
 
 	autoload -Uz compinit
 	compinit -C
