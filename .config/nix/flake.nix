@@ -93,6 +93,7 @@
         pkgs.pyright
         pkgs.rustup
         pkgs.lua
+        pkgs.zig
 
         # Language Servers and Language Tools
         pkgs.biome
