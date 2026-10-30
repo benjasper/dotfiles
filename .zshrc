@@ -40,6 +40,7 @@ if [[ -o interactive ]]; then
 				"${ANTIDOTE_HOME:-${XDG_DATA_HOME:-$HOME/.local/share}/antidote}/antidote.zsh" \
 				"$HOME/.antidote/antidote.zsh" \
 				/opt/homebrew/opt/antidote/share/antidote/antidote.zsh \
+				/run/current-system/sw/share/antidote/antidote.zsh \
 				/usr/local/opt/antidote/share/antidote/antidote.zsh \
 				/usr/share/zsh-antidote/antidote.zsh \
 				/usr/share/antidote/antidote.zsh \

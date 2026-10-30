@@ -42,6 +42,7 @@
       llm-agents,
     }:
     let
+      # CLI tools for every machine, macOS and the NixOS server alike.
       commonSystemPackages = pkgs: [
         # Development
         pkgs.atlas
@@ -49,7 +50,6 @@
         pkgs.buf # for buf connect
         pkgs.bun
         pkgs.btop
-        pkgs.cocoapods # for swift
         pkgs.git
         pkgs.git-lfs
         pkgs.github-cli
@@ -61,7 +61,6 @@
         pkgs.protoc-gen-doc
         pkgs.lazygit
         pkgs.neovim
-        pkgs.neovide
         pkgs.rtk
         pkgs.fastfetch
         pkgs.zoxide
@@ -126,16 +125,22 @@
         pkgs._1password-cli
         pkgs.cachix
         pkgs.eza
-        pkgs.obsidian
         pkgs.croc
         pkgs.gnupg
         pkgs.gnugrep
         pkgs.ncdu
-        pkgs.nomad
         pkgs.ffmpeg_6
         pkgs.k6
-        pkgs.signal-desktop
         pkgs.tuicr
+      ];
+
+      # macOS only: GUI apps, and Nomad (the server runs its own pinned version).
+      darwinSystemPackages = pkgs: [
+        pkgs.cocoapods # for swift
+        pkgs.neovide
+        pkgs.nomad
+        pkgs.obsidian
+        pkgs.signal-desktop
       ];
 
       llmAgentsPackages =
@@ -317,7 +322,7 @@
               builtins.concatStringsSep "\n" (
                 pkgs.lib.lists.unique (
                   builtins.sort builtins.lessThan (
-                    builtins.map (p: "${p.name}") ((commonSystemPackages pkgs) ++ (llmAgentsPackages pkgs))
+                    builtins.map (p: "${p.name}") ((commonSystemPackages pkgs) ++ (darwinSystemPackages pkgs) ++ (llmAgentsPackages pkgs))
                   )
                 )
               )
@@ -332,7 +337,8 @@
         { pkgs, ... }:
         {
           networking.hostName = "personal";
-          environment.systemPackages = commonSystemPackages pkgs ++ (llmAgentsPackages pkgs);
+          environment.systemPackages =
+            commonSystemPackages pkgs ++ darwinSystemPackages pkgs ++ llmAgentsPackages pkgs;
           homebrew = {
             enable = true;
             casks = commonCasks ++ personalOnlyCasks;
@@ -359,7 +365,8 @@
         { pkgs, ... }:
         {
           networking.hostName = "LQ21HJ29YV";
-          environment.systemPackages = commonSystemPackages pkgs ++ (llmAgentsPackages pkgs);
+          environment.systemPackages =
+            commonSystemPackages pkgs ++ darwinSystemPackages pkgs ++ llmAgentsPackages pkgs;
           homebrew = {
             enable = true;
             casks = commonCasks ++ workOnlyCasks;
@@ -372,6 +379,40 @@
         };
     in
     {
+      # Shell and CLI setup for NixOS machines. Packages come from this flake's
+      # nixpkgs, so they match the Macs regardless of the host's nixpkgs.
+      nixosModules.default =
+        { pkgs, ... }:
+        let
+          dotfilesPkgs = import nixpkgs {
+            system = pkgs.stdenv.hostPlatform.system;
+            config.allowUnfree = true;
+          };
+        in
+        {
+          environment.systemPackages =
+            commonSystemPackages dotfilesPkgs
+            ++ llmAgentsPackages dotfilesPkgs
+            ++ [ dotfilesPkgs.antidote ];
+          # .zshrc looks for antidote under /run/current-system/sw/share.
+          environment.pathsToLink = [ "/share/antidote" ];
+
+          programs.zsh.enable = true;
+
+          nix.settings = {
+            extra-substituters = [
+              "https://benjasper.cachix.org"
+              "https://nix-community.cachix.org"
+              "https://cache.numtide.com"
+            ];
+            extra-trusted-public-keys = [
+              "benjasper.cachix.org-1:vy2BNZSDmHNDJXDaeHaXPlh4oumXSW2Z+6a42WBNzH0="
+              "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+              "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
+            ];
+          };
+        };
+
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#personal
       darwinConfigurations."personal" = nix-darwin.lib.darwinSystem {
