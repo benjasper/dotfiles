@@ -14,3 +14,4 @@ $character\
 
 [env_var.STARSHIP_SERVER_IDENTITY]
 format = '[$env_value]($style) '
+style = 'bold green'
