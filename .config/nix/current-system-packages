@@ -7,6 +7,7 @@ buf-1.73.0
 bun-1.4.2
 cachix-1.12.1
 clang-tools-21.1.8
+claude-code-2.1.314
 cocoapods-1.16.2
 codex-0.166.0
 composer-2.10.3

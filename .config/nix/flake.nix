@@ -148,6 +148,7 @@
           codex
           opencode
           fx
+          claude-code
         ];
 
       commonCasks = [
@@ -161,7 +162,6 @@
         "chatgpt"
         "kreya"
         "zen"
-        "claude-code@latest"
         "zed"
         "helium-browser"
         "bruno"
