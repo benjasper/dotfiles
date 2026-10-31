@@ -97,6 +97,7 @@
         pkgs.biome
         pkgs.clang-tools
         pkgs.delve
+        pkgs.gcc
         pkgs.gopls
         pkgs.go-tools
         pkgs.golangci-lint
