@@ -42,7 +42,6 @@
       llm-agents,
     }:
     let
-      # CLI tools for every machine, macOS and the NixOS server alike.
       commonSystemPackages = pkgs: [
         # Development
         pkgs.atlas
@@ -134,7 +133,6 @@
         pkgs.tuicr
       ];
 
-      # macOS only: GUI apps, and Nomad (the server runs its own pinned version).
       darwinSystemPackages = pkgs: [
         pkgs.cocoapods # for swift
         pkgs.neovide
@@ -379,8 +377,7 @@
         };
     in
     {
-      # Shell and CLI setup for NixOS machines. Packages come from this flake's
-      # nixpkgs, so they match the Macs regardless of the host's nixpkgs.
+      # Uses this flake's nixpkgs so packages match the Macs, not the host's nixpkgs.
       nixosModules.default =
         { pkgs, ... }:
         let
