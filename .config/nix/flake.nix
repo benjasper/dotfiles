@@ -210,7 +210,9 @@
               "sdl3"
               # Not in nixpkgs.
               "xcode-build-server"
+              "cameroncooke/axe/axe"
             ];
+            taps = [ "cameroncooke/axe" ];
             onActivation.autoUpdate = true;
             onActivation.upgrade = true;
           };
