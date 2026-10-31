@@ -116,6 +116,7 @@
         pkgs.tailwindcss-language-server
         pkgs.taplo
         pkgs.templ
+        pkgs.tree-sitter
         pkgs.vscode-langservers-extracted # Contains HTML, CSS, ESLint and JSON
         pkgs.vtsls
         pkgs.yaml-language-server
@@ -200,7 +201,6 @@
           homebrew = {
             brews = [
               "volta"
-              "tree-sitter-cli"
               "sdl3"
               "xcode-build-server"
               "watchman"
