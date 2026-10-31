@@ -133,6 +133,9 @@
         pkgs.ffmpeg_6
         pkgs.k6
         pkgs.tuicr
+        pkgs.antidote
+        pkgs.volta
+        pkgs.watchman
       ];
 
       darwinSystemPackages = pkgs: [
@@ -198,14 +201,15 @@
             }
             .${config.networking.hostName} or "benni";
 
-          # Cannot be installed with nix packages
+          # .zshrc looks for antidote under /run/current-system/sw/share.
+          environment.pathsToLink = [ "/share/antidote" ];
+
           homebrew = {
             brews = [
-              "volta"
+              # Kept in brew so compilers find it without extra search paths.
               "sdl3"
+              # Not in nixpkgs.
               "xcode-build-server"
-              "watchman"
-              "antidote"
             ];
             onActivation.autoUpdate = true;
             onActivation.upgrade = true;
@@ -321,7 +325,9 @@
               builtins.concatStringsSep "\n" (
                 pkgs.lib.lists.unique (
                   builtins.sort builtins.lessThan (
-                    builtins.map (p: "${p.name}") ((commonSystemPackages pkgs) ++ (darwinSystemPackages pkgs) ++ (llmAgentsPackages pkgs))
+                    builtins.map (p: "${p.name}") (
+                      (commonSystemPackages pkgs) ++ (darwinSystemPackages pkgs) ++ (llmAgentsPackages pkgs)
+                    )
                   )
                 )
               )
@@ -388,10 +394,7 @@
           };
         in
         {
-          environment.systemPackages =
-            commonSystemPackages dotfilesPkgs
-            ++ llmAgentsPackages dotfilesPkgs
-            ++ [ dotfilesPkgs.antidote ];
+          environment.systemPackages = commonSystemPackages dotfilesPkgs ++ llmAgentsPackages dotfilesPkgs;
           # .zshrc looks for antidote under /run/current-system/sw/share.
           environment.pathsToLink = [ "/share/antidote" ];
 
