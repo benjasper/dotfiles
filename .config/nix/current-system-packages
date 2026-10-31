@@ -43,6 +43,7 @@ lazygit-0.66.2
 lua-5.5.1
 lua-language-server-3.19.2
 mago-1.57.0
+mise-2026.10.17
 ncdu-2.11.1
 neovide-0.16.2
 neovim-0.12.6
@@ -74,7 +75,6 @@ templ-0.3.1020
 tree-sitter-0.26.11
 tuicr-0.28.0
 uv-0.13.5
-volta-2.0.2
 vscode-langservers-extracted-1.140.06880
 vtsls-0.3.0
 watchman-2026.07.27.00

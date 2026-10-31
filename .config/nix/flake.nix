@@ -134,7 +134,7 @@
         pkgs.k6
         pkgs.tuicr
         pkgs.antidote
-        pkgs.volta
+        pkgs.mise
         pkgs.watchman
       ];
 

@@ -10,16 +10,12 @@ export PATH="$HOME/.local/bin:$REX_BIN_DIR:/opt/homebrew/bin:/usr/local/bin:/opt
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+export PATH="${XDG_DATA_HOME:-$HOME/.local/share}/mise/shims:$PATH"
 
 # Source .secrets.env
 if [ -f ~/.secrets.env ]; then
 	export $(grep -v '^#' "$HOME/.secrets.env" | xargs)
 fi
-
-# Enable Volta pnpm support
-export VOLTA_FEATURE_PNPM=1
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -128,4 +124,6 @@ if [[ -o interactive ]]; then
 
 	# zoxide
 	eval "$(zoxide init --cmd cd zsh)"
+
+	eval "$(mise activate zsh)"
 fi
