@@ -55,6 +55,7 @@
         pkgs.delta
         pkgs.grpcurl # for buf
         pkgs.go-protobuf # for buf
+        pkgs.godot
         pkgs.protobuf
         pkgs.protoc-gen-connect-go # for buf
         pkgs.protoc-gen-doc
