@@ -5,10 +5,10 @@ bat-0.26.1
 biome-2.5.15
 btop-1.4.8
 buf-1.75.0
-bun-1.4.2
+bun-1.4.4
 cachix-1.12.1
 clang-tools-21.1.8
-claude-code-2.1.316
+claude-code-2.1.318
 cocoapods-1.16.2
 codex-0.166.0
 composer-2.10.3
@@ -43,7 +43,7 @@ k6-2.3.0
 lazygit-0.66.2
 lua-5.5.1
 lua-language-server-3.19.2
-mago-1.57.0
+mago-1.59.0
 mise-2026.10.17
 ncdu-2.11.1
 neovide-0.16.2
