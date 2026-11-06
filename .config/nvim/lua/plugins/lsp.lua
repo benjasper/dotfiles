@@ -88,6 +88,7 @@ return {
 							buildFlags = { "-tags=unittest,wireinject" },
 							semanticTokens = true,
 							staticcheck = true,
+							vulncheck = "Imports",
 							-- gofumpt = true, -- Disabled for now
 							analyses = {
 								unusedparams = true,
