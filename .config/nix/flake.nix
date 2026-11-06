@@ -141,7 +141,6 @@
 
       darwinSystemPackages = pkgs: [
         pkgs.cocoapods # for swift
-        pkgs.neovide
         pkgs.nomad
         pkgs.obsidian
         pkgs.signal-desktop
