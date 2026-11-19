@@ -152,6 +152,7 @@
           opencode
           fx
           claude-code
+          antigravity-cli
         ];
 
       commonCasks = [
