@@ -127,6 +127,7 @@
         pkgs._1password-cli
         pkgs.cachix
         pkgs.eza
+        pkgs.eas-cli
         pkgs.croc
         pkgs.gnupg
         pkgs.gnugrep
