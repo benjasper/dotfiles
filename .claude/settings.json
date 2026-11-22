@@ -29,19 +29,22 @@
       "source": {
         "source": "github",
         "repo": "cursor/plugins"
-      }
+      },
+      "autoUpdate": true
     },
     "impeccable": {
       "source": {
         "source": "github",
         "repo": "pbakaus/impeccable"
-      }
+      },
+      "autoUpdate": true
     },
     "hinge": {
       "source": {
         "source": "github",
         "repo": "artemnovichkov/hinge"
-      }
+      },
+      "autoUpdate": true
     }
   },
   "effortLevel": "medium",
