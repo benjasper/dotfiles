@@ -19,7 +19,30 @@
   },
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true,
-    "lua-lsp@claude-plugins-official": true
+    "lua-lsp@claude-plugins-official": true,
+    "pstack@cursor-plugins": true,
+    "impeccable@impeccable": true,
+    "hinge@hinge": true
+  },
+  "extraKnownMarketplaces": {
+    "cursor-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "cursor/plugins"
+      }
+    },
+    "impeccable": {
+      "source": {
+        "source": "github",
+        "repo": "pbakaus/impeccable"
+      }
+    },
+    "hinge": {
+      "source": {
+        "source": "github",
+        "repo": "artemnovichkov/hinge"
+      }
+    }
   },
   "effortLevel": "medium",
   "modelSettings": {
@@ -27,5 +50,6 @@
       "effortLevel": "high"
     }
   },
+  "advisorModel": "fable",
   "tui": "fullscreen"
 }
