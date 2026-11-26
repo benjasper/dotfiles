@@ -365,7 +365,7 @@
               "/System/Applications/Mail.app"
               "/System/Applications/Calendar.app"
               "/System/Applications/Music.app"
-              "/Applications/Rex Beta.app"
+              "/Applications/Rex.app"
             ];
           };
         };
