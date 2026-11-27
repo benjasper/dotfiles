@@ -159,7 +159,7 @@
 
       commonCasks = [
         "google-chrome"
-        "raycast"
+        "tinycast"
         "tableplus"
         "maccy"
         "linearmouse"
