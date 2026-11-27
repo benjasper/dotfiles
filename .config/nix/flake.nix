@@ -124,13 +124,14 @@
         pkgs.yaml-language-server
 
         # Tools
-        pkgs._1password-cli
+        pkgs.ansible
         pkgs.cachix
         pkgs.eza
         pkgs.eas-cli
         pkgs.croc
         pkgs.gnupg
         pkgs.gnugrep
+        pkgs.jinja2-cli
         pkgs.ncdu
         pkgs.ffmpeg_6
         pkgs.k6
@@ -300,6 +301,9 @@
           homebrew.enableZshIntegration = false;
           # programs.fish.enable = true;
 
+          # Installs op to /usr/local/bin, the 1Password app integration rejects it anywhere else.
+          programs._1password.enable = true;
+
           # Set Git commit hash for darwin-version.
           system.configurationRevision = self.rev or self.dirtyRev or null;
 
@@ -403,6 +407,11 @@
           environment.pathsToLink = [ "/share/antidote" ];
 
           programs.zsh.enable = true;
+
+          programs._1password = {
+            enable = true;
+            package = dotfilesPkgs._1password-cli;
+          };
 
           nix.settings = {
             extra-substituters = [
