@@ -17,6 +17,8 @@ rex.bind("ctrl+down", "pane.resize", { direction = "down" })
 
 rex.bind("cmd+l", "dev_layout")
 
+pcall(require, "tickets")
+
 rex.action {
 	name  = "dev_layout",
 	title = "Open Dev Layout",
